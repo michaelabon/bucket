@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: bucket-dev
+  pool: 5
+  host: localhost
+  username: action
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: bucket-test
+  pool: 5
+  host: localhost
+  username: action
+  password:
