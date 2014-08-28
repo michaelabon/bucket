@@ -17,6 +17,6 @@ class MessagesController < ApplicationController
   private
 
   def receive_params(params)
-    params.permit(:token, :text)
+    params.permit(:token, :text, :user_name)
   end
 end

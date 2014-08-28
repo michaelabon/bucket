@@ -22,7 +22,8 @@ module Bucket
 
     def default_processors
       [
-        ::Bucket::Processors::FactLookup
+        ::Bucket::Processors::FactAdd,
+        ::Bucket::Processors::FactLookup,
       ]
     end
   end

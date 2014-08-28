@@ -10,15 +10,17 @@ describe MessagesController do
       allow(Message).to receive(:new) { message }
     end
 
-    it 'permits only token and text' do
+    it 'permits only text, user_name, and token' do
       post :receive,
            token: '123',
            text: 'alpha',
+           user_name: 'M2K',
            extra: 'param'
 
       expect(Message).to have_received(:new).with(
         token: '123',
-        text: 'alpha'
+        text: 'alpha',
+        user_name: 'M2K',
       )
     end
 

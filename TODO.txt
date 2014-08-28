@@ -1,6 +1,6 @@
 - [X] Respond to Slack with something, anything, from the internal Bucket.  #1
 - [X] Bucket can respond to a trigger with a fact.  #2
-- [ ] Bucket can learn a new fact.  #3
+- [X] Bucket can learn a new fact.  #3
 - [ ] Bucket learns a new fact only when addressed. #23
 - [ ] Bucket can list items in its inventory.  #4
 - [ ] Bucket can add items to its inventory.  #5
