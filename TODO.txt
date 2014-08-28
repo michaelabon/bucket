@@ -1,0 +1,22 @@
+- [ ] Respond to Slack with something, anything, from the internal Bucket.
+- [ ] Bucket can respond to a trigger a fact.
+- [ ] Bucket can learn a new fact.
+- [ ] Bucket can list items in its inventory.
+- [ ] Bucket can add items to its inventory.
+- [ ] Bucket can drop items from its inventory.
+- [ ] Bucket can pick up multiple random items that it has seen before.
+- [ ] Bucket can understand $variables in its facts.
+- [ ] Bucket can list the values for a variable.
+- [ ] Bucket knows who its master is.
+- [ ] Bucket can add new values to a variable.
+- [ ] Bucket can remove values from a variable.
+- [ ] Bucket only lets its master modify values.
+- [ ] Bucket can list variables.
+- [ ] Bucket can learn new variables.
+- [ ] Bucket can forget existing variables.
+- [ ] Bucket only lets its master modify variables.
+- [ ] Bucket remembers people.
+- [ ] Bucket can remember a person's preferred gender.
+- [ ] Bucket can change a person's preferred gender.
+- [ ] Bucket only lets its master or the person change a person's preferred gender.
+- [ ] Bucket can speak with pronouns.
