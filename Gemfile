@@ -4,7 +4,6 @@ gem 'rails', '4.1.0'
 gem 'pg', '0.17.1'
 
 group :development, :test do
-  gem 'did_you_mean'
   gem 'pry-byebug'
   gem 'rubocop', require: false
 end
