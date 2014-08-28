@@ -2,7 +2,7 @@ module Bucket
   module Processors
     class FactLookup
       def process(message)
-        fact = Fact.find_by(trigger: message.text)
+        fact = Fact.where(trigger: message.text).order("RANDOM()").first
 
         fact.try(:result)
       end
