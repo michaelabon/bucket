@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Bucket
+module BucketApp
   class Application < Rails::Application
     Rails.application.configure do
       config.autoload_paths << Rails.root.join('lib')
