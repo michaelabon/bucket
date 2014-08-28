@@ -1,5 +1,3 @@
-inherit_from: .rubocop_todo.yml
-
 AllCops:
   Include:
     - '**/Rakefile'
@@ -9,3 +7,82 @@ AllCops:
     - 'db/**/*'
     - 'config/**/*'
     - 'script/**/*'
+
+# Configuration parameters: AllowSafeAssignment.
+Lint/AssignmentInCondition:
+  Enabled: true
+
+# Configuration parameters: AlignWith, SupportedStyles.
+Lint/DefEndAlignment:
+  Enabled: true
+
+Lint/HandleExceptions:
+  Enabled: true
+
+Lint/UselessAssignment:
+  Enabled: true
+
+# Configuration parameters: CountComments.
+Metrics/ClassLength:
+  Max: 427
+
+Metrics/CyclomaticComplexity:
+  Max: 43
+
+# Configuration parameters: AllowURI.
+Metrics/LineLength:
+  Max: 80
+
+# Configuration parameters: CountComments.
+Metrics/MethodLength:
+  Max: 64
+
+Metrics/PerceivedComplexity:
+  Max: 44
+
+# Configuration parameters: Include.
+Rails/Output:
+  Enabled: true
+
+# Configuration parameters: Include.
+Rails/Validation:
+  Enabled: true
+
+Style/AccessorMethodName:
+  Enabled: true
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+Style/AndOr:
+  Enabled: true
+
+# Offense count: 7
+Style/Documentation:
+  Enabled: false
+
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+Style/DotPosition:
+  EnforcedStyle: trailing
+  Enabled: true
+
+# Configuration parameters: MinBodyLength.
+Style/GuardClause:
+  Enabled: true
+
+# Configuration parameters: MaxLineLength.
+Style/IfUnlessModifier:
+  Enabled: true
+
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+Style/MethodName:
+  Enabled: true
+
+Style/PerlBackrefs:
+  Enabled: false
+
+Style/Tab:
+  Enabled: true
+
+Style/TrailingComma:
+  EnforcedStyleForMultiline: comma
+  Enabled: true
