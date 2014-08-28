@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  post 'messages/receive' => 'messages#receive'
+  post 'messages', to: 'messages#receive'
 end

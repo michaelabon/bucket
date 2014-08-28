@@ -1,22 +1,22 @@
-- [ ] Respond to Slack with something, anything, from the internal Bucket.
-- [ ] Bucket can respond to a trigger a fact.
-- [ ] Bucket can learn a new fact.
-- [ ] Bucket can list items in its inventory.
-- [ ] Bucket can add items to its inventory.
-- [ ] Bucket can drop items from its inventory.
-- [ ] Bucket can pick up multiple random items that it has seen before.
-- [ ] Bucket can understand $variables in its facts.
-- [ ] Bucket can list the values for a variable.
-- [ ] Bucket knows who its master is.
-- [ ] Bucket can add new values to a variable.
-- [ ] Bucket can remove values from a variable.
-- [ ] Bucket only lets its master modify values.
-- [ ] Bucket can list variables.
-- [ ] Bucket can learn new variables.
-- [ ] Bucket can forget existing variables.
-- [ ] Bucket only lets its master modify variables.
-- [ ] Bucket remembers people.
-- [ ] Bucket can remember a person's preferred gender.
-- [ ] Bucket can change a person's preferred gender.
-- [ ] Bucket only lets its master or the person change a person's preferred gender.
-- [ ] Bucket can speak with pronouns.
+- [X] Respond to Slack with something, anything, from the internal Bucket.  #1
+- [X] Bucket can respond to a trigger with a fact.  #2
+- [ ] Bucket can learn a new fact.  #3
+- [ ] Bucket can list items in its inventory.  #4
+- [ ] Bucket can add items to its inventory.  #5
+- [ ] Bucket can drop items from its inventory.  #6
+- [ ] Bucket can pick up multiple random items that it has seen before.  #7
+- [ ] Bucket can understand $variables in its facts.  #8
+- [ ] Bucket can list the values for a variable.  #9
+- [ ] Bucket knows who its master is.  #10
+- [ ] Bucket can add new values to a variable.  #11
+- [ ] Bucket can remove values from a variable.  #12
+- [ ] Bucket only lets its master modify values.  #13
+- [ ] Bucket can list variables.  #14
+- [ ] Bucket can learn new variables.  #15
+- [ ] Bucket can forget existing variables.  #16
+- [ ] Bucket only lets its master modify variables.  #17
+- [ ] Bucket remembers people.  #18
+- [ ] Bucket can remember a person's preferred gender.  #19
+- [ ] Bucket can change a person's preferred gender.  #20
+- [ ] Bucket only lets its master or the person change a person's preferred gender.  #21
+- [ ] Bucket can speak with pronouns.  #22

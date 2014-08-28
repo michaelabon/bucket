@@ -1,6 +1,4 @@
 class Fact < ActiveRecord::Base
-  validates :trigger, :presence
-  validates :re, :presence
-  validates :fact, :presence
-  validates :protected, :presence
+  validates :trigger, presence: true
+  validates :result, presence: true
 end

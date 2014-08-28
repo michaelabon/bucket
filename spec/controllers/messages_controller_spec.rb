@@ -2,36 +2,77 @@ require 'rails_helper'
 
 describe MessagesController do
   describe '#receive' do
-    let(:message) { double(:message) }
-    let(:message_response) { { text: 'bravo' } }
+    let(:message) { double(:message, valid?: valid) }
+    let(:bucket) { double(:bucket) }
+    let(:valid) { false }
 
     before do
-      allow(Bucket::Bucket).to receive(:new) { bucket }
       allow(Message).to receive(:new) { message }
-      allow(bucket).to receive(:receive_chat_message).with(message).
-        and_return(message_response)
     end
 
-    it 'responds with bravo' do
-      post '/messages/receive', body: {
-        'user_id' => 123,
-        'text' => 'alpha'
-      }
-
-      expect(response.body['text']).to eq 'bravo'
-    end
-
-    it 'permits only user_id and text' do
-      post '/messages/receive', body: {
-        'user_id' => 123,
-        'text' => 'alpha',
-        'extra' => 'param'
-      }
+    it 'permits only token and text' do
+      post :receive,
+           token: '123',
+           text: 'alpha',
+           extra: 'param'
 
       expect(Message).to have_received(:new).with(
-        user_id: 123,
+        token: '123',
         text: 'alpha'
       )
+    end
+
+    context 'message is valid' do
+      let(:valid) { true }
+      let(:message_response) { 'bravo' }
+
+      before do
+        allow(Bucket::Bucket).to receive(:new) { bucket }
+        allow(bucket).to receive(:process).with(message).
+          and_return(message_response)
+      end
+
+      context 'Bucket has a response' do
+        let(:message_response) { 'bravo' }
+
+        it 'responds with 200 OK' do
+          post :receive
+
+          expect(response).to be_success
+        end
+
+        it 'responds with Bucket’s response' do
+          post :receive, text: 'alpha'
+
+          expect(JSON.parse(response.body)['text']).to eq 'bravo'
+        end
+      end
+
+      context 'Bucket has no response' do
+        let(:message_response) { nil }
+
+        it 'responds with 200 OK' do
+          post :receive
+
+          expect(response).to be_success
+        end
+
+        it 'responds with nothing' do
+          post :receive, text: 'doesn’t match!'
+
+          expect(response.body).to eq ' '
+        end
+      end
+    end
+
+    context 'message is invalid' do
+      let(:valid) { false }
+
+      it 'responds with 400' do
+        post :receive, text: 'alpha'
+
+        expect(response.status).to eq 400
+      end
     end
   end
 end
