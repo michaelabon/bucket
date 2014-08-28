@@ -21,3 +21,6 @@
 - [ ] Bucket can change a person's preferred gender.  #20
 - [ ] Bucket only lets its master or the person change a person's preferred gender.  #21
 - [ ] Bucket can speak with pronouns.  #22
+- [ ] Bucket is triggered without case-sensitivity.  #24
+- [ ] Bucket is triggered without caring about case.  #25
+- [ ] Bucket is triggered without caring about usernames.  #26
