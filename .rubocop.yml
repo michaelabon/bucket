@@ -24,10 +24,10 @@ Lint/UselessAssignment:
 
 # Configuration parameters: CountComments.
 Metrics/ClassLength:
-  Max: 427
+  Max: 200
 
 Metrics/CyclomaticComplexity:
-  Max: 43
+  Max: 8
 
 # Configuration parameters: AllowURI.
 Metrics/LineLength:
@@ -35,10 +35,10 @@ Metrics/LineLength:
 
 # Configuration parameters: CountComments.
 Metrics/MethodLength:
-  Max: 64
+  Max: 44
 
 Metrics/PerceivedComplexity:
-  Max: 44
+  Max: 10
 
 # Configuration parameters: Include.
 Rails/Output:
