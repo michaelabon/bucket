@@ -62,7 +62,7 @@ describe MessagesController do
         it 'responds with nothing' do
           post :receive, text: 'doesn’t match!'
 
-          expect(response.body).to eq ' '
+          expect(response.body).to eq '{}'
         end
       end
     end

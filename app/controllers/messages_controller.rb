@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
     if message_response.present?
       render json: { text: message_response }
     else
-      render nothing: true
+      render json: {}
     end
   end
 
