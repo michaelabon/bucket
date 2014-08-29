@@ -2,7 +2,7 @@ class Message
   include ActiveModel::Validations
 
   attr_accessor :token, :team_id, :channel_id, :channel_name, :timestamp,
-                :user_id, :user_name, :text, :trigger_word
+                :user_id, :user_name, :text, :trigger_word, :addressed
 
   validates :token, presence: true, inclusion: {
     in: [Rails.application.secrets[:slack_token]],
@@ -20,5 +20,10 @@ class Message
     @user_name = options[:user_name]
     @text = options[:text]
     @trigger_word = options[:trigger_word]
+    @addressed = options[:addressed]
+  end
+
+  def addressed?
+    addressed
   end
 end
