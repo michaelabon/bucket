@@ -1,5 +1,12 @@
 class MessagesController < ApplicationController
   def receive
+    logger.info("Params: " + <<-PARAMS)
+      #{params}
+    PARAMS
+    logger.info("Body: " + <<-BODY)
+      #{request.body.read}
+    BODY
+
     message = Message.new(receive_params(params))
 
     return render nothing: true, status: :bad_request unless message.valid?
