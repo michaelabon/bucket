@@ -17,9 +17,11 @@ end
 
 group :development, :test do
   gem 'pry-byebug'
+  gem 'brakeman', require: false
 end
 
 group :test do
+  gem 'coveralls', require: false
   gem 'factory_girl_rails', '~> 4.0'
   gem 'rake'
   gem 'rspec-expectations', '~> 3.1'
