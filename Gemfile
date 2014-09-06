@@ -4,13 +4,14 @@ ruby '2.1.2'
 gem 'rails', '4.1.0'
 gem 'pg', '0.17.1'
 
+gem 'rubocop', require: false
+
 group :development do
   gem 'heroku_san'
 end
 
 group :development, :test do
   gem 'pry-byebug'
-  gem 'rubocop', require: false
 end
 
 group :test do
