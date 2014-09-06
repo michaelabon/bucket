@@ -3,8 +3,10 @@ require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'shoulda/matchers'
-require 'coveralls'
-Coveralls.wear!
+if ENV['TRAVIS']
+  require 'coveralls'
+  Coveralls.wear!
+end
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 

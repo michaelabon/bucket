@@ -8,3 +8,5 @@ before_script:
   - cp config/database.travis.yml config/database.yml
 addons:
   postgresql: "9.3"
+env:
+  - TRAVIS=true
