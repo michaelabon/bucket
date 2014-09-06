@@ -3,6 +3,10 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.0'
 gem 'pg', '0.17.1'
 
+group :development do
+  gem 'heroku_san'
+end
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'rubocop', require: false
