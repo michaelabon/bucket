@@ -3,7 +3,6 @@
 # and they will automatically be available to Rake.
 
 require File.expand_path('../config/application', __FILE__)
+require 'colored'
 
 Rails.application.load_tasks
-
-task default: ['brakeman:run', :spec, :rubocop]
