@@ -21,6 +21,8 @@ end
 
 group :test do
   gem 'factory_girl_rails', '~> 4.0'
-  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rake'
+  gem 'rspec-expectations', '~> 3.1'
+  gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers', require: false
 end
