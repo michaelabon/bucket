@@ -5,9 +5,6 @@ gem 'rails', '4.1.5'
 gem 'pg', '0.17.1'
 
 
-gem 'rubocop', require: false
-gem 'colored', require: false
-
 group :production do
   gem 'rails_12factor', '0.0.2'
 end
@@ -17,8 +14,10 @@ group :development do
 end
 
 group :development, :test do
-  gem 'pry-byebug'
   gem 'brakeman', require: false
+  gem 'colored', require: false
+  gem 'pry-byebug'
+  gem 'rubocop', require: false
 end
 
 group :test do
