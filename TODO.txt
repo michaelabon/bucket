@@ -2,7 +2,7 @@
 - [X] Bucket can respond to a trigger with a fact.  #2
 - [X] Bucket can learn a new fact.  #3
 - [X] Bucket learns a new fact only when addressed. #23
-- [ ] Bucket can list items in its inventory.  #4
+- [X] Bucket can list items in its inventory.  #4
 - [ ] Bucket can add items to its inventory.  #5
 - [ ] Bucket can drop items from its inventory.  #6
 - [ ] Bucket can pick up multiple random items that it has seen before.  #7

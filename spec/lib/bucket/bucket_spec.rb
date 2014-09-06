@@ -2,18 +2,24 @@ require 'rails_helper'
 
 describe Bucket::Bucket do
   let(:bucket) do
-    described_class.new(preprocessors: preprocessors, processors: processors)
+    described_class.new(
+      preprocessors: preprocessors,
+      processors: processors,
+      postprocessors: postprocessors,
+    )
   end
-  let(:preprocessors) { [preprocessor1, preprocessor2] }
-  let(:preprocessor1) { double(:preprocessor1, process: true) }
-  let(:preprocessor2) { double(:preprocessor2, process: true) }
-  let(:processors) { [processor1, processor2] }
-  let(:processor1) { double(:processor1) }
-  let(:processor2) { double(:processor2) }
+
+  let(:preprocessors) { [] }
+  let(:processors) { [] }
+  let(:postprocessors) { [] }
   let(:message) { double(:message) }
 
   describe '#process' do
     describe 'processor order matters' do
+      let(:processors) { [processor1, processor2] }
+      let(:processor1) { double(:processor1) }
+      let(:processor2) { double(:processor2) }
+
       context 'first processor has a positive result' do
         before do
           allow(processor1).to receive(:process).with(message) { 'alpha' }
@@ -47,10 +53,9 @@ describe Bucket::Bucket do
     end
 
     describe 'preprocessor order matters' do
-      before do
-        allow(processor1).to receive(:process).with(message) { nil }
-        allow(processor2).to receive(:process).with(message) { nil }
-      end
+      let(:preprocessors) { [preprocessor1, preprocessor2] }
+      let(:preprocessor1) { double(:preprocessor1, process: true) }
+      let(:preprocessor2) { double(:preprocessor2, process: true) }
 
       it 'calls the preprocessors' do
         bucket.process(message)
@@ -60,5 +65,19 @@ describe Bucket::Bucket do
       end
     end
 
+    describe 'postprocessor order matters' do
+      let(:processors) { [double(:processor, process: 'result')] }
+
+      let(:postprocessors) { [postprocessor1, postprocessor2] }
+      let(:postprocessor1) { double(:postprocessor1, process: 'result post-1') }
+      let(:postprocessor2) { double(:postprocessor2, process: 'result post-2') }
+
+      it 'calls the postprocessors' do
+        expect(bucket.process(message)).to eq 'result post-2'
+
+        expect(postprocessor1).to have_received(:process).with('result')
+        expect(postprocessor2).to have_received(:process).with('result post-1')
+      end
+    end
   end
 end

@@ -1,11 +1,15 @@
 module Bucket
+  include Bucket::Helpers
+
   class Bucket
     def initialize(
       preprocessors: default_preprocessors,
-      processors: default_processors
+      processors: default_processors,
+      postprocessors: default_postprocessors
     )
       @preprocessors = preprocessors
       @processors = processors
+      @postprocessors = postprocessors
     end
 
     def process(message)
@@ -21,12 +25,18 @@ module Bucket
         break result if result
       end
 
+      if result
+        postprocessors.each do |postprocessor|
+          result = postprocessor.process(result)
+        end
+      end
+
       result
     end
 
     private
 
-    attr_reader :preprocessors, :processors
+    attr_reader :preprocessors, :processors, :postprocessors
 
     def default_preprocessors
       [
@@ -38,6 +48,13 @@ module Bucket
       [
         ::Bucket::Processors::FactAdd.new,
         ::Bucket::Processors::FactLookup.new,
+        ::Bucket::Processors::InventoryList.new,
+      ]
+    end
+
+    def default_postprocessors
+      [
+        ::Bucket::Postprocessors::Inventory.new,
       ]
     end
   end
