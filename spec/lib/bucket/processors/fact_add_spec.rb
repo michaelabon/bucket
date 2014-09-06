@@ -5,7 +5,11 @@ describe Bucket::Processors::FactAdd do
 
   describe '#process' do
     let(:message) do
-      Message.new(text: '"X" is "Y"', user_name: 'M2K', addressed: addressed)
+      Message.new(
+        text: '"X" <reply> "Y"',
+        user_name: 'M2K',
+        addressed: addressed,
+      )
     end
 
     context 'Bucket was addressed by the speaker' do

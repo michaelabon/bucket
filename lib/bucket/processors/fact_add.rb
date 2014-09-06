@@ -15,7 +15,7 @@ module Bucket
         @trigger ||= Regexp.new(/
           ^ "(.*?)"
           \s+
-          is
+          <reply>
           \s+
           "(.*?)" $
         /ix,
