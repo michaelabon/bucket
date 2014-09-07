@@ -56,6 +56,7 @@ module Bucket
     def default_postprocessors
       [
         ::Bucket::Postprocessors::Inventory.new,
+        ::Bucket::Postprocessors::HtmlEncode.new,
       ]
     end
   end
