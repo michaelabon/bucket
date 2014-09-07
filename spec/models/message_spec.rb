@@ -10,7 +10,7 @@ describe Message do
 
     it 'validates the Slack token is as expected' do
       expect(message).to ensure_inclusion_of(:token).
-        in_array([Rails.application.secrets[:slack_token]])
+        in_array([Rails.application.secrets[:slack_triggers_token]])
     end
   end
 end

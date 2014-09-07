@@ -6,8 +6,8 @@ module Requests
   end
 
   module SlackToken
-    def slack_token
-      Rails.application.secrets['slack_token']
+    def slack_triggers_token
+      Rails.application.secrets['slack_triggers_token']
     end
   end
 end
