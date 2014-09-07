@@ -32,7 +32,6 @@ describe Bucket::Processors::InventoryList do
         let(:text) { 'Non-trigger' }
 
         it "doesn't respond" do
-          puts text
           message_response = processor.process(message)
 
           expect(message_response).not_to be
