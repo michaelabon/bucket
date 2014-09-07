@@ -4,6 +4,7 @@ ruby '2.1.2'
 gem 'rails', '4.1.5'
 gem 'pg', '0.17.1'
 
+gem 'httparty', '~> 0.13.1'
 
 group :production do
   gem 'rails_12factor', '0.0.2'
