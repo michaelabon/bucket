@@ -40,6 +40,7 @@ module Bucket
 
     def default_preprocessors
       [
+        ::Bucket::Preprocessors::HtmlDecode.new,
         ::Bucket::Preprocessors::AddressedToBucket.new,
       ]
     end

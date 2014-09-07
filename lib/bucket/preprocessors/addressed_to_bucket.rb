@@ -6,6 +6,8 @@ module Bucket
 
         message.addressed = true
         message.text.sub!(addressed_regex, '')
+
+        nil
       end
 
       private
