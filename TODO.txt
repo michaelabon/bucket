@@ -5,6 +5,10 @@
 - [X] Bucket can list items in its inventory.  #4
 - [X] Bucket collapses and strips whitespace.  #30
 - [X] Bucket ignores punctuation when triggering.  #32
+- [ ] Bucket can perform actions.  #33
+- [ ] Bucket understands 'X is Y'.  #34
+- [ ] Bucket understands 'X are Y'.  #35
+- [ ] Bucket understands 'X <verb> Y'.  #36
 - [ ] Bucket ignores punctuation when learning.  #31
 - [ ] Bucket shuts up on command.  #28
 - [ ] Bucket unshuts up on command.  #29
