@@ -4,11 +4,11 @@ module Bucket
       def process(message_response)
         return if message_response.blank?
 
-        message_response.gsub!('&', '&amp;')
-        message_response.gsub!('<', '&lt;')
-        message_response.gsub!('>', '&gt;')
+        message_response.text.gsub!('&', '&amp;')
+        message_response.text.gsub!('<', '&lt;')
+        message_response.text.gsub!('>', '&gt;')
 
-        message_response
+        nil
       end
     end
   end

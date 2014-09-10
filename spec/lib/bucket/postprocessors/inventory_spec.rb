@@ -7,6 +7,7 @@ describe Bucket::Postprocessors::Inventory do
     let(:ordered_items) { double(:ordered_items) }
     let(:items) { double(:items) }
     let(:item_list) { 'a, b, and c' }
+    let(:message_response) { MessageResponse.new(text: text) }
 
     before do
       allow(Item).to receive(:order).with(:created_at) { ordered_items }
@@ -16,18 +17,32 @@ describe Bucket::Postprocessors::Inventory do
     end
 
     context 'message_response contains $inventory' do
-      let(:message_response) { 'I have $inventory' }
+      let(:text) { 'I have $inventory' }
 
       it 'converts the message' do
-        expect(processor.process(message_response)).to eq 'I have a, b, and c'
+        processor.process(message_response)
+
+        expect(message_response.text).to eq 'I have a, b, and c'
       end
     end
 
     context 'message_response does not contain $inventory' do
-      let(:message_response) { 'non-trigger' }
+      let(:text) { 'non-trigger' }
 
       it 'does not convert the message' do
-        expect(processor.process(message_response)).to eq 'non-trigger'
+        processor.process(message_response)
+
+        expect(message_response.text).to eq 'non-trigger'
+      end
+    end
+
+    context 'message_response is empty' do
+      let(:message_response) { nil }
+
+      it 'still works' do
+        processor.process(message_response)
+
+        expect(message_response).to eq nil
       end
     end
   end

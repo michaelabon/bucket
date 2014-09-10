@@ -4,9 +4,9 @@ module Bucket
       def process(message)
         return unless message.addressed && trigger.match(message.text)
 
-        Fact.find_or_create_by(trigger: $1, result: $2)
+        Fact.find_or_create_by(trigger: $1, verb: $2, result: $3)
 
-        "OK, #{message.user_name}"
+        MessageResponse.new(text: "OK, #{message.user_name}")
       end
 
       private
@@ -15,7 +15,7 @@ module Bucket
         @trigger ||= Regexp.new(/
           ^ "(.*?)"
           \s+
-          <reply>
+          (<(?:action|reply)>)
           \s+
           "(.*?)" $
         /ix,

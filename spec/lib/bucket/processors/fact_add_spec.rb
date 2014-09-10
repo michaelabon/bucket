@@ -6,7 +6,7 @@ describe Bucket::Processors::FactAdd do
   describe '#process' do
     let(:message) do
       Message.new(
-        text: '"X" <reply> "Y"',
+        text: '"X" <action> "Y"',
         user_name: 'M2K',
         addressed: addressed,
       )
@@ -18,20 +18,22 @@ describe Bucket::Processors::FactAdd do
       it 'acknowledges the speaker’s command' do
         result = processor.process(message)
 
-        expect(result).to eq 'OK, M2K'
+        expect(result.text).to eq 'OK, M2K'
       end
 
       context 'the fact was new' do
         it 'adds the fact' do
           processor.process(message)
 
-          expect(Fact.find_by(trigger: 'X').result).to eq 'Y'
+          fact = Fact.find_by(trigger: 'X')
+          expect(fact.result).to eq 'Y'
+          expect(fact.verb).to eq '<action>'
         end
       end
 
       context 'the fact was old' do
         before do
-          create(:fact, trigger: 'X', result: 'Y')
+          create(:fact, trigger: 'X', result: 'Y', verb: '<action>')
         end
 
         it 'does not duplicate the fact' do

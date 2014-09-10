@@ -23,7 +23,7 @@ describe Bucket::Processors::InventoryList do
           it "responds to “#{trigger}”" do
             message_response = processor.process(message)
 
-            expect(message_response).to include '$inventory'
+            expect(message_response.text).to include '$inventory'
           end
         end
       end

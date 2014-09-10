@@ -2,7 +2,11 @@ module Bucket
   module Postprocessors
     class Inventory
       def process(message_response)
-        message_response.sub(/\$inventory/, inventory)
+        return unless message_response.try(:text)
+
+        message_response.text.sub!(/\$inventory/, inventory)
+
+        nil
       end
 
       private

@@ -8,13 +8,19 @@ describe Bucket::Processors::FactLookup do
 
     context 'fact exists' do
       before do
-        create(:fact, trigger: 'alpha', result: 'bravo')
+        create(:fact, trigger: 'alpha', result: 'bravo', verb: '<verb>')
       end
 
       it 'returns the corresponding response' do
         message_response = processor.process(message)
 
-        expect(message_response).to eq 'bravo'
+        expect(message_response.text).to eq 'bravo'
+      end
+
+      it 'returns the fact’s verb' do
+        message_response = processor.process(message)
+
+        expect(message_response.verb).to eq '<verb>'
       end
     end
 

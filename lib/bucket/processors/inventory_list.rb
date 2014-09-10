@@ -2,7 +2,7 @@ module Bucket
   module Processors
     class InventoryList
       def process(message)
-        response if triggers.match(message.text)
+        MessageResponse.new(text: response) if triggers.match(message.text)
       end
 
       private

@@ -34,7 +34,7 @@ describe 'Learning factoids' do
 
     context 'the factoid already exists' do
       before do
-        create(:fact, trigger: 'X', result: 'Y')
+        create(:fact, trigger: 'X', result: 'Y', verb: '<reply>')
       end
 
       it 'pretends to learn the factoid' do

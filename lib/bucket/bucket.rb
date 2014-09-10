@@ -13,25 +13,25 @@ module Bucket
     end
 
     def process(message)
-      result = nil
+      message_response = nil
 
       preprocessors.each do |preprocessor|
         preprocessor.process(message)
       end
 
       processors.each do |processor|
-        result = processor.process(message)
+        message_response = processor.process(message)
 
-        break result if result
+        break message_response if message_response
       end
 
-      if result
+      if message_response
         postprocessors.each do |postprocessor|
-          result = postprocessor.process(result)
+          postprocessor.process(message_response)
         end
       end
 
-      result
+      message_response.try(:text)
     end
 
     private
@@ -58,6 +58,7 @@ module Bucket
     def default_postprocessors
       [
         ::Bucket::Postprocessors::Inventory.new,
+        ::Bucket::Postprocessors::PerformAction.new,
         ::Bucket::Postprocessors::HtmlEncode.new,
       ]
     end

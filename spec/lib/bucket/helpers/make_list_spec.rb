@@ -2,8 +2,6 @@ require 'rails_helper'
 
 describe Bucket::Helpers::MakeList do
   describe '#make_list' do
-    subject { described_class.make_list items }
-
     context '0 items' do
       let(:items) { [] }
 
