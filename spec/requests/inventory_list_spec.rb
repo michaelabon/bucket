@@ -10,7 +10,7 @@ describe 'Listing inventory' do
 
   context 'when addressed' do
     it 'responds with a commafied list of items' do
-      post '/messages', text: 'Bucket: inv', token: slack_triggers_token
+      slack_post text: 'Bucket: inv'
 
       expect(json['text']).to include 'an apple, true love, and magnets'
     end

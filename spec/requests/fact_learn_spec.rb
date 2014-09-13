@@ -5,12 +5,11 @@ describe 'Learning factoids' do
   context 'Bucket is addressed' do
     context 'the factoid is new' do
       it 'learns the factoid' do
-        post '/messages', text: 'Bucket: "X" &lt;reply&gt; "Y"',
-          token: slack_triggers_token, user_name: 'M2K'
+        slack_post text: 'Bucket: "X" &lt;reply&gt; "Y"'
 
         expect(json['text']).to eq 'OK, M2K'
 
-        post '/messages', text: 'X', token: slack_triggers_token
+        slack_post text: 'X'
 
         expect(json['text']).to eq 'Y'
       end
@@ -22,8 +21,7 @@ describe 'Learning factoids' do
       end
 
       it 'learns the factoid' do
-        post '/messages', text: 'Bucket, "X" &lt;reply&gt; "Z"',
-          token: slack_triggers_token, user_name: 'M2K'
+        slack_post text: 'Bucket, "X" &lt;reply&gt; "Z"'
 
         expect(json['text']).to eq 'OK, M2K'
 
@@ -38,8 +36,7 @@ describe 'Learning factoids' do
       end
 
       it 'pretends to learn the factoid' do
-        post '/messages', text: '@Bucket "X" &lt;reply&gt; "Y"',
-          token: slack_triggers_token, user_name: 'M2K'
+        slack_post text: '@Bucket "X" &lt;reply&gt; "Y"'
 
         expect(json['text']).to eq 'OK, M2K'
         expect(Fact.count).to eq 1
@@ -49,8 +46,7 @@ describe 'Learning factoids' do
 
   context 'Bucket is not addressed' do
     it 'does nothing' do
-      post '/messages', text: 'Chump: "X" &lt;reply&gt; "Y"',
-        token: slack_triggers_token, user_name: 'M2K'
+      slack_post text: 'Chump: "X" &lt;reply&gt; "Y"'
 
       expect(response.body).to eq '{}'
     end

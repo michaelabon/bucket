@@ -8,13 +8,13 @@ describe 'Triggering factoids' do
 
   context 'a matching trigger' do
     it 'responds with 200 OK' do
-      post '/messages', text: 'alpha', token: slack_triggers_token
+      slack_post text: 'alpha'
 
       expect(response.status).to eq 200
     end
 
     it 'responds with the matching factoid' do
-      post '/messages', text: 'alpha', token: slack_triggers_token
+      slack_post text: 'alpha'
 
       expect(json['text']).to eq 'bravo'
     end
@@ -22,13 +22,13 @@ describe 'Triggering factoids' do
 
   context 'no matching trigger' do
     it 'responds with 200 OK' do
-      post '/messages', text: 'alphabet', token: slack_triggers_token
+      slack_post text: 'alphabet'
 
       expect(response.status).to eq 200
     end
 
     it 'responds with an empty json body' do
-      post '/messages', text: 'alphabet', token: slack_triggers_token
+      slack_post text: 'alphabet'
 
       expect(response.body).to eq '{}'
     end

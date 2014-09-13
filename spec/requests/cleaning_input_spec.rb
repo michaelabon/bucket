@@ -7,7 +7,7 @@ describe 'Cleaning input' do
     end
 
     it 'strips and collapses spaces' do
-      post '/messages', text: "\thello    world   ", token: slack_triggers_token
+      slack_post text: "\thello    world   "
 
       expect(json['text']).to eq 'goodbye moon'
     end
@@ -19,7 +19,7 @@ describe 'Cleaning input' do
     end
 
     it 'strips trailing punctuation' do
-      post '/messages', text: 'hi! hi! hello!', token: slack_triggers_token
+      slack_post text: 'hi! hi! hello!'
 
       expect(json['text']).to eq 'aloha'
     end

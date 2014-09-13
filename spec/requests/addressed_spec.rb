@@ -4,36 +4,31 @@ describe 'Addressing Bucket' do
 
   context 'Bucket is addressed' do
     it 'likes a line starting with its name, colon, and whitespace' do
-      post '/messages', text: 'Bucket: "X" <reply> "Y"',
-        token: slack_triggers_token, user_name: 'M2K'
+      slack_post text: 'Bucket: "X" <reply> "Y"'
 
       expect(json['text']).to eq 'OK, M2K'
     end
 
     it 'likes a line starting with its name, comma, and whitespace' do
-      post '/messages', text: 'Bucket, "X" <reply> "Y"',
-        token: slack_triggers_token, user_name: 'M2K'
+      slack_post text: 'Bucket, "X" <reply> "Y"'
 
       expect(json['text']).to eq 'OK, M2K'
     end
 
     it 'likes a line starting with an at-symbol, its name, and whitespace' do
-      post '/messages', text: '@Bucket "X" <reply> "Y"',
-        token: slack_triggers_token, user_name: 'M2K'
+      slack_post text: '@Bucket "X" <reply> "Y"'
 
       expect(json['text']).to eq 'OK, M2K'
     end
 
     it 'likes a line ending with a comma and its name' do
-      post '/messages', text: '"X" <reply> "Y", Bucket',
-        token: slack_triggers_token, user_name: 'M2K'
+      slack_post text: '"X" <reply> "Y", Bucket'
 
       expect(json['text']).to eq 'OK, M2K'
     end
 
     it 'does not care about case' do
-      post '/messages', text: 'bucket: "X" <reply> "Y"',
-        token: slack_triggers_token, user_name: 'M2K'
+      slack_post text: 'bucket: "X" <reply> "Y"'
 
       expect(json['text']).to eq 'OK, M2K'
     end
@@ -41,8 +36,7 @@ describe 'Addressing Bucket' do
 
   context 'Bucket is not addressed' do
     it 'does not learn anything' do
-      post '/messages', text: '"X" <reply> "Y"',
-        token: slack_triggers_token, user_name: 'M2K'
+      slack_post text: '"X" <reply> "Y"'
 
       expect(response.body).to eq '{}'
     end
