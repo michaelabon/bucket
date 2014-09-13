@@ -5,13 +5,13 @@ describe 'Learning factoids' do
   context 'Bucket is addressed' do
     context 'the factoid is new' do
       it 'learns the factoid' do
-        slack_post text: 'Bucket: X &lt;reply&gt; Y'
+        slack_post text: 'Bucket: X &lt;reply&gt; Y!'
 
         expect(json['text']).to eq 'OK, M2K'
 
         slack_post text: 'X'
 
-        expect(json['text']).to eq 'Y'
+        expect(json['text']).to eq 'Y!'
       end
     end
 

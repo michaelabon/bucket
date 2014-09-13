@@ -12,16 +12,4 @@ describe 'Cleaning input' do
       expect(json['text']).to eq 'goodbye moon'
     end
   end
-
-  context 'trailing punctuation' do
-    before do
-      create(:fact, trigger: 'hi! hi! hello', result: 'aloha')
-    end
-
-    it 'strips trailing punctuation' do
-      slack_post text: 'hi! hi! hello!'
-
-      expect(json['text']).to eq 'aloha'
-    end
-  end
 end

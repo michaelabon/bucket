@@ -42,7 +42,6 @@ module Bucket
       [
         ::Bucket::Preprocessors::HtmlDecode.new,
         ::Bucket::Preprocessors::CleanWhitespace.new,
-        ::Bucket::Preprocessors::CleanPunctuation.new,
         ::Bucket::Preprocessors::AddressedToBucket.new,
       ]
     end
