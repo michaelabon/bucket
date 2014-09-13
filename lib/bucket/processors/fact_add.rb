@@ -13,11 +13,11 @@ module Bucket
 
       def trigger
         @trigger ||= Regexp.new(/
-          ^ "(.*?)"
+          ^ (.*?)
           \s+
           (<(?:action|reply)>)
           \s+
-          "(.*?)" $
+          (.*?) $
         /ix,
                                )
       end

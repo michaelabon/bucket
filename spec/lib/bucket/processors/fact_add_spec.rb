@@ -6,7 +6,7 @@ describe Bucket::Processors::FactAdd do
   describe '#process' do
     let(:message) do
       Message.new(
-        text: '"X" <action> "Y"',
+        text: 'X <action> Y',
         user_name: 'M2K',
         addressed: addressed,
       )

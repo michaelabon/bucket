@@ -5,7 +5,7 @@ describe 'Learning factoids' do
   context 'Bucket is addressed' do
     context 'the factoid is new' do
       it 'learns the factoid' do
-        slack_post text: 'Bucket: "X" &lt;reply&gt; "Y"'
+        slack_post text: 'Bucket: X &lt;reply&gt; Y'
 
         expect(json['text']).to eq 'OK, M2K'
 
@@ -21,7 +21,7 @@ describe 'Learning factoids' do
       end
 
       it 'learns the factoid' do
-        slack_post text: 'Bucket, "X" &lt;reply&gt; "Z"'
+        slack_post text: 'Bucket, X &lt;reply&gt; Z'
 
         expect(json['text']).to eq 'OK, M2K'
 
@@ -36,7 +36,7 @@ describe 'Learning factoids' do
       end
 
       it 'pretends to learn the factoid' do
-        slack_post text: '@Bucket "X" &lt;reply&gt; "Y"'
+        slack_post text: '@Bucket X &lt;reply&gt; Y'
 
         expect(json['text']).to eq 'OK, M2K'
         expect(Fact.count).to eq 1
@@ -46,7 +46,7 @@ describe 'Learning factoids' do
 
   context 'Bucket is not addressed' do
     it 'does nothing' do
-      slack_post text: 'Chump: "X" &lt;reply&gt; "Y"'
+      slack_post text: 'Chump: X &lt;reply&gt; Y'
 
       expect(response.body).to eq '{}'
     end
