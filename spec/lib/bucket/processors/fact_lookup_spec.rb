@@ -22,6 +22,12 @@ describe Bucket::Processors::FactLookup do
 
         expect(message_response.verb).to eq '<verb>'
       end
+
+      it 'returns the fact’s trigger' do
+        message_response = processor.process(message)
+
+        expect(message_response.trigger).to eq 'alpha'
+      end
     end
 
     context 'fact does not exist' do
