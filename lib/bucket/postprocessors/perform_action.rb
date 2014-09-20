@@ -3,7 +3,7 @@ module Bucket
     class PerformAction
       def process(message_response)
         case message_response.verb
-        when 'is'
+        when /^(?:is|are)$/
           message_response.text = [
             message_response.trigger,
             message_response.verb,

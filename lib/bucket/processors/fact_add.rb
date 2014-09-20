@@ -3,7 +3,7 @@ module Bucket
     class FactAdd
       def process(message)
         return unless message.addressed && (
-          message.text =~ /(.*?)\s+(is)\s+(.*)/i ||
+          message.text =~ /(.*?)\s+(is|are)\s+(.*)/i ||
           message.text =~ /(.*?)\s+(<(?:action|reply)>)\s*(.*)/i
         )
 

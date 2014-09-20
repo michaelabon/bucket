@@ -58,6 +58,18 @@ describe Bucket::Processors::FactAdd do
             expect(fact.verb).to eq 'is'
           end
         end
+
+        context 'the fact uses `are`' do
+          let(:text) { 'cheetahs are delicious' }
+
+          it 'adds the fact' do
+            processor.process(message)
+
+            fact = Fact.find_by(trigger: 'cheetahs')
+            expect(fact.result).to eq 'delicious'
+            expect(fact.verb).to eq 'are'
+          end
+        end
       end
     end
 
