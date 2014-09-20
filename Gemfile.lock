@@ -157,7 +157,7 @@ GEM
       sexp_processor (~> 4.1)
     sass (3.4.3)
     sexp_processor (4.4.4)
-    shoulda-matchers (2.6.2)
+    shoulda-matchers (2.7.0)
       activesupport (>= 3.0.0)
     simplecov (0.9.0)
       docile (~> 1.1.0)
