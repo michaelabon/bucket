@@ -49,4 +49,16 @@ describe 'Using different verbs' do
       expect(json['text']).to eq 'Cheetahs are delicious'
     end
   end
+
+  context 'Using arbitrary `<verb>` construct' do
+    it 'responds with the full sentence' do
+      slack_post text: 'People <read> books, Bucket'
+
+      expect(json['text']).to eq 'OK, M2K'
+
+      slack_post text: 'People'
+
+      expect(json['text']).to eq 'People read books'
+    end
+  end
 end
