@@ -10,7 +10,7 @@ describe 'Using different verbs' do
     it 'responds with the matching factoid' do
       slack_post text: 'alpha'
 
-      expect(json['text']).to eq 'bravo'
+      expect(text).to eq 'bravo'
     end
   end
 
@@ -22,7 +22,7 @@ describe 'Using different verbs' do
     it 'responds with a formatted action' do
       slack_post text: 'alpha'
 
-      expect(json['text']).to eq '_bravo_'
+      expect(text).to eq '_bravo_'
     end
   end
 
@@ -30,11 +30,11 @@ describe 'Using different verbs' do
     it 'responds with the full sentence' do
       slack_post text: 'Bucket, alpha is bravo'
 
-      expect(json['text']).to eq 'OK, M2K'
+      expect(text).to eq 'OK, M2K'
 
       slack_post text: 'alpha'
 
-      expect(json['text']).to eq 'alpha is bravo'
+      expect(text).to eq 'alpha is bravo'
     end
   end
 
@@ -42,11 +42,11 @@ describe 'Using different verbs' do
     it 'responds with the full sentence' do
       slack_post text: 'Cheetahs are delicious, Bucket'
 
-      expect(json['text']).to eq 'OK, M2K'
+      expect(text).to eq 'OK, M2K'
 
       slack_post text: 'Cheetahs'
 
-      expect(json['text']).to eq 'Cheetahs are delicious'
+      expect(text).to eq 'Cheetahs are delicious'
     end
   end
 
@@ -54,11 +54,11 @@ describe 'Using different verbs' do
     it 'responds with the full sentence' do
       slack_post text: 'People <read> books, Bucket'
 
-      expect(json['text']).to eq 'OK, M2K'
+      expect(text).to eq 'OK, M2K'
 
       slack_post text: 'People'
 
-      expect(json['text']).to eq 'People read books'
+      expect(text).to eq 'People read books'
     end
   end
 end

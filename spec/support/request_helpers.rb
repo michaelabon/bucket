@@ -3,6 +3,10 @@ module Requests
     def json
       JSON.parse(response.body)
     end
+
+    def text
+      json['text']
+    end
   end
 
   module SlackPost

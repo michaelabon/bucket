@@ -16,7 +16,7 @@ describe 'Triggering factoids' do
     it 'responds with the matching factoid' do
       slack_post text: 'alpha'
 
-      expect(json['text']).to eq 'bravo'
+      expect(text).to eq 'bravo'
     end
   end
 

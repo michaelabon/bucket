@@ -12,7 +12,7 @@ describe 'Listing inventory' do
     it 'responds with a commafied list of items' do
       slack_post text: 'Bucket: inv'
 
-      expect(json['text']).to include 'an apple, true love, and magnets'
+      expect(text).to include 'an apple, true love, and magnets'
     end
   end
 end

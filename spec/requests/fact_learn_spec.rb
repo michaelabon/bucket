@@ -7,11 +7,11 @@ describe 'Learning factoids' do
       it 'learns the factoid' do
         slack_post text: 'Bucket: X &lt;reply&gt; Y!'
 
-        expect(json['text']).to eq 'OK, M2K'
+        expect(text).to eq 'OK, M2K'
 
         slack_post text: 'X'
 
-        expect(json['text']).to eq 'Y!'
+        expect(text).to eq 'Y!'
       end
     end
 
@@ -23,7 +23,7 @@ describe 'Learning factoids' do
       it 'learns the factoid' do
         slack_post text: 'Bucket, X &lt;reply&gt; Z'
 
-        expect(json['text']).to eq 'OK, M2K'
+        expect(text).to eq 'OK, M2K'
 
         # QUESTION: How to test random responses?
         expect(Fact.find_by(trigger: 'X', result: 'Z')).to be
@@ -38,7 +38,7 @@ describe 'Learning factoids' do
       it 'pretends to learn the factoid' do
         slack_post text: '@Bucket X &lt;reply&gt; Y'
 
-        expect(json['text']).to eq 'OK, M2K'
+        expect(text).to eq 'OK, M2K'
         expect(Fact.count).to eq 1
       end
     end

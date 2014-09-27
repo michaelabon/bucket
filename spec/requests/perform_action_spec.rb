@@ -6,6 +6,6 @@ describe 'Performing /me actions' do
     slack_post text: '@Bucket monkey <action> hides'
     slack_post text: 'monkey'
 
-    expect(json['text']).to eq '_hides_'
+    expect(text).to eq '_hides_'
   end
 end

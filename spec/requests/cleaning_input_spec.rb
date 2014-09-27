@@ -9,7 +9,7 @@ describe 'Cleaning input' do
     it 'strips and collapses spaces' do
       slack_post text: "\thello    world   "
 
-      expect(json['text']).to eq 'goodbye moon'
+      expect(text).to eq 'goodbye moon'
     end
   end
 end
