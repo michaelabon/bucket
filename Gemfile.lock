@@ -201,7 +201,7 @@ DEPENDENCIES
   colored
   coveralls
   database_cleaner
-  factory_girl_rails (~> 4.0)
+  factory_girl_rails (~> 4.4.1)
   heroku_san
   httparty (~> 0.13.1)
   pg (= 0.17.1)

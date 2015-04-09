@@ -24,7 +24,7 @@ end
 group :test do
   gem 'coveralls', require: false
   gem 'database_cleaner'
-  gem 'factory_girl_rails', '~> 4.0'
+  gem 'factory_girl_rails', '~> 4.4.1'
   gem 'rake'
   gem 'rspec-expectations', '~> 3.1'
   gem 'rspec-rails', '~> 3.0'
