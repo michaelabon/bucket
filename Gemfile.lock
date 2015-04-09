@@ -55,6 +55,7 @@ GEM
       simplecov (>= 0.7)
       term-ansicolor
       thor
+    database_cleaner (1.4.1)
     debugger-linecache (1.2.0)
     diff-lcs (1.2.5)
     docile (1.1.5)
@@ -198,6 +199,7 @@ DEPENDENCIES
   brakeman
   colored
   coveralls
+  database_cleaner
   factory_girl_rails (~> 4.0)
   heroku_san
   httparty (~> 0.13.1)
