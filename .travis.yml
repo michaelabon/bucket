@@ -6,7 +6,12 @@ bundler_args: --without production development
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
   - cp config/database.travis.yml config/database.yml
+script:
+  - bundle exec rake db:schema:load
+  - bundle exec rake db:test:prepare
+  - bundle exec rake
 addons:
   postgresql: "9.3"
+cache: bundler
 env:
   - TRAVIS=true
