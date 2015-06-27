@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe 'Addressing Bucket' do
-
   context 'Bucket is addressed' do
     it 'likes a line starting with its name, colon, and whitespace' do
       slack_post text: 'Bucket: X <reply> Y'

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe 'Learning factoids' do
-
   context 'Bucket is addressed' do
     context 'the factoid is new' do
       it 'learns the factoid' do

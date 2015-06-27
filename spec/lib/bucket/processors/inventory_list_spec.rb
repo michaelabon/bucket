@@ -38,6 +38,5 @@ describe Bucket::Processors::InventoryList do
         end
       end
     end
-
   end
 end

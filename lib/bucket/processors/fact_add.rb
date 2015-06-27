@@ -7,7 +7,9 @@ module Bucket
           message.text =~ /(.*?)\s+(<\w+>)\s*(.*)/i
         )
 
-        trigger, verb, result = [$1, $2, $3]
+        trigger = $1
+        verb = $2
+        result = $3
 
         verb.gsub!(/^<|>$/, '') unless ['<action>', '<reply>'].include? verb
 

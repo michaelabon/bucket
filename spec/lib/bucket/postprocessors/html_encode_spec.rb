@@ -46,5 +46,4 @@ describe Bucket::Postprocessors::HtmlEncode do
       end
     end
   end
-
 end

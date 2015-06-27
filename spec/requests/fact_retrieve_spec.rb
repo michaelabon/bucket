@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe 'Triggering factoids' do
-
   before do
     create(:fact, trigger: 'alpha', result: 'bravo')
   end

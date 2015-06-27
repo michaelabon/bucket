@@ -23,7 +23,6 @@ describe Bucket::Processors::FactAdd do
       end
 
       describe 'de-duplicates facts' do
-
         context 'the fact was new' do
           it 'adds the fact' do
             processor.process(message)
@@ -43,7 +42,6 @@ describe Bucket::Processors::FactAdd do
             expect { processor.process(message) }.not_to change { Fact.count }
           end
         end
-
       end
 
       describe 'verb types' do

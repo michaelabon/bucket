@@ -22,6 +22,9 @@ Lint/HandleExceptions:
 Lint/UselessAssignment:
   Enabled: true
 
+Metrics/AbcSize:
+  Max: 20
+
 # Configuration parameters: CountComments.
 Metrics/ClassLength:
   Max: 200
