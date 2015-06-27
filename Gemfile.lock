@@ -213,3 +213,6 @@ DEPENDENCIES
   rspec-rails (~> 3.0)
   rubocop (~> 0.26.1)
   shoulda-matchers
+
+BUNDLED WITH
+   1.10.5
