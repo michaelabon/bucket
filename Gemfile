@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
 ruby '2.2.2'
-gem 'rails', '4.1.6'
-gem 'pg', '0.17.1'
+gem 'rails'
+gem 'pg'
 
-gem 'httparty', '~> 0.13.1'
+gem 'httparty'
 
 group :production do
-  gem 'rails_12factor', '0.0.2'
+  gem 'rails_12factor'
 end
 
 group :development do
@@ -15,18 +15,18 @@ group :development do
 end
 
 group :development, :test do
-  gem 'brakeman', '= 3.0.2', require: false
+  gem 'brakeman', require: false
   gem 'colored', require: false
   gem 'pry-byebug'
-  gem 'rubocop', '~> 0.26.1', require: false
+  gem 'rubocop', require: false
 end
 
 group :test do
   gem 'coveralls', require: false
   gem 'database_cleaner'
-  gem 'factory_girl_rails', '~> 4.4.1'
+  gem 'factory_girl_rails'
   gem 'rake'
-  gem 'rspec-expectations', '~> 3.1'
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-expectations'
+  gem 'rspec-rails'
   gem 'shoulda-matchers', require: false
 end

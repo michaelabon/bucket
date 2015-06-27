@@ -193,21 +193,21 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  brakeman (= 3.0.2)
+  brakeman
   colored
   coveralls
   database_cleaner
-  factory_girl_rails (~> 4.4.1)
+  factory_girl_rails
   heroku_san
-  httparty (~> 0.13.1)
-  pg (= 0.17.1)
+  httparty
+  pg
   pry-byebug
-  rails (= 4.1.6)
-  rails_12factor (= 0.0.2)
+  rails
+  rails_12factor
   rake
-  rspec-expectations (~> 3.1)
-  rspec-rails (~> 3.0)
-  rubocop (~> 0.26.1)
+  rspec-expectations
+  rspec-rails
+  rubocop
   shoulda-matchers
 
 BUNDLED WITH
