@@ -15,3 +15,4 @@ addons:
 cache: bundler
 env:
   - TRAVIS=true
+sudo: false
