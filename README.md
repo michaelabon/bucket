@@ -4,6 +4,8 @@
 [Dan Broger][zigdon]'s fine [xkcd-Bucket][]. As such, 
 it is licensed under the [GPLv3][].
 
+[![Build Status](https://travis-ci.org/mkenyon/bucket.svg?branch=master)](https://travis-ci.org/mkenyon/bucket)
+
 [zigdon]: https://github.com/zigdon/
 [xkcd-Bucket]: https://github.com/zigdon/xkcd-Bucket
 [GPLv3]: http://www.gnu.org/copyleft/gpl.html
