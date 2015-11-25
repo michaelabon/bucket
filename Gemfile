@@ -29,5 +29,5 @@ group :test do
   gem 'rake'
   gem 'rspec-expectations'
   gem 'rspec-rails'
-  gem 'shoulda-matchers', '~> 2.8', require: false
+  gem 'shoulda-matchers'
 end

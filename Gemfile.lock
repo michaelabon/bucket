@@ -193,8 +193,8 @@ GEM
     safe_yaml (1.0.4)
     sass (3.4.19)
     sexp_processor (4.6.0)
-    shoulda-matchers (2.8.0)
-      activesupport (>= 3.0.0)
+    shoulda-matchers (3.0.1)
+      activesupport (>= 4.0.0)
     simplecov (0.10.0)
       docile (~> 1.1.0)
       json (~> 1.8)
@@ -244,7 +244,7 @@ DEPENDENCIES
   rspec-expectations
   rspec-rails
   rubocop
-  shoulda-matchers (~> 2.8)
+  shoulda-matchers
 
 BUNDLED WITH
    1.10.6
