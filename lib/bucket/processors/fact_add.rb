@@ -27,7 +27,7 @@ module Bucket
           (<(?:action|reply)>)
           \s+
           (.*?) $
-        /ix,
+        /ix
                                )
       end
     end
