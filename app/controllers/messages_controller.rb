@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  skip_before_action :protect_from_forgery
+
   def receive
     message = Message.new(receive_params(params))
 
