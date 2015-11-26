@@ -2,7 +2,7 @@ module Bucket
   module Processors
     class FactDelete
       def process(message)
-        return unless message.addressed && (
+        return unless message.addressed? && (
         message.text =~ /^delete (.*?)$/i
         )
 

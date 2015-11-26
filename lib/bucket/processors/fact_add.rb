@@ -2,7 +2,7 @@ module Bucket
   module Processors
     class FactAdd
       def process(message)
-        return unless message.addressed && (
+        return unless message.addressed? && (
           message.text =~ /(.*?)\s+(is|are)\s+(.*)/i ||
           message.text =~ /(.*?)\s+(<\w+>)\s*(.*)/i
         )
