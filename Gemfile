@@ -5,6 +5,7 @@ gem 'rails'
 gem 'pg'
 
 gem 'httparty'
+gem 'newrelic_rpm'
 
 group :production do
   gem 'rails_12factor'
