@@ -9,9 +9,7 @@ describe Bucket::Preprocessors::AddressedToBucket do
     let(:message) { Message.new(text: text) }
 
     context 'Bucket was addressed' do
-      context 'starts with "Bucket, "' do
-        let(:text) { 'Bucket,   "X" is "Y"' }
-
+      shared_examples_for :an_addressed_message do
         it 'sets message’s addressed to true' do
           processor.process(message)
 
@@ -22,54 +20,30 @@ describe Bucket::Preprocessors::AddressedToBucket do
           processor.process(message)
 
           expect(message.text).to eq '"X" is "Y"'
+        end
+      end
+
+      context 'starts with "Bucket, "' do
+        it_behaves_like :an_addressed_message do
+          let(:text) { 'Bucket,   "X" is "Y"' }
         end
       end
 
       context 'starts with "Bucket: "' do
-        let(:text) { 'Bucket:   "X" is "Y"' }
-
-        it 'sets message’s addressed to true' do
-          processor.process(message)
-
-          expect(message).to be_addressed
-        end
-
-        it 'cleans up the message’s text' do
-          processor.process(message)
-
-          expect(message.text).to eq '"X" is "Y"'
+        it_behaves_like :an_addressed_message do
+          let(:text) { 'Bucket:   "X" is "Y"' }
         end
       end
 
       context 'starts with "@Bucket "' do
-        let(:text) { '@Bucket   "X" is "Y"' }
-
-        it 'sets message’s addressed to true' do
-          processor.process(message)
-
-          expect(message).to be_addressed
-        end
-
-        it 'cleans up the message’s text' do
-          processor.process(message)
-
-          expect(message.text).to eq '"X" is "Y"'
+        it_behaves_like :an_addressed_message do
+          let(:text) { '@Bucket   "X" is "Y"' }
         end
       end
 
       context 'ends with ", Bucket"' do
-        let(:text) { '"X" is "Y", Bucket' }
-
-        it 'sets message’s addressed to true' do
-          processor.process(message)
-
-          expect(message).to be_addressed
-        end
-
-        it 'cleans up the message’s text' do
-          processor.process(message)
-
-          expect(message.text).to eq '"X" is "Y"'
+        it_behaves_like :an_addressed_message do
+          let(:text) { '"X" is "Y", Bucket' }
         end
       end
     end
