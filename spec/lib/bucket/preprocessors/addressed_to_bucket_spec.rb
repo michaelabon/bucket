@@ -74,9 +74,7 @@ describe Bucket::Preprocessors::AddressedToBucket do
       end
     end
 
-    context 'Bucket was not addressed' do
-      let(:text) { 'Chump: "X" is "Y"' }
-
+    shared_examples_for :an_unaddressed_message do
       it 'sets message’s addressed to false' do
         processor.process(message)
 
@@ -86,7 +84,19 @@ describe Bucket::Preprocessors::AddressedToBucket do
       it 'does not modify the message’s text' do
         processor.process(message)
 
-        expect(message.text).to eq 'Chump: "X" is "Y"'
+        expect(message.text).to eq text
+      end
+    end
+
+    context 'when the address appears in the wrong spot' do
+      it_behaves_like :an_unaddressed_message do
+        let(:text) { 'I said, Bucket: Learning is fun' }
+      end
+    end
+
+    context 'Bucket was not addressed' do
+      it_behaves_like :an_unaddressed_message do
+        let(:text) { 'Chump: "X" is "Y"' }
       end
     end
   end
