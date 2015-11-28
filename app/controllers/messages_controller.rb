@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  skip_before_action :protect_from_forgery
+  skip_before_action :verify_authenticity_token
 
   def receive
     message = Message.new(receive_params(params))
