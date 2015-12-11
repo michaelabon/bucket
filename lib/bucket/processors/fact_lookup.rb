@@ -2,7 +2,8 @@ module Bucket
   module Processors
     class FactLookup
       def process(message)
-        fact = Fact.where(trigger: message.text).order('RANDOM()').first
+        trigger = Helpers::CleanPunctuation.clean_punctuation(message.text)
+        fact = Fact.where(trigger: trigger).order('RANDOM()').first
         return unless fact.try(:result)
 
         MessageResponse.new(

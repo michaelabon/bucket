@@ -7,7 +7,7 @@ module Bucket
           message.text =~ /(.*?)\s+(<\w+>)\s*(.*)/i
         )
 
-        trigger = $1
+        trigger = Helpers::CleanPunctuation.clean_punctuation($1)
         verb = $2
         result = $3
 
