@@ -3,8 +3,7 @@ module Bucket
     class CleanWhitespace
       def process(message)
         message.text.gsub!(/\s\s+/, ' ')
-        message.text.gsub!(/^\s+/, '')
-        message.text.gsub!(/\s+$/, '')
+        message.text.strip!
       end
     end
   end
