@@ -30,8 +30,8 @@ describe MessagesController do
 
       before do
         allow(Bucket::Bucket).to receive(:new) { bucket }
-        allow(bucket).to receive(:process).with(message).
-          and_return(message_response)
+        allow(bucket).to receive(:process).with(message)
+          .and_return(message_response)
       end
 
       context 'Bucket has a response' do

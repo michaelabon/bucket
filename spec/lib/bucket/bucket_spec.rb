@@ -25,8 +25,8 @@ describe Bucket::Bucket do
         let(:text) { 'alpha' }
 
         before do
-          allow(processor1).to receive(:process).with(message).
-            and_return(message_response)
+          allow(processor1).to receive(:process).with(message)
+            .and_return(message_response)
         end
 
         it 'returns the first processor’s result' do
@@ -44,10 +44,10 @@ describe Bucket::Bucket do
 
       context 'first processor has a negative result' do
         before do
-          allow(processor1).to receive(:process).with(message).
-            and_return(nil)
-          allow(processor2).to receive(:process).with(message).
-            and_return(double(text: 'bravo'))
+          allow(processor1).to receive(:process).with(message)
+            .and_return(nil)
+          allow(processor2).to receive(:process).with(message)
+            .and_return(double(text: 'bravo'))
         end
 
         it 'returns the second processor’s result' do

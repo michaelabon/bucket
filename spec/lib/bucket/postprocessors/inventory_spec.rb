@@ -12,8 +12,8 @@ describe Bucket::Postprocessors::Inventory do
     before do
       allow(Item).to receive(:order).with(:created_at) { ordered_items }
       allow(ordered_items).to receive(:pluck).with(:what) { items }
-      allow(Bucket::Helpers::MakeList).to receive(:make_list).
-        with(items) { item_list }
+      allow(Bucket::Helpers::MakeList).to receive(:make_list)
+        .with(items) { item_list }
     end
 
     context 'message_response contains $inventory' do

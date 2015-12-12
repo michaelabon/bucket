@@ -52,6 +52,7 @@ module Bucket
         ::Bucket::Processors::InventoryList.new,
         ::Bucket::Processors::FactAdd.new,
         ::Bucket::Processors::FactLookup.new,
+        ::Bucket::Processors::InventoryAdd.new,
       ]
     end
 

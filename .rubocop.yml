@@ -60,13 +60,11 @@ Style/AccessorMethodName:
 Style/AndOr:
   Enabled: true
 
-# Offense count: 7
 Style/Documentation:
   Enabled: false
 
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 Style/DotPosition:
-  EnforcedStyle: trailing
   Enabled: true
 
 # Configuration parameters: MinBodyLength.
