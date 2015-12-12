@@ -80,6 +80,44 @@ describe Bucket::Processors::FactAdd do
             expect(fact.verb).to eq 'sings'
           end
         end
+
+        context 'the fact uses `is` and `<verb>`' do
+          let(:text) { 'less is more <reply> more is less' }
+
+          it 'prefers the angle brackets' do
+            processor.process(message)
+
+            fact = Fact.find_by(trigger: 'less is more')
+            expect(fact.result).to eq 'more is less'
+            expect(fact.verb).to eq '<reply>'
+          end
+        end
+
+        context 'the fact uses `are` and `<verb>`' do
+          let(:text) do
+            'you are broken <reply> I am a product of my environment'
+          end
+
+          it 'prefers the angle brackets' do
+            processor.process(message)
+
+            fact = Fact.find_by(trigger: 'you are broken')
+            expect(fact.result).to eq 'I am a product of my environment'
+            expect(fact.verb).to eq '<reply>'
+          end
+        end
+
+        context 'the fact uses multiple angle brackets' do
+          let(:text) { 'the first <alpha> the second <bravo> the third' }
+
+          it 'only uses the first one' do
+            processor.process(message)
+
+            fact = Fact.find_by(trigger: 'the first')
+            expect(fact.result).to eq 'the second <bravo> the third'
+            expect(fact.verb).to eq 'alpha'
+          end
+        end
       end
     end
 

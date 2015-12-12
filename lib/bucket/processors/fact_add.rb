@@ -3,8 +3,8 @@ module Bucket
     class FactAdd
       def process(message)
         return nil unless message.addressed? && (
-          message.text =~ /(.*?)\s+(is|are)\s+(.*)/i ||
-          message.text =~ /(.*?)\s+(<\w+>)\s*(.*)/i
+          message.text =~ /(.*?)\s+(<\w+>)\s*(.*)/i ||
+          message.text =~ /(.*?)\s+(is|are)\s+(.*)/i
         )
 
         trigger = Helpers::CleanPunctuation.clean_punctuation($1)
