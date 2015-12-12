@@ -49,9 +49,9 @@ module Bucket
     def default_processors
       [
         ::Bucket::Processors::FactDelete.new,
+        ::Bucket::Processors::InventoryList.new,
         ::Bucket::Processors::FactAdd.new,
         ::Bucket::Processors::FactLookup.new,
-        ::Bucket::Processors::InventoryList.new,
       ]
     end
 

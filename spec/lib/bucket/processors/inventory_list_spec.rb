@@ -31,11 +31,22 @@ describe Bucket::Processors::InventoryList do
       context 'trigger is invalid' do
         let(:text) { 'Non-trigger' }
 
-        it "doesn't respond" do
+        it 'does not respond' do
           message_response = processor.process(message)
 
           expect(message_response).not_to be
         end
+      end
+    end
+
+    context 'Bucket was not addressed' do
+      let(:addressed) { false }
+      let(:text) { 'inv' }
+
+      it 'does not respond' do
+        message_response = processor.process(message)
+
+        expect(message_response).not_to be
       end
     end
   end

@@ -2,7 +2,10 @@ module Bucket
   module Processors
     class InventoryList
       def process(message)
-        MessageResponse.new(text: response) if triggers.match(message.text)
+        trigger = Helpers::CleanPunctuation.clean_punctuation(message.text)
+        return unless message.addressed? && triggers.match(trigger)
+
+        MessageResponse.new(text: response)
       end
 
       private

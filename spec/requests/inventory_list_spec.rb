@@ -9,9 +9,17 @@ describe 'Listing inventory' do
 
   context 'when addressed' do
     it 'responds with a commafied list of items' do
-      slack_post text: 'Bucket: inv'
+      slack_post text: 'Bucket, what are you carrying?'
 
       expect(text).to include 'an apple, true love, and magnets'
+    end
+  end
+
+  context 'when not addressed' do
+    it 'does not respond' do
+      slack_post text: 'inv'
+
+      expect(response.body).to eq '{}'
     end
   end
 end
