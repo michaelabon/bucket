@@ -13,6 +13,8 @@ end
 
 group :development do
   gem 'heroku_san'
+  gem 'spring'
+  gem 'spring-commands-rspec'
 end
 
 group :development, :test do
