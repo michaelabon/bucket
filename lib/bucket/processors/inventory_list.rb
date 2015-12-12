@@ -3,22 +3,27 @@ module Bucket
     class InventoryList
       def process(message)
         trigger = Helpers::CleanPunctuation.clean_punctuation(message.text)
-        return unless message.addressed? && triggers.match(trigger)
 
-        MessageResponse.new(text: response)
+        if message.addressed? && triggers.match(trigger)
+          return MessageResponse.new(text: response)
+        end
+
+        nil
       end
 
       private
 
       def triggers
         /^(?:
-           inv|
-        inventory|
-        items|
-        list\sitems|
-        what\sare\syou\scarrying|
-        what\sare\syou\sholding|
-          )$/ix
+          inv|
+          inventory|
+          items|
+          list\sitems|
+          list\syour\sitems|
+          list\syour\sinventory|
+          what\sare\syou\scarrying|
+          what\sare\syou\sholding|
+        )$/ix
       end
 
       def response

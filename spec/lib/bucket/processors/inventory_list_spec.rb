@@ -15,6 +15,9 @@ describe Bucket::Processors::InventoryList do
           'inventory',
           'items',
           'list items',
+          'list inventory',
+          'list your items',
+          'list your inventory',
           'what are you carrying',
           'what are you holding',
         ].each do |trigger|

@@ -8,10 +8,20 @@ describe 'Listing inventory' do
   end
 
   context 'when addressed' do
-    it 'responds with a commafied list of items' do
-      slack_post text: 'Bucket, what are you carrying?'
+    context 'when the trigger matches' do
+      it 'responds with a commafied list of items' do
+        slack_post text: 'Bucket, what are you carrying?'
 
-      expect(text).to include 'an apple, true love, and magnets'
+        expect(text).to include 'an apple, true love, and magnets'
+      end
+    end
+
+    context 'when the trigger does not match' do
+      it 'does not respond' do
+        slack_post text: 'Bucket: an apple'
+
+        expect(response.body).to eq '{}'
+      end
     end
   end
 
