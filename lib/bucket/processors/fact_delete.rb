@@ -2,8 +2,8 @@ module Bucket
   module Processors
     class FactDelete
       def process(message)
-        return unless message.addressed? && (
-        message.text =~ /^delete (.*?)$/i
+        return nil unless message.addressed? && (
+          message.text =~ /^delete (.*?)$/i
         )
 
         trigger = $1

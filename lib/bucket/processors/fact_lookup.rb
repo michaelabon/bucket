@@ -4,7 +4,7 @@ module Bucket
       def process(message)
         trigger = Helpers::CleanPunctuation.clean_punctuation(message.text)
         fact = Fact.where(trigger: trigger).order('RANDOM()').first
-        return unless fact.try(:result)
+        return nil unless fact.try(:result)
 
         MessageResponse.new(
           text: fact.result,
