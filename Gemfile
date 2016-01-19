@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.3'
+ruby '2.3.0'
 gem 'rails'
 gem 'pg'
 
@@ -20,7 +20,6 @@ end
 group :development, :test do
   gem 'brakeman', require: false
   gem 'colored', require: false
-  gem 'did_you_mean'
   gem 'pry-byebug'
   gem 'rubocop', require: false
 end
