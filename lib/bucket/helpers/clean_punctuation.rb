@@ -4,7 +4,7 @@ module Bucket
       def self.clean_punctuation(text)
         return '' unless text
 
-        text.gsub(/[.,!?'"()\[\]{}]/, '')
+        text.gsub(/[.,!?'"()\[\]{}‘’“”]/, '')
       end
     end
   end
