@@ -5,7 +5,7 @@ describe Bucket::Bucket do
     described_class.new(
       preprocessors: preprocessors,
       processors: processors,
-      postprocessors: postprocessors,
+      postprocessors: postprocessors
     )
   end
 

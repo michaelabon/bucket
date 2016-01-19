@@ -13,7 +13,7 @@ module Bucket
           message_response.text = [
             message_response.trigger,
             message_response.verb,
-            message_response.text,
+            message_response.text
           ].join(' ')
         end
 

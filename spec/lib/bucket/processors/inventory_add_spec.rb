@@ -15,13 +15,13 @@ describe Bucket::Processors::InventoryAdd do
         'hands Bucket fuzzy kittens . . . ',
         'hands fuzzy kittens to Bucket',
         'puts fuzzy kittens in Bucket',
-        'puts fuzzy kittens in the Bucket',
+        'puts fuzzy kittens in the Bucket'
       ].each do |trigger|
         it "adds the item for `#{trigger}`" do
           message = Message.new(
             text: trigger,
             user_name: 'M2K',
-            addressed: addressed,
+            addressed: addressed
           )
 
           message_response = processor.process(message)
@@ -40,13 +40,13 @@ describe Bucket::Processors::InventoryAdd do
         'gives Bucket his fuzzy kittens!',
         'gives her fuzzy kittens to Bucket.',
         'hands Bucket their fuzzy kittens?',
-        "gives Bucket M2K's fuzzy kittens ? ",
+        "gives Bucket M2K's fuzzy kittens ? "
       ].each do |trigger|
         it "adds the item for `#{trigger}`" do
           message = Message.new(
             text: trigger,
             user_name: 'M2K',
-            addressed: addressed,
+            addressed: addressed
           )
 
           message_response = processor.process(message)
@@ -70,7 +70,7 @@ describe Bucket::Processors::InventoryAdd do
             'take this fuzzy kitten' => 'this fuzzy kitten',
             'take these fuzzy kittens' => 'these fuzzy kittens',
             'have a fuzzy kitten' => 'a fuzzy kitten',
-            'have an exploding kitten' => 'an exploding kitten',
+            'have an exploding kitten' => 'an exploding kitten'
           }.each do |trigger, stored_item|
             let(:text) { k }
 
@@ -78,7 +78,7 @@ describe Bucket::Processors::InventoryAdd do
               message = Message.new(
                 text: trigger,
                 user_name: 'M2K',
-                addressed: addressed,
+                addressed: addressed
               )
               message_response = processor.process(message)
 
@@ -95,14 +95,14 @@ describe Bucket::Processors::InventoryAdd do
         [
           'have fun',
           'take this',
-          'gives something',
+          'gives something'
 
         ].each do |trigger|
           it 'does not add the item for `#{trigger}`' do
             message = Message.new(
               text: trigger,
               user_name: 'M2K',
-              addressed: addressed,
+              addressed: addressed
             )
             expect(processor.process(message)).to eq nil
           end

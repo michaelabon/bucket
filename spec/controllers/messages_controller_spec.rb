@@ -20,7 +20,7 @@ describe MessagesController do
       expect(Message).to have_received(:new).with(
         token: '123',
         text: 'alpha',
-        user_name: 'M2K',
+        user_name: 'M2K'
       )
     end
 

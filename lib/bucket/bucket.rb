@@ -42,7 +42,7 @@ module Bucket
       [
         ::Bucket::Preprocessors::HtmlDecode.new,
         ::Bucket::Preprocessors::CleanWhitespace.new,
-        ::Bucket::Preprocessors::AddressedToBucket.new,
+        ::Bucket::Preprocessors::AddressedToBucket.new
       ]
     end
 
@@ -52,7 +52,7 @@ module Bucket
         ::Bucket::Processors::InventoryList.new,
         ::Bucket::Processors::FactAdd.new,
         ::Bucket::Processors::FactLookup.new,
-        ::Bucket::Processors::InventoryAdd.new,
+        ::Bucket::Processors::InventoryAdd.new
       ]
     end
 
@@ -60,7 +60,7 @@ module Bucket
       [
         ::Bucket::Postprocessors::Inventory.new,
         ::Bucket::Postprocessors::PerformAction.new,
-        ::Bucket::Postprocessors::HtmlEncode.new,
+        ::Bucket::Postprocessors::HtmlEncode.new
       ]
     end
   end

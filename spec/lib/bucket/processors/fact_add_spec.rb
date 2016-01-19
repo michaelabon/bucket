@@ -8,7 +8,7 @@ describe Bucket::Processors::FactAdd do
       Message.new(
         text: text,
         user_name: 'M2K',
-        addressed: addressed,
+        addressed: addressed
       )
     end
     let(:text) { 'X <action> Y' }

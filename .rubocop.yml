@@ -84,7 +84,3 @@ Style/PerlBackrefs:
 
 Style/Tab:
   Enabled: true
-
-Style/TrailingComma:
-  EnforcedStyleForMultiline: comma
-  Enabled: true

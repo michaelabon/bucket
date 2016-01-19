@@ -8,7 +8,7 @@ describe Bucket::Processors::FactDelete do
       Message.new(
         text: text,
         user_name: user_name,
-        addressed: addressed,
+        addressed: addressed
       )
     end
     let(:user_name) { 'M2K' }

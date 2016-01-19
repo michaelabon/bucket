@@ -9,23 +9,21 @@ module Bucket
         trigger = $1
 
         facts = Fact.where(trigger: trigger)
-        if facts.count > 0
-          facts.destroy_all
-          return success(message, trigger)
-        else
-          return failure(message)
-        end
+        return failure(message) if facts.count <= 0
+
+        facts.destroy_all
+        success(message, trigger)
       end
 
       def failure(message)
         MessageResponse.new(
-          text: "I don't know what you're talking about, #{message.user_name}.",
+          text: "I don't know what you're talking about, #{message.user_name}."
         )
       end
 
       def success(message, trigger)
         MessageResponse.new(
-          text: "OK, #{message.user_name}. I have deleted #{trigger}.",
+          text: "OK, #{message.user_name}. I have deleted #{trigger}."
         )
       end
     end

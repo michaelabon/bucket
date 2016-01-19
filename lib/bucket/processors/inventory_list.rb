@@ -32,7 +32,7 @@ module Bucket
           'I am holding $inventory',
           'I have $inventory',
           '/me is carrying $inventory',
-          '/contains $inventory',
+          '/contains $inventory'
         ].sample
       end
     end

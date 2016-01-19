@@ -9,7 +9,7 @@ module Bucket
         MessageResponse.new(
           text: fact.result,
           trigger: message.text,
-          verb: fact.verb,
+          verb: fact.verb
         )
       end
     end
