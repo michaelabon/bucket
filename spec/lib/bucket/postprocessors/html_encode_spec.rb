@@ -16,7 +16,7 @@ describe Bucket::Postprocessors::HtmlEncode do
       end
     end
 
-    context 'converts <' do
+    context 'contains <' do
       let(:text) { '2 < 3' }
 
       specify do
@@ -26,7 +26,7 @@ describe Bucket::Postprocessors::HtmlEncode do
       end
     end
 
-    context 'converts >' do
+    context 'contains >' do
       let(:text) { '3 > 2' }
 
       specify do
@@ -43,6 +43,16 @@ describe Bucket::Postprocessors::HtmlEncode do
         processor.process(message_response)
 
         expect(message_response).to eq nil
+      end
+    end
+
+    context 'empty response' do
+      let(:message_response) { MessageResponse.new(text: nil) }
+
+      specify do
+        processor.process(message_response)
+
+        expect(message_response.text).to eq nil
       end
     end
   end

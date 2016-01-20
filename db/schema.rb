@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910004503) do
+ActiveRecord::Schema.define(version: 20160120012329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "facts", force: true do |t|
+  create_table "facts", force: :cascade do |t|
     t.string   "trigger",    null: false
     t.string   "result",     null: false
     t.datetime "created_at"
@@ -24,11 +24,16 @@ ActiveRecord::Schema.define(version: 20140910004503) do
     t.string   "verb"
   end
 
-  create_table "items", force: true do |t|
+  create_table "items", force: :cascade do |t|
     t.string   "what",       null: false
     t.string   "placed_by",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "silence_requests", force: :cascade do |t|
+    t.string   "requester",     null: false
+    t.datetime "silence_until", null: false
   end
 
 end
