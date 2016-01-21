@@ -11,7 +11,8 @@ module Bucket
           silence_until: Time.zone.now + DEFAULT_SILENCE
         )
 
-        MessageResponse.new(text: 'Okay, M2K. Be back in a bit.')
+        response_text = "Okay, #{message.user_name}. Be back in a bit."
+        MessageResponse.new(text: response_text)
       end
 
       private
