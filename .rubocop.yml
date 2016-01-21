@@ -1,4 +1,6 @@
 AllCops:
+  DisplayCopNames:
+    Enabled: true
   Include:
     - '**/Rakefile'
     - '**/config.ru'
@@ -9,6 +11,7 @@ AllCops:
     - 'script/**/*'
     - 'vendor/**/*'
   TargetRubyVersion: 2.3
+
 
 # Configuration parameters: AllowSafeAssignment.
 Lint/AssignmentInCondition:
@@ -45,11 +48,12 @@ Metrics/MethodLength:
 Metrics/PerceivedComplexity:
   Max: 10
 
-# Configuration parameters: Include.
+Rails:
+  Enabled: true
+
 Rails/Output:
   Enabled: true
 
-# Configuration parameters: Include.
 Rails/Validation:
   Enabled: true
 

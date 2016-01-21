@@ -1,5 +1,6 @@
 class SilenceRequest < ActiveRecord::Base
-  validates_presence_of :requester, :silence_until
+  validates :requester, presence: true
+  validates :silence_until, presence: true
 
   def self.request_active?
     where('silence_until > ?', Time.zone.now).exists?
