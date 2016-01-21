@@ -6,7 +6,7 @@ module Bucket
           message.text =~ /^delete (.*?)$/i
         )
 
-        trigger = $1
+        trigger = Helpers::Clean.clean($1)
 
         facts = Fact.where(trigger: trigger)
         return failure(message) if facts.count <= 0

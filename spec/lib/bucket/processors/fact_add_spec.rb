@@ -27,7 +27,7 @@ describe Bucket::Processors::FactAdd do
           it 'adds the fact' do
             processor.process(message)
 
-            fact = Fact.find_by(trigger: 'X')
+            fact = Fact.find_by(trigger: 'x')
             expect(fact.result).to eq 'Y'
             expect(fact.verb).to eq '<action>'
           end
@@ -35,7 +35,7 @@ describe Bucket::Processors::FactAdd do
 
         context 'the fact was old' do
           before do
-            create(:fact, trigger: 'X', result: 'Y', verb: '<action>')
+            create(:fact, trigger: 'x', result: 'Y', verb: '<action>')
           end
 
           it 'does not duplicate the fact' do
@@ -75,7 +75,7 @@ describe Bucket::Processors::FactAdd do
           it 'adds the fact' do
             processor.process(message)
 
-            fact = Fact.find_by(trigger: 'The villain')
+            fact = Fact.find_by(trigger: 'the villain')
             expect(fact.result).to eq 'mellifluously'
             expect(fact.verb).to eq 'sings'
           end
