@@ -8,6 +8,7 @@ AllCops:
     - 'config/**/*'
     - 'script/**/*'
     - 'vendor/**/*'
+  TargetRubyVersion: 2.3
 
 # Configuration parameters: AllowSafeAssignment.
 Lint/AssignmentInCondition:

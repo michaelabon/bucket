@@ -54,7 +54,8 @@ describe Bucket::Processors::SilenceActivate do
       let(:text) { 'shut up' }
 
       it 'does not create a SilenceRequest' do
-        expect { processor.process(message) }.not_to change { SilenceRequest.count }
+        expect { processor.process(message) }
+          .not_to change { SilenceRequest.count }
       end
 
       it 'returns nil' do
