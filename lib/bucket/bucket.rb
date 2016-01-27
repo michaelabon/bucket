@@ -26,6 +26,7 @@ module Bucket
       end
 
       if message_response
+        message_response.user_name = message.user_name
         postprocessors.each do |postprocessor|
           postprocessor.process(message_response)
         end
@@ -61,6 +62,7 @@ module Bucket
     def default_postprocessors
       [
         ::Bucket::Postprocessors::Inventory.new,
+        ::Bucket::Postprocessors::Who.new,
         ::Bucket::Postprocessors::PerformAction.new,
         ::Bucket::Postprocessors::HtmlEncode.new
       ]

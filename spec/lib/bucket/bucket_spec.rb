@@ -12,14 +12,16 @@ describe Bucket::Bucket do
   let(:preprocessors) { [] }
   let(:processors) { [] }
   let(:postprocessors) { [] }
-  let(:message) { double(:message) }
+  let(:message) { double(:message, user_name: 'Doctor Who') }
 
   describe '#process' do
     describe 'processor order matters' do
       let(:processors) { [processor1, processor2] }
       let(:processor1) { double(:processor1) }
       let(:processor2) { double(:processor2) }
-      let(:message_response) { double(:message_response, text: text) }
+      let(:message_response) do
+        double(:message_response, text: text, 'user_name=': nil)
+      end
 
       context 'first processor has a positive result' do
         let(:text) { 'alpha' }
@@ -43,11 +45,13 @@ describe Bucket::Bucket do
       end
 
       context 'first processor has a negative result' do
+        let(:text) { 'bravo' }
+
         before do
           allow(processor1).to receive(:process).with(message)
             .and_return(nil)
           allow(processor2).to receive(:process).with(message)
-            .and_return(double(text: 'bravo'))
+            .and_return(message_response)
         end
 
         it 'returns the second processor’s result' do
