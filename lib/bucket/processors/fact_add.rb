@@ -17,19 +17,6 @@ module Bucket
 
         MessageResponse.new(text: "OK, #{message.user_name}")
       end
-
-      private
-
-      def trigger
-        @trigger ||= Regexp.new(/
-          ^ (.*?)
-          \s+
-          (<(?:action|reply)>)
-          \s+
-          (.*?) $
-        /ix
-                               )
-      end
     end
   end
 end
