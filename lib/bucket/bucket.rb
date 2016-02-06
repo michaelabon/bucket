@@ -51,6 +51,7 @@ module Bucket
       [
         ::Bucket::Processors::SilenceObey.new,
         ::Bucket::Processors::SilenceActivate.new,
+        ::Bucket::Processors::SilenceDeactivate.new,
         ::Bucket::Processors::FactDelete.new,
         ::Bucket::Processors::InventoryList.new,
         ::Bucket::Processors::FactAdd.new,
