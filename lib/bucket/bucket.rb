@@ -49,8 +49,8 @@ module Bucket
 
     def default_processors
       [
-        ::Bucket::Processors::SilenceObey.new,
-        ::Bucket::Processors::SilenceActivate.new,
+        ::Bucket::Processors::SilenceObey.new(default_muzzle),
+        ::Bucket::Processors::SilenceActivate.new(default_muzzle),
         ::Bucket::Processors::SilenceDeactivate.new,
         ::Bucket::Processors::FactDelete.new,
         ::Bucket::Processors::InventoryList.new,
@@ -67,6 +67,10 @@ module Bucket
         ::Bucket::Postprocessors::PerformAction.new,
         ::Bucket::Postprocessors::HtmlEncode.new
       ]
+    end
+
+    def default_muzzle
+      @muzzle ||= Muzzle::Muzzle.new(clasp_repo: Rails.configuration.clasp_repo)
     end
   end
 end

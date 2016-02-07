@@ -9,8 +9,8 @@ module Muzzle
       clasp.enabled?
     end
 
-    def clasp(clasped_until: nil)
-      clasp = clasped_until ? LooseClasp.new(clasped_until) : Clasp.new
+    def clasp(falls_off_at: nil)
+      clasp = falls_off_at ? LooseClasp.new(falls_off_at) : Clasp.new
       @clasp_repo.save(clasp)
     end
 

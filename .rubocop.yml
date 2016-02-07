@@ -10,6 +10,7 @@ AllCops:
     - 'config/**/*'
     - 'script/**/*'
     - 'vendor/**/*'
+    - 'spec/lib/muzzle/clasp_repo_contract.rb'
   TargetRubyVersion: 2.3
 
 
