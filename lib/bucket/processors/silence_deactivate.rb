@@ -1,8 +1,6 @@
 module Bucket
   module Processors
-    class SilenceActivate
-      DEFAULT_SILENCE = 60.minutes
-
+    class SilenceDeactivate
       def initialize(muzzle)
         @muzzle = muzzle
       end
@@ -10,20 +8,22 @@ module Bucket
       def process(message)
         return unless triggered(message)
 
-        muzzle.clasp(falls_off_at: Time.zone.now + DEFAULT_SILENCE)
+        if @muzzle.clasped?
+          @muzzle.unclasp
+          response_text = "Thanks for inviting me back, #{message.user_name}!"
+        else
+          response_text = "But #{message.user_name}, I am already here."
+        end
 
-        response_text = "Okay, #{message.user_name}. Be back in a bit."
         MessageResponse.new(text: response_text)
       end
 
       private
 
-      attr_reader :muzzle
-
       def triggered(message)
         message.addressed? &&
           message.text.match(/
-            ^(?:go \s away|shut \s up)$
+            ^(?:unshut \s up|come \s back)$
           /ix)
       end
     end

@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 describe Bucket::Processors::SilenceObey do
-  let(:processor) { described_class.new }
+  let(:muzzle) { double(:muzzle) }
+  let(:processor) { described_class.new(muzzle) }
 
   describe '#process' do
     let(:message) do
@@ -12,9 +13,9 @@ describe Bucket::Processors::SilenceObey do
       create(:fact, trigger: 'alpha', result: 'bravo', verb: '<reply>')
     end
 
-    context 'when there is a current SilenceRequest' do
+    context 'when muzzled' do
       before do
-        create(:silence_request)
+        allow(muzzle).to receive(:clasped?).and_return(true)
       end
 
       it 'returns an empty MessageResponse to stop further processing' do
@@ -25,17 +26,10 @@ describe Bucket::Processors::SilenceObey do
       end
     end
 
-    context 'when there is an expired SilenceRequest' do
+    context 'when not muzzled' do
       before do
-        create(:silence_request, silence_until: 3.days.ago)
+        allow(muzzle).to receive(:clasped?).and_return(false)
       end
-
-      it 'returns nil to allow further processing' do
-        expect(processor.process(message)).to eq nil
-      end
-    end
-
-    context 'when there are no SilenceRequests' do
       it 'returns nil to allow further processing' do
         expect(processor.process(message)).to eq nil
       end

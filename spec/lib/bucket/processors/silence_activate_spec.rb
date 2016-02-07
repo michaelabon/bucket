@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 describe Bucket::Processors::SilenceActivate do
-  let(:processor) { described_class.new }
+  let(:muzzle) { double(:muzzle) }
+  let(:processor) { described_class.new(muzzle) }
 
   describe '#process' do
     let(:message) do
@@ -11,7 +12,11 @@ describe Bucket::Processors::SilenceActivate do
     context 'when addressed' do
       let(:addressed) { true }
 
-      shared_examples_for :a_correct_trigger do
+      before do
+        allow(muzzle).to receive(:clasp)
+      end
+
+      shared_examples_for :a_correct_trigger_when_silenced do
         it 'acknowledges the response' do
           message_response = processor.process(message)
 
@@ -22,21 +27,17 @@ describe Bucket::Processors::SilenceActivate do
           expect(processor.process(message)).to be_a MessageResponse
         end
 
-        it 'creates a SilenceRequest that expires in the future' do
-          expect { processor.process(message) }
-            .to change { SilenceRequest.count }.from(0).to(1)
-
-          silence_request = SilenceRequest.first
-          expect(silence_request.requester).to eq 'M2K'
-          expect(silence_request.silence_until).to be > Time.zone.now
+        it "temporarily clasps bucket's muzzle" do
+          processor.process(message)
+          expect(muzzle).to have_received(:clasp)
         end
       end
 
-      it_behaves_like :a_correct_trigger do
+      it_behaves_like :a_correct_trigger_when_silenced do
         let(:text) { 'go away' }
       end
 
-      it_behaves_like :a_correct_trigger do
+      it_behaves_like :a_correct_trigger_when_silenced do
         let(:text) { 'shut up' }
       end
 
@@ -52,11 +53,6 @@ describe Bucket::Processors::SilenceActivate do
     context 'when not addressed' do
       let(:addressed) { false }
       let(:text) { 'shut up' }
-
-      it 'does not create a SilenceRequest' do
-        expect { processor.process(message) }
-          .not_to change { SilenceRequest.count }
-      end
 
       it 'returns nil' do
         expect(processor.process(message)).to eq nil

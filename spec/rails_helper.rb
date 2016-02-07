@@ -21,4 +21,8 @@ RSpec.configure do |config|
   config.include Requests::JsonHelpers, type: :request
   config.include Requests::SlackPost, type: :request
   config.include Requests::SlackToken, type: :request
+
+  config.before(:example) do
+    Rails.configuration.clasp_repo.delete_all
+  end
 end
