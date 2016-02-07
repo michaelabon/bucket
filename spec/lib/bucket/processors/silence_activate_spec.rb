@@ -16,7 +16,7 @@ describe Bucket::Processors::SilenceActivate do
         allow(muzzle).to receive(:clasp)
       end
 
-      shared_examples_for :a_correct_trigger do
+      shared_examples_for :a_correct_trigger_when_silenced do
         it 'acknowledges the response' do
           message_response = processor.process(message)
 
@@ -33,11 +33,11 @@ describe Bucket::Processors::SilenceActivate do
         end
       end
 
-      it_behaves_like :a_correct_trigger do
+      it_behaves_like :a_correct_trigger_when_silenced do
         let(:text) { 'go away' }
       end
 
-      it_behaves_like :a_correct_trigger do
+      it_behaves_like :a_correct_trigger_when_silenced do
         let(:text) { 'shut up' }
       end
 
