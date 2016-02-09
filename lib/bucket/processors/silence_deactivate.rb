@@ -4,6 +4,11 @@ module Bucket
       def process(message)
         return unless triggered(message)
 
+        if SilenceRequest.request_active?
+          SilenceRequest.destroy_all
+          return MessageResponse.new(text: "I'm back, $who!")
+        end
+
         response_text = "But #{message.user_name}, I am already here."
         MessageResponse.new(text: response_text)
       end
