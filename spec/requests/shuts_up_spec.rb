@@ -26,6 +26,14 @@ describe 'Shutting up on command' do
       say_fact
       expect_bucket_to_respond
     end
+
+    it 'resumes normal behavior after being told to come back' do
+      slack_post text: 'Bucket: shut up'
+      slack_post text: 'Bucket: unshut up'
+
+      say_fact
+      expect_bucket_to_respond
+    end
   end
 end
 
