@@ -12,6 +12,19 @@ module Bucket
       @postprocessors = postprocessors
     end
 
+    # Public: Orchestrates the message processing.
+    #
+    # Only one processor will be able to respond to each message:
+    # A processor will either return a MessageResponse if it handles a message
+    # or it will return nil if it will defer to lower-priority processors.
+    # The processor is responsible for knowing if it can handle a message.
+    #
+    # Pre-processors will clean up the message.
+    # Post-processors will clean up the response.
+    # Every pre- and post-processor will be executed in order.
+    #
+    # Returns the message response String if the message deserves a response,
+    # or nil.
     def process(message)
       message_response = nil
 
