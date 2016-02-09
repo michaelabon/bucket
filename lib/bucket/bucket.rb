@@ -49,6 +49,7 @@ module Bucket
 
     def default_processors
       [
+        ::Bucket::Processors::SilenceDeactivate.new,
         ::Bucket::Processors::SilenceObey.new,
         ::Bucket::Processors::SilenceActivate.new,
         ::Bucket::Processors::FactDelete.new,
