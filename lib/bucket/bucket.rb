@@ -76,6 +76,7 @@ module Bucket
     def default_postprocessors
       [
         ::Bucket::Postprocessors::Inventory.new,
+        ::Bucket::Postprocessors::ReplaceItem.new,
         ::Bucket::Postprocessors::Who.new,
         ::Bucket::Postprocessors::PerformAction.new,
         ::Bucket::Postprocessors::HtmlEncode.new
