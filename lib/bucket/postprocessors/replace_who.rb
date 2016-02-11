@@ -1,6 +1,6 @@
 module Bucket
   module Postprocessors
-    class Who
+    class ReplaceWho
       def process(message_response)
         return unless message_response&.text && message_response&.user_name
 

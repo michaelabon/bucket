@@ -1,6 +1,6 @@
 module Bucket
   module Postprocessors
-    class Inventory
+    class ReplaceInventory
       def process(message_response)
         return unless message_response.try(:text)
 

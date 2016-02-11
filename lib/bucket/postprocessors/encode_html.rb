@@ -1,6 +1,6 @@
 module Bucket
   module Postprocessors
-    class HtmlEncode
+    class EncodeHtml
       def process(message_response)
         return if message_response&.text.blank?
 

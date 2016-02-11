@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Bucket::Postprocessors::HtmlEncode do
+describe Bucket::Postprocessors::EncodeHtml do
   let(:processor) { described_class.new }
 
   describe '#process' do

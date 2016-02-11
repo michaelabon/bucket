@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Bucket::Postprocessors::Inventory do
+describe Bucket::Postprocessors::ReplaceInventory do
   let(:processor) { described_class.new }
 
   describe '#process' do
