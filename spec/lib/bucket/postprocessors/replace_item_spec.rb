@@ -41,7 +41,63 @@ describe Bucket::Postprocessors::ReplaceItem do
       end
     end
 
-    context "message_response does not contain `$item'" do
+    context "message_response contains one or more instances of `$giveitem'" do
+      let(:text) { 'I have $giveitem and $giveitem' }
+
+      context "when there is a unique item for each `$giveitem'" do
+        it 'converts the message' do
+          create(:item, what: 'a thing')
+          create(:item, what: 'a book')
+
+          processor.process(message_response)
+
+          expect(message_response.text)
+            .to eq('I have a thing and a book')
+            .or eq('I have a book and a thing')
+        end
+
+        it 'removes the items from the inventory' do
+          create(:item, what: 'alpha')
+          create(:item, what: 'bravo')
+          create(:item, what: 'charlie')
+
+          expect { processor.process(message_response) }
+            .to change { Item.count }.by(-2)
+        end
+      end
+
+      context "when there are not enough unique items for each `$item'" do
+        before do
+          create(:item, what: 'a thing')
+        end
+
+        it "replaces the missing items with `bananas'" do
+          processor.process(message_response)
+
+          expect(message_response.text).to eq 'I have a thing and bananas'
+        end
+
+        it 'removes the items from the inventory' do
+          expect { processor.process(message_response) }
+            .to change { Item.count }.by(-1)
+        end
+      end
+
+      context 'when there are no items' do
+        it "replaces the missing items with `bananas'" do
+          processor.process(message_response)
+
+          expect(message_response.text).to eq 'I have bananas and bananas'
+        end
+
+        it 'does not remove the non-existent items from the inventory' do
+          expect { processor.process(message_response) }
+            .to_not change { Item.count }
+        end
+      end
+    end
+
+    context "message_response does not contain `$giveitem'" do
       let(:text) { 'missing trigger' }
 
       it 'does not convert the message' do

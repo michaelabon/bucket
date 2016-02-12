@@ -4,23 +4,31 @@ module Bucket
       def process(message_response)
         return if message_response.try(:text).blank?
 
-        while message_response.text.include?('$item')
-          message_response.text.sub!('$item', item)
+        while message_response.text.match(matching_regex)
+          message_response.text.sub!(matching_regex, item)
         end
       end
 
       private
 
       def item
-        items.shift || default_item
+        return default_item if items.empty?
+
+        new_item = items.shift
+        new_item.destroy
+        new_item.what
       end
 
       def items
-        @items ||= Item.order('RANDOM()').pluck(:what)
+        @items ||= Item.order('RANDOM()').to_a
       end
 
       def default_item
         'bananas'
+      end
+
+      def matching_regex
+        @matching_regex ||= /\$(give)?item/
       end
     end
   end
