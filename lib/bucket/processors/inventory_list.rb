@@ -5,7 +5,7 @@ module Bucket
         trigger = Helpers::CleanPunctuation.clean_punctuation(message.text)
 
         if message.addressed? && triggers.match(trigger)
-          return MessageResponse.new(text: response)
+          return MessageResponse.new(**response)
         end
 
         nil
@@ -28,11 +28,11 @@ module Bucket
 
       def response
         [
-          'I am carrying $inventory',
-          'I am holding $inventory',
-          'I have $inventory',
-          '/me is carrying $inventory',
-          '/contains $inventory'
+          { text: 'I am carrying $inventory', verb: '<reply>' },
+          { text: 'I am holding $inventory', verb: '<reply>' },
+          { text: 'I have $inventory', verb: '<reply>' },
+          { text: 'is carrying $inventory', verb: '<action>' },
+          { text: 'contains $inventory', verb: '<action>' }
         ].sample
       end
     end
