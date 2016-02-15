@@ -6,7 +6,7 @@ describe Bucket::Helpers::MakeList do
       let(:items) { [] }
 
       specify do
-        expect(described_class.make_list(items)).to eq '[none]'
+        expect(described_class.make_list(items)).to eq 'nothing'
       end
     end
 
