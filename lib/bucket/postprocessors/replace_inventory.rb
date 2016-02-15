@@ -13,6 +13,7 @@ module Bucket
 
       def inventory
         items = Item.order(:created_at).pluck(:what)
+
         Helpers::MakeList.make_list(items)
       end
     end

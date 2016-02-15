@@ -4,7 +4,7 @@ module Bucket
       def self.make_list(items)
         case items.count
         when 0
-          '[none]'
+          'nothing'
         when 1
           items[0]
         when 2
