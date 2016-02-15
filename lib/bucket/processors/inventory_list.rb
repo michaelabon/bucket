@@ -15,14 +15,18 @@ module Bucket
 
       def triggers
         /^(?:
-          inv|
-          inventory|
-          items|
-          list\sitems|
-          list\syour\sitems|
-          list\syour\sinventory|
-          what\sare\syou\scarrying|
-          what\sare\syou\sholding|
+          inv |
+          inventory |
+          items |
+          list \s inventory |
+          list \s items |
+          list \s your \s items |
+          list \s your \s inventory |
+          what \s are \s you \s carrying |
+          what \s are \s you \s holding |
+          what \s are \s your \s items |
+          what \s do \s you \s carry |
+          what \s do \s you \s have
         )$/ix
       end
 
@@ -31,8 +35,7 @@ module Bucket
           { text: 'I am carrying $inventory', verb: '<reply>' },
           { text: 'I am holding $inventory', verb: '<reply>' },
           { text: 'I have $inventory', verb: '<reply>' },
-          { text: 'is carrying $inventory', verb: '<action>' },
-          { text: 'contains $inventory', verb: '<action>' }
+          { text: 'is carrying $inventory', verb: '<action>' }
         ].sample
       end
     end

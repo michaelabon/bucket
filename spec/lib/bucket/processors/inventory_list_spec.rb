@@ -9,25 +9,65 @@ describe Bucket::Processors::InventoryList do
     context 'Bucket was addressed' do
       let(:addressed) { true }
 
+      shared_examples_for :a_valid_trigger do
+        it 'responds to text' do
+          message_response = processor.process(message)
+
+          expect(message_response).not_to be_nil
+          expect(message_response.text).to include '$inventory'
+          expect(message_response.verb)
+            .to eq('<reply>')
+            .or eq('<action>')
+        end
+      end
+
       context 'trigger is valid' do
-        [
-          'inv',
-          'inventory',
-          'items',
-          'list items',
-          'list inventory',
-          'list your items',
-          'list your inventory',
-          'what are you carrying',
-          'what are you holding'
-        ].each do |trigger|
-          let(:text) { trigger }
+        it_behaves_like :a_valid_trigger do
+          let(:text) { 'inventory' }
+        end
 
-          it "responds to “#{trigger}”" do
-            message_response = processor.process(message)
+        it_behaves_like :a_valid_trigger do
+          let(:text) { 'items' }
+        end
 
-            expect(message_response.text).to include '$inventory'
-          end
+        it_behaves_like :a_valid_trigger do
+          let(:text) { 'list items' }
+        end
+
+        it_behaves_like :a_valid_trigger do
+          let(:text) { 'list inventory' }
+        end
+
+        it_behaves_like :a_valid_trigger do
+          let(:text) { 'list your items' }
+        end
+
+        it_behaves_like :a_valid_trigger do
+          let(:text) { 'list your inventory' }
+        end
+
+        it_behaves_like :a_valid_trigger do
+          let(:text) { 'what are you carrying' }
+        end
+
+        it_behaves_like :a_valid_trigger do
+          let(:text) { 'what are you holding' }
+        end
+
+        it_behaves_like :a_valid_trigger do
+          let(:text) { 'inv' }
+        end
+
+        it_behaves_like :a_valid_trigger do
+          let(:text) { 'what are your items' }
+        end
+
+        it_behaves_like :a_valid_trigger do
+          let(:text) { 'what do you carry' }
+        end
+
+        it_behaves_like :a_valid_trigger do
+          let(:text) { 'what do you have' }
         end
       end
 
