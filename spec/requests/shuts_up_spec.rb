@@ -35,16 +35,16 @@ describe 'Shutting up on command' do
       expect_bucket_to_respond
     end
   end
-end
 
-def say_fact
-  slack_post text: 'alpha'
-end
+  def say_fact
+    slack_post text: 'alpha'
+  end
 
-def expect_bucket_to_respond
-  expect(text).to eq 'bravo'
-end
+  def expect_bucket_to_respond
+    expect(text).to eq 'bravo'
+  end
 
-def expect_silence
-  expect(response.body).to eq '{}'
+  def expect_silence
+    expect(response.body).to eq '{}'
+  end
 end
