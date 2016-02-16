@@ -21,7 +21,7 @@ describe Bucket::Processors::SilenceObey do
         message_response = processor.process(message)
 
         expect(message_response).to be_a MessageResponse
-        expect(message_response.text).to eq nil
+        expect(message_response.text).to eq ''
       end
     end
 
