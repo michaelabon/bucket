@@ -72,6 +72,9 @@ Style/Documentation:
 Style/DotPosition:
   Enabled: true
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 # Configuration parameters: MinBodyLength.
 Style/GuardClause:
   Enabled: true
