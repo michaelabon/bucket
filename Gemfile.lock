@@ -63,7 +63,6 @@ GEM
     diff-lcs (1.2.5)
     docile (1.1.5)
     erubis (2.7.0)
-    excon (0.47.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.6.0)
@@ -73,13 +72,6 @@ GEM
       activesupport (>= 4.1.0)
     haml (4.0.7)
       tilt
-    heroku-api (0.4.1)
-      excon (~> 0.45)
-      multi_json (~> 1.8)
-    heroku_san (4.3.2)
-      heroku-api (>= 0.1.2)
-      json
-      rake
     highline (1.7.8)
     httparty (0.13.7)
       json (~> 1.8)
@@ -94,7 +86,6 @@ GEM
     mime-types (2.99.1)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
-    multi_json (1.11.2)
     multi_xml (0.5.5)
     newrelic_rpm (3.15.0.314)
     nokogiri (1.6.7.2)
@@ -218,7 +209,6 @@ DEPENDENCIES
   coveralls
   database_cleaner
   factory_girl_rails
-  heroku_san
   httparty
   newrelic_rpm
   pg
