@@ -9,12 +9,11 @@ it is licensed under the [GPLv3][].
 [GPLv3]: http://www.gnu.org/copyleft/gpl.html
 
 
-# CI Status
-
 [![Build Status](https://travis-ci.org/mkenyon/bucket.svg?branch=master)](https://travis-ci.org/mkenyon/bucket)
 
+# Using Bucket
 
-# Installation
+## Installation
 
 1. Install ruby, using `.ruby-version`
 1. Install Postgres 9+ (I'm using 9.4.x right now)
@@ -25,7 +24,16 @@ it is licensed under the [GPLv3][].
 1. Run `rails s` to start the server.
 
 
-# Slack Setup
+## Deploying Bucket
+
+Bucket works great with [Pivotal Web Services][pws] or with [Heroku][heroku].
+You will want a database service, such as ElephantSQL.
+
+[pws]: https://run.pivotal.io
+[heroku]: https://heroku.com
+
+
+## Slack Setup
 
 Head to [Slack's API][api] page.
 
@@ -38,9 +46,24 @@ Set the environment variables required in the production section of
 [api]: https://api.slack.com/
 
 
-# Backlog
+# Contributing to Bucket
+
+## What to work on
 
 I have a public [Pivotal Tracker project][tracker] where you can see what I
-want to change with Bucket.
+want to change with Bucket. Do you have other ideas? Open up an Issue on
+GitHub! I'm happy to help you throughout ideation and development.
 
 [tracker]: https://www.pivotaltracker.com/n/projects/1165996
+
+
+## Testing your changes
+
+Run `rake` to test the specs with rspec, style with rubocop, and
+vulnerabilities with brakeman.
+
+Changes to Bucket require matching specs. You'll find high-level specs in
+`spec/requests` and individual unit specs in their corresponding directories.
+
+Want to try chatting with Bucket without needing to deploy or even setup Slack?
+Just run `rake bucket` and pretend it's IRC. Your username is _CLI_.
