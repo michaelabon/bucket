@@ -8,4 +8,5 @@ begin
   end
 
 rescue LoadError
+  nil
 end

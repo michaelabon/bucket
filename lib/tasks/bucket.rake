@@ -1,14 +1,14 @@
 namespace :bucket do
   task :cli do
-    puts "Opening local connection to #bucket... done."
-    puts "You are free to start chatting with Bucket."
+    puts 'Opening local connection to #bucket... done.'
+    puts 'You are free to start chatting with Bucket.'
 
     def bucket
       @bucket ||= Bucket::Bucket.new
     end
 
-    def get_input
-      print ">> "
+    def read_input
+      print '>> '
       $stdin.gets.chomp
     end
 
@@ -31,10 +31,10 @@ namespace :bucket do
       input == 'exit' || input == 'quit'
     end
 
-    while true
-      output_response(process_input(get_input))
+    loop do
+      output_response(process_input(read_input))
     end
   end
 end
 
-task :bucket => 'bucket:cli'
+task bucket: 'bucket:cli'

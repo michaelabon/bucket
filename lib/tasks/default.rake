@@ -1,5 +1,7 @@
-task(:default).clear.enhance(%w[
-  brakeman:run
-  spec
-  rubocop
-])
+task(:default).clear.enhance(
+  %w(
+    brakeman:run
+    spec
+    rubocop
+  )
+)
