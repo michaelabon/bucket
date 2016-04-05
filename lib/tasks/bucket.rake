@@ -1,23 +1,38 @@
 namespace :bucket do
   task :cli do
-    last_input = ''
-
     puts "Opening local connection to #bucket... done."
     puts "You are free to start chatting with Bucket."
 
-    bucket = Bucket::Bucket.new
+    def bucket
+      @bucket ||= Bucket::Bucket.new
+    end
 
-    while last_input != 'exit' && last_input != 'quit'
+    def get_input
       print ">> "
-      last_input = $stdin.gets.chomp
+      $stdin.gets.chomp
+    end
+
+    def process_input(input)
+      exit if exit?(input)
 
       message = Message.new(
         user_name: 'CLI',
-        text: last_input
+        text: input
       )
 
-      message_response = bucket.process(message)
+      bucket.process(message)
+    end
+
+    def output_response(message_response)
       puts "<< #{message_response}".yellow if message_response.present?
+    end
+
+    def exit?(input)
+      input == 'exit' || input == 'quit'
+    end
+
+    while true
+      output_response(process_input(get_input))
     end
   end
 end
