@@ -11,6 +11,7 @@ it is licensed under the [GPLv3][].
 
 [![Build Status](https://travis-ci.org/mkenyon/bucket.svg?branch=master)](https://travis-ci.org/mkenyon/bucket)
 
+
 # Using Bucket
 
 ## Installation
@@ -38,7 +39,8 @@ You will want a database service, such as ElephantSQL.
 Head to [Slack's API][api] page.
 
 You will need an Outgoing Webhook. You will want a URL on which Bucket will
-listen, something like `http://bucket.cfapps.io/messages`.
+listen, something like `http://bucket.cfapps.io/messages`. The route will need
+to be `/messages`.
 
 Set the environment variables required in the production section of
 `config/secrets.yml`. These will be given to you by Slack.
