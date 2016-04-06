@@ -71,7 +71,8 @@ module Bucket
         ::Bucket::Processors::FactAdd.new,
         ::Bucket::Processors::FactLookup.new,
         ::Bucket::Processors::InventoryAdd.new,
-        ::Bucket::Processors::MoveAssHyphens.new
+        ::Bucket::Processors::MoveAssHyphens.new,
+        ::Bucket::Processors::ReverseTheFucking.new
       ]
     end
 
