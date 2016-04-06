@@ -2,7 +2,7 @@ module Bucket
   module Processors
     class ReverseTheFucking
       def process(message)
-        return nil unless message.text.scan(regexp).count == 1
+        return nil unless triggered?(message)
 
         if message.text.match regexp
           MessageResponse.new(
@@ -12,6 +12,10 @@ module Bucket
       end
 
       private
+
+      def triggered?(message)
+        message.text.scan(regexp).count == 1
+      end
 
       def regexp
         @regexp ||= /the fucking/
