@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 describe Bucket::Processors::FactAdd do
   let(:processor) { described_class.new }

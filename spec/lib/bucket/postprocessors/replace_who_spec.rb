@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 describe Bucket::Postprocessors::ReplaceWho do
   let(:postprocessor) { described_class.new }
