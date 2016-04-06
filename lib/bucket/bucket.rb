@@ -32,20 +32,17 @@ module Bucket
         preprocessor.process(message)
       end
 
-      processors.each do |processor|
+      processors.detect do |processor|
         message_response = processor.process(message)
+      end
+      return unless message_response
 
-        break message_response if message_response
+      message_response.user_name = message.user_name
+      postprocessors.each do |postprocessor|
+        postprocessor.process(message_response)
       end
 
-      if message_response
-        message_response.user_name = message.user_name
-        postprocessors.each do |postprocessor|
-          postprocessor.process(message_response)
-        end
-      end
-
-      message_response.try(:text)
+      message_response.text
     end
 
     private
