@@ -24,8 +24,7 @@ module Bucket
           ,\s+        # If the line ends with a comma, then whitespace
           Bucket      # then the bots nickname
           \W*$        # then the end of the line
-          /ix
-                                       )
+          /ix)
       end
     end
   end

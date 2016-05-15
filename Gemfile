@@ -20,7 +20,7 @@ group :development, :test do
   gem 'brakeman', require: false
   gem 'colored', require: false
   gem 'pry-byebug'
-  gem 'rubocop', '~> 0.39.0', require: false
+  gem 'rubocop', require: false
 end
 
 group :test do
