@@ -40,7 +40,7 @@ GEM
     ast (2.3.0)
     brakeman (3.3.1)
     builder (3.2.2)
-    byebug (9.0.2)
+    byebug (9.0.5)
     coderay (1.1.1)
     colored (1.2)
     concurrent-ruby (1.0.2)
