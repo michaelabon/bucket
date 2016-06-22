@@ -77,6 +77,7 @@ module Bucket
       [
         ::Bucket::Postprocessors::ReplaceInventory.new,
         ::Bucket::Postprocessors::ReplaceItem.new,
+        ::Bucket::Postprocessors::ReplaceNoun.new,
         ::Bucket::Postprocessors::ReplaceWho.new,
         ::Bucket::Postprocessors::PerformAction.new,
         ::Bucket::Postprocessors::EncodeHtml.new

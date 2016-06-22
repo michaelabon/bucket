@@ -1,4 +1,5 @@
 namespace :bucket do
+  desc 'Run Bucket as a fake CLI'
   task :cli do
     puts 'Opening local connection to #bucket... done.'
     puts 'You are free to start chatting with Bucket.'
