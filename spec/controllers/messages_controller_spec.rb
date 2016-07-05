@@ -11,16 +11,19 @@ describe MessagesController do
     end
 
     it 'permits only text, user_name, and token' do
-      post :receive,
-           token: '123',
-           text: 'alpha',
-           user_name: 'M2K',
-           extra: 'param'
-
-      expect(Message).to have_received(:new).with(
+      post :receive, params: {
         token: '123',
         text: 'alpha',
-        user_name: 'M2K'
+        user_name: 'M2K',
+        extra: 'param'
+      }
+
+      expect(Message).to have_received(:new).with(
+        ActionController::Parameters.new(
+          token: '123',
+          text: 'alpha',
+          user_name: 'M2K'
+        ).permit!
       )
     end
 
@@ -44,7 +47,7 @@ describe MessagesController do
         end
 
         it 'responds with Bucket’s response' do
-          post :receive, text: 'alpha'
+          post :receive, params: { text: 'alpha' }
 
           expect(JSON.parse(response.body)['text']).to eq 'bravo'
         end
@@ -60,7 +63,7 @@ describe MessagesController do
         end
 
         it 'responds with nothing' do
-          post :receive, text: 'doesn’t match!'
+          post :receive, params: { text: 'doesn’t match!' }
 
           expect(response.body).to eq '{}'
         end
@@ -71,7 +74,7 @@ describe MessagesController do
       let(:valid) { false }
 
       it 'responds with 400' do
-        post :receive, text: 'alpha'
+        post :receive, params: { text: 'alpha' }
 
         expect(response.status).to eq 400
       end

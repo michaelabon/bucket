@@ -9,7 +9,7 @@ class Message
   }
 
   def initialize(options = {})
-    options = options.with_indifferent_access
+    options = options
 
     @token = options[:token]
     @team_id = options[:team_id]

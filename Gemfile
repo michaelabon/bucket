@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.3.1'
-gem 'rails'
+gem 'rails', '~> 5.0'
 gem 'pg'
 
 gem 'httparty'

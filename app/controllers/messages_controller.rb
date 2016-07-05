@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   def receive
     message = Message.new(receive_params(params))
 
-    return render nothing: true, status: :bad_request unless message.valid?
+    return head :bad_request unless message.valid?
 
     bucket = Bucket::Bucket.new
     message_response = bucket.process(message)
