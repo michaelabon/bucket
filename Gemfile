@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
 ruby '2.3.1'
-gem 'rails', '~> 5.0'
-gem 'pg'
+gem 'rails', '~> 5.0.0'
+gem 'pg', '~> 0.18'
+gem 'puma', '~> 3.0'
 
 gem 'httparty'
 gem 'newrelic_rpm'
@@ -12,14 +13,16 @@ group :production do
 end
 
 group :development do
+  gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :development, :test do
   gem 'brakeman', require: false
   gem 'colored', require: false
-  gem 'pry-byebug'
+  gem 'pry-byebug', platform: :mri
   gem 'rubocop', require: false
 end
 
