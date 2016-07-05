@@ -1,4 +1,4 @@
-class SilenceRequest < ActiveRecord::Base
+class SilenceRequest < ApplicationRecord
   validates :requester, presence: true
   validates :silence_until, presence: true
 
