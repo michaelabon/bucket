@@ -1,12 +1,10 @@
 class MessagesController < ApplicationController
-  skip_before_action :verify_authenticity_token
-
   def receive
     message = Message.new(receive_params(params))
 
     return head :bad_request unless message.valid?
 
-    bucket = Bucket::Bucket.new
+    bucket = ::Bucket::Bucket.new
     message_response = bucket.process(message)
 
     if message_response.present?

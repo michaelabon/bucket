@@ -1,15 +1,35 @@
-require File.expand_path('../boot', __FILE__)
+require_relative 'boot'
 
-require 'rails/all'
+require "rails"
+# Pick the frameworks you want:
+require "action_controller/railtie"
+require "action_view/railtie"
+require "active_model/railtie"
+require "active_record/railtie"
+# require "action_cable/engine"
+# require "action_mailer/railtie"
+# require "active_job/railtie"
+# require "rails/test_unit/railtie"
+# require "sprockets/railtie"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module BucketApp
+module BucketApi
   class Application < Rails::Application
-    Rails.application.configure do
-      config.autoload_paths << Rails.root.join('lib')
-    end
+    # Settings in config/environments/* take precedence over those specified here.
+    # Application configuration should go into files in config/initializers
+    # -- all .rb files in that directory are automatically loaded.
+
+    # Only loads a smaller set of middleware suitable for API only apps.
+    # Middleware like session, flash, cookies can be added back manually.
+    # Skip views, helpers and assets when generating a new resource.
+    config.api_only = true
+
+    config.enable_dependency_loading = true
+    config.autoload_paths << Rails.root.join('lib', 'bucket')
   end
 end
+
+
