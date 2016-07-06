@@ -4,6 +4,7 @@ AllCops:
   Include:
     - '**/Rakefile'
     - '**/config.ru'
+    - 'bucket/**/*'
     - 'lib/tasks/**/*.rake'
   Exclude:
     - 'bin/**/*'

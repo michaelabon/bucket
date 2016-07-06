@@ -28,7 +28,7 @@ module BucketApi
     config.api_only = true
 
     config.enable_dependency_loading = true
-    config.autoload_paths << Rails.root.join('lib', 'bucket')
+    config.autoload_paths << Rails.root.join('bucket')
   end
 end
 
