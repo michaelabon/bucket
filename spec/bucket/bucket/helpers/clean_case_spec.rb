@@ -11,7 +11,7 @@ describe Bucket::Helpers::CleanCase do
 
     it 'works outside ASCII' do
       input = 'VĚDA A VÝZKUM'
-      output = "věda a výzkum"
+      output = 'věda a výzkum'
 
       expect(described_class.clean_case(input)).to eq output
     end

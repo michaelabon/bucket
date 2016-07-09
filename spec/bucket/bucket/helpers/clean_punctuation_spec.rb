@@ -15,19 +15,19 @@ describe Bucket::Helpers::CleanPunctuation do
     end
 
     it 'removes LEFT SINGLE QUOTATION MARKS' do
-      expect(described_class.clean_punctuation("‘ab")).to eq 'ab'
+      expect(described_class.clean_punctuation('‘ab')).to eq 'ab'
     end
 
     it 'removes RIGHT SINGLE QUOTATION MARKS' do
-      expect(described_class.clean_punctuation("ab’")).to eq 'ab'
+      expect(described_class.clean_punctuation('ab’')).to eq 'ab'
     end
 
     it 'removes LEFT DOUBLE QUOTATION MARKS' do
-      expect(described_class.clean_punctuation("“ab")).to eq 'ab'
+      expect(described_class.clean_punctuation('“ab')).to eq 'ab'
     end
 
     it 'removes RIGHT SINGLE QUOTATION MARKS' do
-      expect(described_class.clean_punctuation("ab”")).to eq 'ab'
+      expect(described_class.clean_punctuation('ab”')).to eq 'ab'
     end
 
     it 'removes parentheses' do
