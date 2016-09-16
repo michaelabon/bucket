@@ -7,6 +7,6 @@ namespace :cf do
       rescue
         nil
       end
-    exit(0) unless instance_index == 0
+    exit(0) unless instance_index.zero?
   end
 end
