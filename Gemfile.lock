@@ -212,7 +212,7 @@ DEPENDENCIES
   rake
   rspec-expectations
   rspec-rails
-  rubocop
+  rubocop (~> 0.42.0)
   shoulda-matchers
   spring
   spring-commands-rspec

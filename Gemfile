@@ -23,7 +23,7 @@ group :development, :test do
   gem 'brakeman', require: false
   gem 'colored', require: false
   gem 'pry-byebug', platform: :mri
-  gem 'rubocop', require: false
+  gem 'rubocop', '~> 0.42.0', require: false
 end
 
 group :test do
