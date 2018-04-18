@@ -43,7 +43,7 @@ describe MessagesController do
         it 'responds with 200 OK' do
           post :receive
 
-          expect(response).to be_success
+          expect(response).to be_successful
         end
 
         it 'responds with Bucket’s response' do
@@ -59,7 +59,7 @@ describe MessagesController do
         it 'responds with 200 OK' do
           post :receive
 
-          expect(response).to be_success
+          expect(response).to be_successful
         end
 
         it 'responds with nothing' do
