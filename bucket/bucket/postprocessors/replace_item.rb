@@ -20,7 +20,7 @@ module Bucket
       end
 
       def items
-        @items ||= Item.order('RANDOM()').to_a
+        @items ||= Item.order(Arel.sql('RANDOM()')).to_a
       end
 
       def default_item
