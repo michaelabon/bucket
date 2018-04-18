@@ -69,7 +69,7 @@ GEM
     ffi (1.9.18)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    httparty (0.15.5)
+    httparty (0.16.2)
       multi_xml (>= 0.5.2)
     i18n (1.0.0)
       concurrent-ruby (~> 1.0)
