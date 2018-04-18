@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :silence_request do
     requester 'User Name'
     silence_until { Time.zone.now + 30.minutes }
