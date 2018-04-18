@@ -96,7 +96,7 @@ GEM
       mini_portile2 (~> 2.3.0)
     parser (2.4.0.0)
       ast (~> 2.2)
-    pg (0.21.0)
+    pg (1.0.0)
     powerpack (0.1.1)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -212,7 +212,7 @@ DEPENDENCIES
   httparty
   listen (~> 3.0.5)
   newrelic_rpm
-  pg (~> 0.18)
+  pg (~> 1.0)
   pry-byebug
   puma (~> 3.0)
   rails
