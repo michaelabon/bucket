@@ -74,9 +74,10 @@ GEM
     i18n (1.0.0)
       concurrent-ruby (~> 1.0)
     json (2.1.0)
-    listen (3.0.8)
+    listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
+      ruby_dep (~> 1.2)
     loofah (2.2.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -170,6 +171,7 @@ GEM
     rubocop-rspec (1.15.1)
       rubocop (>= 0.42.0)
     ruby-progressbar (1.9.0)
+    ruby_dep (1.5.0)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
     simplecov (0.14.1)
@@ -213,7 +215,7 @@ DEPENDENCIES
   database_cleaner
   factory_bot_rails
   httparty
-  listen (~> 3.0.5)
+  listen
   newrelic_rpm
   pg (~> 1.0)
   pry-byebug
