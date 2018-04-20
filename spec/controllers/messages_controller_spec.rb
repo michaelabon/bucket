@@ -27,17 +27,17 @@ describe MessagesController do
       )
     end
 
-    context 'message is valid' do
+    context 'when the message is valid' do
       let(:valid) { true }
       let(:message_response) { 'bravo' }
 
       before do
         allow(Bucket::Bucket).to receive(:new) { bucket }
         allow(bucket).to receive(:process).with(message)
-          .and_return(message_response)
+                                          .and_return(message_response)
       end
 
-      context 'Bucket has a response' do
+      context 'when Bucket has a response' do
         let(:message_response) { 'bravo' }
 
         it 'responds with 200 OK' do
@@ -53,7 +53,7 @@ describe MessagesController do
         end
       end
 
-      context 'Bucket has no response' do
+      context 'when Bucket has no response' do
         let(:message_response) { nil }
 
         it 'responds with 200 OK' do
@@ -70,7 +70,7 @@ describe MessagesController do
       end
     end
 
-    context 'message is invalid' do
+    context 'when the message is invalid' do
       let(:valid) { false }
 
       it 'responds with 400' do

@@ -6,10 +6,10 @@ describe Bucket::Processors::InventoryList do
   describe '#process' do
     let(:message) { Message.new(text: text, addressed: addressed) }
 
-    context 'Bucket was addressed' do
+    context 'when Bucket was addressed' do
       let(:addressed) { true }
 
-      shared_examples_for :a_valid_trigger do
+      shared_examples_for 'a valid trigger' do
         it 'responds to text' do
           message_response = processor.process(message)
 
@@ -21,57 +21,57 @@ describe Bucket::Processors::InventoryList do
         end
       end
 
-      context 'trigger is valid' do
-        it_behaves_like :a_valid_trigger do
+      context 'when the trigger is valid' do
+        it_behaves_like 'a valid trigger' do
           let(:text) { 'inventory' }
         end
 
-        it_behaves_like :a_valid_trigger do
+        it_behaves_like 'a valid trigger' do
           let(:text) { 'items' }
         end
 
-        it_behaves_like :a_valid_trigger do
+        it_behaves_like 'a valid trigger' do
           let(:text) { 'list items' }
         end
 
-        it_behaves_like :a_valid_trigger do
+        it_behaves_like 'a valid trigger' do
           let(:text) { 'list inventory' }
         end
 
-        it_behaves_like :a_valid_trigger do
+        it_behaves_like 'a valid trigger' do
           let(:text) { 'list your items' }
         end
 
-        it_behaves_like :a_valid_trigger do
+        it_behaves_like 'a valid trigger' do
           let(:text) { 'list your inventory' }
         end
 
-        it_behaves_like :a_valid_trigger do
+        it_behaves_like 'a valid trigger' do
           let(:text) { 'what are you carrying' }
         end
 
-        it_behaves_like :a_valid_trigger do
+        it_behaves_like 'a valid trigger' do
           let(:text) { 'what are you holding' }
         end
 
-        it_behaves_like :a_valid_trigger do
+        it_behaves_like 'a valid trigger' do
           let(:text) { 'inv' }
         end
 
-        it_behaves_like :a_valid_trigger do
+        it_behaves_like 'a valid trigger' do
           let(:text) { 'what are your items' }
         end
 
-        it_behaves_like :a_valid_trigger do
+        it_behaves_like 'a valid trigger' do
           let(:text) { 'what do you carry' }
         end
 
-        it_behaves_like :a_valid_trigger do
+        it_behaves_like 'a valid trigger' do
           let(:text) { 'what do you have' }
         end
       end
 
-      context 'trigger is invalid' do
+      context 'when the trigger is invalid' do
         let(:text) { 'Non-trigger' }
 
         it 'does not respond' do
@@ -82,7 +82,7 @@ describe Bucket::Processors::InventoryList do
       end
     end
 
-    context 'Bucket was not addressed' do
+    context 'when Bucket was not addressed' do
       let(:addressed) { false }
       let(:text) { 'inv' }
 

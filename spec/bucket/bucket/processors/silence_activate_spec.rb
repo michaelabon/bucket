@@ -11,7 +11,7 @@ describe Bucket::Processors::SilenceActivate do
     context 'when addressed' do
       let(:addressed) { true }
 
-      shared_examples_for :a_correct_trigger do
+      shared_examples_for 'a correct trigger' do
         it 'acknowledges the response' do
           message_response = processor.process(message)
 
@@ -24,7 +24,7 @@ describe Bucket::Processors::SilenceActivate do
 
         it 'creates a SilenceRequest that expires in the future' do
           expect { processor.process(message) }
-            .to change { SilenceRequest.count }.from(0).to(1)
+            .to change(SilenceRequest, :count).from(0).to(1)
 
           silence_request = SilenceRequest.first
           expect(silence_request.requester).to eq 'M2K'
@@ -32,11 +32,11 @@ describe Bucket::Processors::SilenceActivate do
         end
       end
 
-      it_behaves_like :a_correct_trigger do
+      it_behaves_like 'a correct trigger' do
         let(:text) { 'go away' }
       end
 
-      it_behaves_like :a_correct_trigger do
+      it_behaves_like 'a correct trigger' do
         let(:text) { 'shut up' }
       end
 
@@ -55,7 +55,7 @@ describe Bucket::Processors::SilenceActivate do
 
       it 'does not create a SilenceRequest' do
         expect { processor.process(message) }
-          .not_to change { SilenceRequest.count }
+          .not_to change(SilenceRequest, :count)
       end
 
       it 'returns nil' do

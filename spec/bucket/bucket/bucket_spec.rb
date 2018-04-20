@@ -23,12 +23,12 @@ describe Bucket::Bucket do
         double(:message_response, text: text, 'user_name=': nil)
       end
 
-      context 'first processor has a positive result' do
+      context 'when the first processor has a positive result' do
         let(:text) { 'alpha' }
 
         before do
           allow(processor1).to receive(:process).with(message)
-            .and_return(message_response)
+                                                .and_return(message_response)
         end
 
         it 'returns the first processor’s result' do
@@ -44,14 +44,14 @@ describe Bucket::Bucket do
         end
       end
 
-      context 'first processor has a negative result' do
+      context 'when the first processor has a negative result' do
         let(:text) { 'bravo' }
 
         before do
           allow(processor1).to receive(:process).with(message)
-            .and_return(nil)
+                                                .and_return(nil)
           allow(processor2).to receive(:process).with(message)
-            .and_return(message_response)
+                                                .and_return(message_response)
         end
 
         it 'returns the second processor’s result' do

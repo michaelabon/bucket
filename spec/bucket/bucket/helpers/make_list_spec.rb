@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Bucket::Helpers::MakeList do
   describe '#make_list' do
-    context '0 items' do
+    context 'when there are 0 items' do
       let(:items) { [] }
 
       specify do
@@ -10,7 +10,7 @@ describe Bucket::Helpers::MakeList do
       end
     end
 
-    context '1 item' do
+    context 'when there is 1 item' do
       let(:items) { ['a'] }
 
       specify do
@@ -18,24 +18,24 @@ describe Bucket::Helpers::MakeList do
       end
     end
 
-    context '2 items' do
-      let(:items) { %w(a b) }
+    context 'when there are 2 items' do
+      let(:items) { %w[a b] }
 
       specify do
         expect(described_class.make_list(items)).to eq 'a and b'
       end
     end
 
-    context '3 items' do
-      let(:items) { %w(a b c) }
+    context 'when there are 3 items' do
+      let(:items) { %w[a b c] }
 
       specify do
         expect(described_class.make_list(items)).to eq 'a, b, and c'
       end
     end
 
-    context 'more items' do
-      let(:items) { %w(a b c d e) }
+    context 'when there are more items' do
+      let(:items) { %w[a b c d e] }
 
       specify do
         expect(described_class.make_list(items)).to eq 'a, b, c, d, and e'

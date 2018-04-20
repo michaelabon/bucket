@@ -8,8 +8,8 @@ describe Bucket::Preprocessors::AddressedToBucket do
   describe '#process' do
     let(:message) { Message.new(text: text) }
 
-    context 'Bucket was addressed' do
-      shared_examples_for :an_addressed_message do
+    context 'when Bucket was addressed' do
+      shared_examples_for 'an addressed message' do
         it 'sets message’s addressed to true' do
           processor.process(message)
 
@@ -23,32 +23,32 @@ describe Bucket::Preprocessors::AddressedToBucket do
         end
       end
 
-      context 'starts with "Bucket, "' do
-        it_behaves_like :an_addressed_message do
+      context 'and it starts with "Bucket, "' do
+        it_behaves_like 'an addressed message' do
           let(:text) { 'Bucket,   "X" is "Y"' }
         end
       end
 
-      context 'starts with "Bucket: "' do
-        it_behaves_like :an_addressed_message do
+      context 'and it starts with "Bucket: "' do
+        it_behaves_like 'an addressed message' do
           let(:text) { 'Bucket:   "X" is "Y"' }
         end
       end
 
-      context 'starts with "@Bucket "' do
-        it_behaves_like :an_addressed_message do
+      context 'and it starts with "@Bucket "' do
+        it_behaves_like 'an addressed message' do
           let(:text) { '@Bucket   "X" is "Y"' }
         end
       end
 
-      context 'ends with ", Bucket"' do
-        it_behaves_like :an_addressed_message do
+      context 'and it ends with ", Bucket"' do
+        it_behaves_like 'an addressed message' do
           let(:text) { '"X" is "Y", Bucket' }
         end
       end
     end
 
-    shared_examples_for :an_unaddressed_message do
+    shared_examples_for 'an unaddressed message' do
       it 'sets message’s addressed to false' do
         processor.process(message)
 
@@ -63,13 +63,13 @@ describe Bucket::Preprocessors::AddressedToBucket do
     end
 
     context 'when the address appears in the wrong spot' do
-      it_behaves_like :an_unaddressed_message do
+      it_behaves_like 'an unaddressed message' do
         let(:text) { 'I said, Bucket: Learning is fun' }
       end
     end
 
-    context 'Bucket was not addressed' do
-      it_behaves_like :an_unaddressed_message do
+    context 'when Bucket was not addressed' do
+      it_behaves_like 'an unaddressed message' do
         let(:text) { 'Chump: "X" is "Y"' }
       end
     end

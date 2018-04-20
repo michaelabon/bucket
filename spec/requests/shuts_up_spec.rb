@@ -5,16 +5,20 @@ describe 'Shutting up on command' do
     create(:fact, trigger: 'alpha', result: 'bravo', verb: '<reply>')
   end
 
-  it 'shuts up on command' do
-    say_fact
-    expect_bucket_to_respond
+  describe 'Shutting up' do
+    before do
+      say_fact
+      expect_bucket_to_respond
+    end
 
-    slack_post text: 'Bucket: shut up'
+    it 'shuts up on command' do
+      slack_post text: 'Bucket: shut up'
 
-    expect(text).to eq 'Okay, M2K. Be back in a bit.'
+      expect(text).to eq 'Okay, M2K. Be back in a bit.'
 
-    say_fact
-    expect_silence
+      say_fact
+      expect_silence
+    end
   end
 
   describe 'Unshutting up' do

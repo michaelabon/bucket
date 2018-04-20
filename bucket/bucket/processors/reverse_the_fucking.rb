@@ -4,7 +4,7 @@ module Bucket
       def process(message)
         return nil unless triggered?(message)
 
-        if message.text.match regexp
+        if message.text.match? regexp
           MessageResponse.new(
             text: message.text.sub(regexp, 'fucking the')
           )

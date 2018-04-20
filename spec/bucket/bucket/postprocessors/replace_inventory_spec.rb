@@ -16,7 +16,7 @@ describe Bucket::Postprocessors::ReplaceInventory do
         .with(items) { item_list }
     end
 
-    context 'message_response contains $inventory' do
+    context 'when message_response contains $inventory' do
       let(:text) { 'I have $inventory' }
 
       it 'converts the message' do
@@ -26,7 +26,7 @@ describe Bucket::Postprocessors::ReplaceInventory do
       end
     end
 
-    context 'message_response does not contain $inventory' do
+    context 'when message_response does not contain $inventory' do
       let(:text) { 'non-trigger' }
 
       it 'does not convert the message' do
@@ -36,7 +36,7 @@ describe Bucket::Postprocessors::ReplaceInventory do
       end
     end
 
-    context 'message_response is empty' do
+    context 'when message_response is empty' do
       let(:message_response) { nil }
 
       it 'still works' do

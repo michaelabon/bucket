@@ -6,7 +6,7 @@ describe Bucket::Postprocessors::ReplaceItem do
   describe '#process' do
     let(:message_response) { MessageResponse.new(text: text) }
 
-    context "message_response contains one or more instances of `$item'" do
+    context "when message_response contains one or more instances of `$item'" do
       let(:text) { 'I have $item and $item' }
 
       context "when there is a unique item for each `$item'" do
@@ -41,7 +41,7 @@ describe Bucket::Postprocessors::ReplaceItem do
       end
     end
 
-    context "message_response contains one or more instances of `$giveitem'" do
+    context "when message_response contains at least one `$giveitem'" do
       let(:text) { 'I have $giveitem and $giveitem' }
 
       context "when there is a unique item for each `$giveitem'" do
@@ -62,7 +62,7 @@ describe Bucket::Postprocessors::ReplaceItem do
           create(:item, what: 'charlie')
 
           expect { processor.process(message_response) }
-            .to change { Item.count }.by(-2)
+            .to change(Item, :count).by(-2)
         end
       end
 
@@ -79,7 +79,7 @@ describe Bucket::Postprocessors::ReplaceItem do
 
         it 'removes the items from the inventory' do
           expect { processor.process(message_response) }
-            .to change { Item.count }.by(-1)
+            .to change(Item, :count).by(-1)
         end
       end
 
@@ -92,12 +92,12 @@ describe Bucket::Postprocessors::ReplaceItem do
 
         it 'does not remove the non-existent items from the inventory' do
           expect { processor.process(message_response) }
-            .to_not change { Item.count }
+            .not_to change(Item, :count)
         end
       end
     end
 
-    context "message_response does not contain `$giveitem'" do
+    context "when message_response does not contain `$giveitem'" do
       let(:text) { 'missing trigger' }
 
       it 'does not convert the message' do
@@ -109,7 +109,7 @@ describe Bucket::Postprocessors::ReplaceItem do
       end
     end
 
-    context 'message_response is empty' do
+    context 'when message_response is empty' do
       let(:message_response) { nil }
 
       it 'still works' do

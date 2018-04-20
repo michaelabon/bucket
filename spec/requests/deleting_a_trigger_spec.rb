@@ -8,7 +8,7 @@ describe 'Deleting a trigger' do
     create(:fact, trigger: trigger, result: 'bravo two')
   end
 
-  context 'Bucket is addressed' do
+  context 'when Bucket is addressed' do
     it 'deletes all facts with the trigger' do
       expect(Fact.count).to eq 2
       slack_post text: "Bucket: #{trigger}"
@@ -23,7 +23,7 @@ describe 'Deleting a trigger' do
     end
   end
 
-  context 'Bucket is not addressed' do
+  context 'when Bucket is not addressed' do
     it 'does not delete anything' do
       slack_post text: "delete #{trigger}"
 

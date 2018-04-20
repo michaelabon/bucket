@@ -4,7 +4,7 @@ namespace :cf do
     instance_index =
       begin
         JSON.parse(ENV['VCAP_APPLICATION'])['instance_index']
-      rescue
+      rescue StandardError
         nil
       end
     exit(0) unless instance_index.zero?

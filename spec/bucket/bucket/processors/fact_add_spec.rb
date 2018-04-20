@@ -13,7 +13,7 @@ describe Bucket::Processors::FactAdd do
     end
     let(:text) { 'X <action> Y' }
 
-    context 'Bucket was addressed by the speaker' do
+    context 'when Bucket was addressed by the speaker' do
       let(:addressed) { true }
 
       it 'acknowledges the speaker’s command' do
@@ -23,7 +23,7 @@ describe Bucket::Processors::FactAdd do
       end
 
       describe 'de-duplicates facts' do
-        context 'the fact was new' do
+        context 'when the fact was new' do
           it 'adds the fact' do
             processor.process(message)
 
@@ -33,19 +33,19 @@ describe Bucket::Processors::FactAdd do
           end
         end
 
-        context 'the fact was old' do
+        context 'when the fact was old' do
           before do
             create(:fact, trigger: 'x', result: 'Y', verb: '<action>')
           end
 
           it 'does not duplicate the fact' do
-            expect { processor.process(message) }.not_to change { Fact.count }
+            expect { processor.process(message) }.not_to change(Fact, :count)
           end
         end
       end
 
       describe 'verb types' do
-        context 'the fact uses `is`' do
+        context 'when the fact uses `is`' do
           let(:text) { 'alpha is bravo' }
 
           it 'adds the fact' do
@@ -57,7 +57,7 @@ describe Bucket::Processors::FactAdd do
           end
         end
 
-        context 'the fact uses `are`' do
+        context 'when the fact uses `are`' do
           let(:text) { 'cheetahs are delicious' }
 
           it 'adds the fact' do
@@ -69,7 +69,7 @@ describe Bucket::Processors::FactAdd do
           end
         end
 
-        context 'the fact uses `<verb>`' do
+        context 'when the fact uses `<verb>`' do
           let(:text) { 'The villain <sings> mellifluously' }
 
           it 'adds the fact' do
@@ -81,7 +81,7 @@ describe Bucket::Processors::FactAdd do
           end
         end
 
-        context 'the fact uses `is` and `<verb>`' do
+        context 'when the fact uses `is` and `<verb>`' do
           let(:text) { 'less is more <reply> more is less' }
 
           it 'prefers the angle brackets' do
@@ -93,7 +93,7 @@ describe Bucket::Processors::FactAdd do
           end
         end
 
-        context 'the fact uses `are` and `<verb>`' do
+        context 'when the fact uses `are` and `<verb>`' do
           let(:text) do
             'you are broken <reply> I am a product of my environment'
           end
@@ -107,7 +107,7 @@ describe Bucket::Processors::FactAdd do
           end
         end
 
-        context 'the fact uses multiple angle brackets' do
+        context 'when the fact uses multiple angle brackets' do
           let(:text) { 'the first <alpha> the second <bravo> the third' }
 
           it 'only uses the first one' do
@@ -121,7 +121,7 @@ describe Bucket::Processors::FactAdd do
       end
     end
 
-    context 'Bucket was not addressed by the speaker' do
+    context 'when Bucket was not addressed by the speaker' do
       let(:addressed) { false }
 
       it 'does nothing' do

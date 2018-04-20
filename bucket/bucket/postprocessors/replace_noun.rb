@@ -8,7 +8,7 @@ module Bucket
       private
 
       def random_noun
-        %w(sword potato).sample
+        %w[sword potato].sample
       end
     end
   end

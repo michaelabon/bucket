@@ -15,7 +15,7 @@ describe Bucket::Processors::FactDelete do
     let(:trigger) { 'this is the matching trigger' }
     let(:text) { "delete #{trigger}" }
 
-    context 'if Bucket was addressed by the speaker' do
+    context 'when Bucket was addressed by the speaker' do
       let(:addressed) { true }
 
       context 'and matching facts exist' do
@@ -52,7 +52,7 @@ describe Bucket::Processors::FactDelete do
         end
 
         it 'does not delete any facts' do
-          expect { processor.process(message) }.not_to change { Fact.count }
+          expect { processor.process(message) }.not_to change(Fact, :count)
         end
 
         it 'alerts the speaker of their mistake' do
@@ -65,11 +65,11 @@ describe Bucket::Processors::FactDelete do
       end
     end
 
-    context 'Bucket was not addressed' do
+    context 'when Bucket was not addressed' do
       let(:addressed) { false }
 
       it 'does not delete anything' do
-        expect { processor.process(message) }.not_to change { Fact.count }
+        expect { processor.process(message) }.not_to change(Fact, :count)
       end
 
       it 'does not respond' do

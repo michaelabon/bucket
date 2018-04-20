@@ -6,7 +6,7 @@ describe Bucket::Postprocessors::EncodeHtml do
   describe '#process' do
     let(:message_response) { MessageResponse.new(text: text) }
 
-    context 'contains &' do
+    context 'when the response contains &' do
       let(:text) { 'A & B' }
 
       specify do
@@ -16,7 +16,7 @@ describe Bucket::Postprocessors::EncodeHtml do
       end
     end
 
-    context 'contains <' do
+    context 'when the response contains <' do
       let(:text) { '2 < 3' }
 
       specify do
@@ -26,7 +26,7 @@ describe Bucket::Postprocessors::EncodeHtml do
       end
     end
 
-    context 'contains >' do
+    context 'when the response contains >' do
       let(:text) { '3 > 2' }
 
       specify do
@@ -36,7 +36,7 @@ describe Bucket::Postprocessors::EncodeHtml do
       end
     end
 
-    context 'no response' do
+    context 'when there is no response' do
       let(:message_response) { nil }
 
       specify do
@@ -46,7 +46,7 @@ describe Bucket::Postprocessors::EncodeHtml do
       end
     end
 
-    context 'empty response' do
+    context 'when response is empty' do
       let(:message_response) { MessageResponse.new(text: nil) }
 
       specify do

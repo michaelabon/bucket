@@ -8,7 +8,7 @@ describe Bucket::Postprocessors::PerformAction do
       MessageResponse.new(text: 'text', trigger: 'trigger', verb: action)
     end
 
-    context "verb is 'is'" do
+    context "when verb is 'is'" do
       let(:action) { 'is' }
 
       it 'completes the sentence' do
@@ -22,7 +22,7 @@ describe Bucket::Postprocessors::PerformAction do
       end
     end
 
-    context "verb is '<action>'" do
+    context "when verb is '<action>'" do
       let(:action) { '<action>' }
 
       it 'formats the response text' do
@@ -36,15 +36,13 @@ describe Bucket::Postprocessors::PerformAction do
       end
     end
 
-    context "verb is not '<action>'" do
+    context "when verb is not '<action>'" do
       let(:action) { nil }
 
       it 'does not format the response text' do
         expect do
           processor.process(message_response)
-        end.not_to change {
-          message_response.text
-        }
+        end.not_to change(message_response, :text)
       end
     end
   end

@@ -11,7 +11,7 @@ describe Bucket::Processors::SilenceDeactivate do
     context 'when addressed' do
       let(:addressed) { true }
 
-      shared_examples_for :a_correct_trigger do
+      shared_examples_for 'a correct trigger' do
         it 'gives the expected response' do
           message_response = processor.process(message)
 
@@ -39,11 +39,11 @@ describe Bucket::Processors::SilenceDeactivate do
           )
         end
 
-        it_behaves_like :a_correct_trigger do
+        it_behaves_like 'a correct trigger' do
           let(:text) { 'unshut up' }
         end
 
-        it_behaves_like :a_correct_trigger do
+        it_behaves_like 'a correct trigger' do
           let(:text) { 'come back' }
         end
 
@@ -59,11 +59,11 @@ describe Bucket::Processors::SilenceDeactivate do
       context 'when Bucket is not silenced' do
         let(:response_text) { 'But MMM, I am already here.' }
 
-        it_behaves_like :a_correct_trigger do
+        it_behaves_like 'a correct trigger' do
           let(:text) { 'unshut up' }
         end
 
-        it_behaves_like :a_correct_trigger do
+        it_behaves_like 'a correct trigger' do
           let(:text) { 'come back' }
         end
 

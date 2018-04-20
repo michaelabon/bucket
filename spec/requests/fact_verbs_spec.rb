@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Using different verbs' do
-  context 'Using `<reply>`' do
+  context 'when `<reply>`' do
     before do
       create(:fact, trigger: 'alpha', result: 'bravo', verb: '<reply>')
     end
@@ -13,7 +13,7 @@ describe 'Using different verbs' do
     end
   end
 
-  context 'Using `<action>`' do
+  context 'when `<action>`' do
     before do
       create(:fact, trigger: 'alpha', result: 'bravo', verb: '<action>')
     end
@@ -25,7 +25,7 @@ describe 'Using different verbs' do
     end
   end
 
-  context 'Using `is`' do
+  context 'when `is`' do
     it 'responds with the full sentence' do
       slack_post text: 'Bucket, alpha is bravo'
 
@@ -37,7 +37,7 @@ describe 'Using different verbs' do
     end
   end
 
-  context 'Using `are`' do
+  context 'when `are`' do
     it 'responds with the full sentence' do
       slack_post text: 'Cheetahs are delicious, Bucket'
 
@@ -49,7 +49,7 @@ describe 'Using different verbs' do
     end
   end
 
-  context 'Using arbitrary `<verb>` construct' do
+  context 'when arbitrary `<verb>` construct' do
     it 'responds with the full sentence' do
       slack_post text: 'People <read> books, Bucket'
 

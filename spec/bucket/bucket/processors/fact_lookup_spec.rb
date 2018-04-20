@@ -6,7 +6,7 @@ describe Bucket::Processors::FactLookup do
   describe '#process' do
     let(:message) { Message.new(text: 'alpha') }
 
-    context 'fact exists' do
+    context 'when the fact exists' do
       before do
         create(:fact, trigger: 'alpha', result: 'bravo', verb: '<verb>')
       end
@@ -30,7 +30,7 @@ describe Bucket::Processors::FactLookup do
       end
     end
 
-    context 'fact does not exist' do
+    context 'when the fact does not exist' do
       specify do
         message_response = processor.process(message)
 
@@ -38,7 +38,7 @@ describe Bucket::Processors::FactLookup do
       end
     end
 
-    context 'message has no text' do
+    context 'when the message has no text' do
       before do
         message.text = nil
       end

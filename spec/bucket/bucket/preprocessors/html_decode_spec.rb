@@ -4,7 +4,7 @@ describe Bucket::Preprocessors::HtmlDecode do
   let(:processor) { described_class.new }
   let(:message) { Message.new(text: text) }
 
-  context 'message is present' do
+  context 'when the message is present' do
     let(:text) { 'A&amp;B&lt;C&gt;' }
 
     it 'decodes HTML encoding' do
@@ -14,7 +14,7 @@ describe Bucket::Preprocessors::HtmlDecode do
     end
   end
 
-  context 'message is nil' do
+  context 'when the message is nil' do
     let(:text) { nil }
 
     specify do

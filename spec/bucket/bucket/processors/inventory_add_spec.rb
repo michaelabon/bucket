@@ -4,7 +4,7 @@ describe Bucket::Processors::InventoryAdd do
   let(:processor) { described_class.new }
 
   describe '#process' do
-    shared_examples :common_triggers do
+    shared_examples 'common triggers' do
       [
         'gives Bucket fuzzy kittens',
         'gives fuzzy kittens to Bucket',
@@ -59,11 +59,11 @@ describe Bucket::Processors::InventoryAdd do
       end
     end
 
-    context 'Bucket was addressed by the speaker' do
+    context 'when Bucket was addressed by the speaker' do
       let(:addressed) { true }
 
       context 'when the trigger matches' do
-        include_examples :common_triggers
+        include_examples 'common triggers'
 
         describe 'addressed-only triggers' do
           {
@@ -110,10 +110,10 @@ describe Bucket::Processors::InventoryAdd do
       end
     end
 
-    context 'Bucket was not addressed by the speaker' do
+    context 'when Bucket was not addressed by the speaker' do
       let(:addressed) { false }
 
-      include_examples :common_triggers
+      include_examples 'common triggers'
     end
   end
 end

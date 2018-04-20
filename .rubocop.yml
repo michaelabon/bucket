@@ -1,3 +1,8 @@
+inherit_from: .rubocop_todo.yml
+
+require: rubocop-rspec
+Rails:
+  Enabled: true
 AllCops:
   DisplayCopNames:
     Enabled: true
@@ -20,7 +25,7 @@ Lint/AssignmentInCondition:
   Enabled: true
 
 # Configuration parameters: AlignWith, SupportedStyles.
-Lint/DefEndAlignment:
+Layout/DefEndAlignment:
   Enabled: true
 
 Lint/HandleExceptions:
@@ -31,6 +36,10 @@ Lint/UselessAssignment:
 
 Metrics/AbcSize:
   Max: 20
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
 
 # Configuration parameters: CountComments.
 Metrics/ClassLength:
@@ -59,7 +68,7 @@ Rails/Output:
 Rails/Validation:
   Enabled: true
 
-Style/AccessorMethodName:
+Naming/AccessorMethodName:
   Enabled: true
 
 # Cop supports --auto-correct.
@@ -71,7 +80,7 @@ Style/Documentation:
   Enabled: false
 
 # Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/DotPosition:
+Layout/DotPosition:
   Enabled: true
 
 Style/FrozenStringLiteralComment:
@@ -86,11 +95,27 @@ Style/IfUnlessModifier:
   Enabled: true
 
 # Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/MethodName:
+Naming/MethodName:
   Enabled: true
 
 Style/PerlBackrefs:
   Enabled: false
 
-Style/Tab:
+Layout/Tab:
   Enabled: true
+
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/requests/**/*'
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/ContextWording:
+  Prefixes:
+    - when
+    - with
+    - without
+    - if
+    - and
+    - but

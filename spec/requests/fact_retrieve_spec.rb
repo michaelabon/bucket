@@ -5,7 +5,7 @@ describe 'Triggering factoids' do
     create(:fact, trigger: 'alpha', result: 'bravo')
   end
 
-  context 'a matching trigger' do
+  context 'when there is a matching trigger' do
     it 'responds with 200 OK' do
       slack_post text: 'alpha'
 
@@ -19,7 +19,7 @@ describe 'Triggering factoids' do
     end
   end
 
-  context 'no matching trigger' do
+  context 'when there is no matching trigger' do
     it 'responds with 200 OK' do
       slack_post text: 'alphabet'
 

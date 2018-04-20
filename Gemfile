@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
 ruby '2.5.1'
-gem 'rails'
 gem 'pg', '~> 1.0'
 gem 'puma', '~> 3.0'
+gem 'rails'
 
 gem 'httparty'
 gem 'newrelic_rpm'
@@ -24,6 +24,7 @@ group :development, :test do
   gem 'colored', require: false
   gem 'pry-byebug', platform: :mri
   gem 'rubocop', '~> 0.42.0', require: false
+  gem 'rubocop-rspec', require: false
 end
 
 group :test do
