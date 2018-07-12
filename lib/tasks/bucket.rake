@@ -29,7 +29,7 @@ namespace :bucket do
     end
 
     def exit?(input)
-      input == 'exit' || input == 'quit'
+      %w[exit quit].include?(input)
     end
 
     loop do
