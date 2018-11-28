@@ -23,6 +23,7 @@ group :development, :test do
   gem 'brakeman', require: false
   gem 'colored', require: false
   gem 'pry-byebug', platform: :mri
+  gem 'rake'
   gem 'rubocop', '~> 0.60.0', require: false
   gem 'rubocop-rspec', require: false
 end
@@ -31,7 +32,6 @@ group :test do
   gem 'coveralls', require: false
   gem 'database_cleaner'
   gem 'factory_bot_rails'
-  gem 'rake'
   gem 'rspec-expectations'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
