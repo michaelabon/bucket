@@ -13,13 +13,3 @@ cache: bundler
 env:
   - TRAVIS=true
 sudo: false
-deploy:
-  provider: cloudfoundry
-  api: https://api.run.pivotal.io
-  username: mike.kenyon@gmail.com
-  password:
-    secure: e4g5cMCi73ZU+xWZzQxbMWtJqt/tgOY7M6XkzJcB4qgF5b2nr6KGYBwV7K6ySlwQT3b3AFpujDMWKHBSJOJGc8JxjwDQsQla0UJYnuo0slLWguFbot+Zs0CmEz4KqegV6Ioq1wFgK+1aYaXxs3wPj58o1bjWO8WjbKFvgWweZY8=
-  organization: ca.mikekenyon
-  space: bucket-1st
-  on:
-    repo: mkenyon/bucket
