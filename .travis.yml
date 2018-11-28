@@ -10,21 +10,19 @@ script:
 - bundle exec rake db:schema:load
 - bundle exec rake db:test:prepare
 - bundle exec rake
-# deploy:
-  # edge: true
-  # provider: cloudfoundry
-  # api: https://api.run.pivotal.io
-  # username:
-    # secure: X1xZCvD5yu1LqRPAr80xxc0GOfZ9vKm0qM2LtbsFAofT47jN751FByJMAfzIppK/v51pm9UPI55Qtrh4m4dS6S8HXfD4jzSH5dctRJpyFav5P+qhxmDGtzn+rJWpppIsq8zE+shMvZPQSOmcdu5ZwpiuZwYsfg3E3d+OskQrozQ=
-  # password:
-    # secure: YoLxAJrKNtdW5DpSM7iRzP3PVLEYlVRlXh3Tv0dTELUyy5YbdQYvq1suPxoXWNn3s8VMIwNuYctSVOfVAt3R40twoAIMgDaaAKIY45Th+NiBawwsEUS5c3xf5Kalf2WO3B3MmNFvavRhk+bwPVaoFStKWfonWynKKfsz4lis270=
-  # organization:
-    # secure: D5lKcXFOV2HXhJRmXbQ9ACyo5NYmanlhku5k8/YffjxFhfu89sN4wNTUwf3J4D+RHLRkqcGUmf+AZNn/eRj1PmMOL48sHggA23VAuWIAbIND6Bh4gOLpkJCJULbZxKkJfIOQm4MLnD7q3B6MXmPs7gLOMZ0iI4JxUKYgXUR5eFM=
-  # space:
-    # secure: gzseMvJC0RMOTuihOxtZGUOrw7e2M+Iz+SxmnsGN6UE7Aalu82Cqk/3OKIMSTLub+hU5Qq55Wp5QquMuj5Tz1RAmk/cVGxZLQ+CHF7s9I42a0WAkaFPXVkmojssSnBVN5xJUGcyFQJ4ntL2DiEsb3V0jZ94pzE9Qhs5Yammmvbc=
 addons:
   postgresql: '9.3'
 cache: bundler
 env:
 - TRAVIS=true
 sudo: false
+deploy:
+  provider: cloudfoundry
+  api: https://api.run.pivotal.io
+  username: mike.kenyon@gmail.com
+  password:
+    secure: e4g5cMCi73ZU+xWZzQxbMWtJqt/tgOY7M6XkzJcB4qgF5b2nr6KGYBwV7K6ySlwQT3b3AFpujDMWKHBSJOJGc8JxjwDQsQla0UJYnuo0slLWguFbot+Zs0CmEz4KqegV6Ioq1wFgK+1aYaXxs3wPj58o1bjWO8WjbKFvgWweZY8=
+  organization: ca.mikekenyon
+  space: bucket-1st
+  on:
+    repo: mkenyon/bucket
