@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :silence_request do
-    requester 'User Name'
+    requester {'User Name'}
     silence_until { Time.zone.now + 30.minutes }
 
     trait :expired do
