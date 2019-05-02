@@ -17,7 +17,7 @@ AllCops:
     - 'config/**/*'
     - 'script/**/*'
     - 'vendor/**/*'
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.6
 
 
 # Configuration parameters: AllowSafeAssignment.
@@ -58,9 +58,6 @@ Metrics/MethodLength:
 
 Metrics/PerceivedComplexity:
   Max: 10
-
-Rails:
-  Enabled: true
 
 Rails/Output:
   Enabled: true

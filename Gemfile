@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.5.3'
+ruby '2.6.0'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 3.12'
 gem 'rails'
@@ -24,7 +24,7 @@ group :development, :test do
   gem 'colored', require: false
   gem 'pry-byebug', platform: :mri
   gem 'rake'
-  gem 'rubocop', '~> 0.60.0', require: false
+  gem 'rubocop', '~> 0.68.1', require: false
   gem 'rubocop-rspec', require: false
 end
 
