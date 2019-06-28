@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.6.3'
 gem 'pg', '~> 1.1'
-gem 'puma', '~> 3.12'
+gem 'puma', '~> 4.0'
 gem 'rails'
 
 gem 'httparty'
