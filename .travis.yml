@@ -8,6 +8,7 @@ before_script:
 services:
   -
     postgresql
+bundler_args: "--without production"
 cache: bundler
 env:
   -
