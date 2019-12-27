@@ -3,12 +3,11 @@ module Bucket
     class ReverseTheFucking
       def process(message)
         return nil unless triggered?(message)
+        return nil unless message.text.match?(regexp)
 
-        if message.text.match? regexp
-          MessageResponse.new(
-            text: message.text.sub(regexp, 'fucking the')
-          )
-        end
+        MessageResponse.new(
+          text: message.text.sub(regexp, 'fucking the')
+        )
       end
 
       private

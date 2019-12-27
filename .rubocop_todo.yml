@@ -78,9 +78,3 @@ RSpec/VerifiedDoubles:
 Rails/FilePath:
   Exclude:
     - 'spec/rails_helper.rb'
-
-# Offense count: 1
-# Configuration parameters: MinBodyLength.
-Style/GuardClause:
-  Exclude:
-    - 'bucket/bucket/processors/reverse_the_fucking.rb'
