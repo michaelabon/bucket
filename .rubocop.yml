@@ -30,7 +30,11 @@ Lint/AssignmentInCondition:
 Layout/DefEndAlignment:
   Enabled: true
 
-Lint/HandleExceptions:
+# Configuration parameters: AllowURI.
+Layout/LineLength:
+  Max: 80
+
+Lint/SuppressedException:
   Enabled: true
 
 Lint/UselessAssignment:
@@ -49,10 +53,6 @@ Metrics/ClassLength:
 
 Metrics/CyclomaticComplexity:
   Max: 8
-
-# Configuration parameters: AllowURI.
-Metrics/LineLength:
-  Max: 80
 
 # Configuration parameters: CountComments.
 Metrics/MethodLength:
