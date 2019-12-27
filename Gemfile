@@ -25,6 +25,7 @@ group :development, :test do
   gem 'pry-byebug', platform: :mri
   gem 'rake'
   gem 'rubocop', '~> 0.75.1', require: false
+  gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
 end
 
