@@ -4,6 +4,7 @@ ruby '2.7.0'
 gem 'pg', '~> 1.2'
 gem 'puma', '~> 4.3'
 gem 'rails'
+gem 'tzinfo-data'
 
 gem 'httparty'
 gem 'newrelic_rpm'

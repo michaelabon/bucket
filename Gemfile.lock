@@ -220,6 +220,8 @@ GEM
     tins (1.20.2)
     tzinfo (1.2.6)
       thread_safe (~> 0.1)
+    tzinfo-data (1.2019.3)
+      tzinfo (>= 1.0.0)
     unicode-display_width (1.6.1)
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
@@ -253,6 +255,7 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
+  tzinfo-data
 
 RUBY VERSION
    ruby 2.7.0p0
