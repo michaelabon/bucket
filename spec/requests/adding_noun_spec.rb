@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Adding a $noun' do
   context 'when Bucket is addressed' do
-    describe "learning the noun" do
+    describe 'learning the noun' do
       it 'understands `add value $noun book`' do
         slack_post text: 'Bucket: add value $noun book'
 
@@ -22,9 +22,9 @@ describe 'Adding a $noun' do
       end
     end
 
-    describe "using the noun later" do
-      it "can replace $noun with the new noun" do
-        slack_post text: "@Bucket add value $noun chair"
+    describe 'using the noun later' do
+      it 'can replace $noun with the new noun' do
+        slack_post text: '@Bucket add value $noun chair'
         slack_post text: "@Bucket You're a towel <reply> You're a $noun!"
         slack_post text: "You're a towel"
 

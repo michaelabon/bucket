@@ -28,3 +28,10 @@
 ].each do |item|
   Item.find_or_create_by(what: item[0], placed_by: item[1])
 end
+
+[
+  ['sword', 'Michael Abon'],
+  ['potato', 'Michael Abon'],
+].each do |noun|
+  Noun.find_or_create_by(what: noun[0], placed_by: noun[1])
+end

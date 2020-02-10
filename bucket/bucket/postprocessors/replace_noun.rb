@@ -8,7 +8,7 @@ module Bucket
       private
 
       def random_noun
-        %w[sword potato].sample
+        Noun.all.pluck(:what).sample || 'box'
       end
     end
   end

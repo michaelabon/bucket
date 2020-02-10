@@ -30,6 +30,11 @@ describe Bucket::Postprocessors::ReplaceNoun do
   end
 
   context 'when the message response contains a single `$noun`' do
+    before do
+      create(:noun, what: 'potato')
+      create(:noun, what: 'sword')
+    end
+
     it 'replaces the $noun with a random noun' do
       message_response = MessageResponse.new(
         text: 'This contains one and only one $noun'
@@ -41,6 +46,11 @@ describe Bucket::Postprocessors::ReplaceNoun do
   end
 
   context 'when the message response contains multiple `$noun`s' do
+    before do
+      create(:noun, what: 'potato')
+      create(:noun, what: 'sword')
+    end
+
     it 'replaces all instances of $noun with random nouns' do
       message_response = MessageResponse.new(
         text: 'I love $noun and $noun'
