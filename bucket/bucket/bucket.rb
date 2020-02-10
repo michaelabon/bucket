@@ -25,7 +25,7 @@ module Bucket
     #
     # Returns the message response String if the message deserves a response,
     # or nil.
-    def process(message)
+    def process(message) # rubocop:disable Metrics/MethodLength
       message_response = nil
 
       preprocessors.each do |preprocessor|
@@ -53,11 +53,11 @@ module Bucket
       [
         ::Bucket::Preprocessors::HtmlDecode.new,
         ::Bucket::Preprocessors::CleanWhitespace.new,
-        ::Bucket::Preprocessors::AddressedToBucket.new
+        ::Bucket::Preprocessors::AddressedToBucket.new,
       ]
     end
 
-    def default_processors
+    def default_processors # rubocop:disable Metrics/MethodLength
       [
         ::Bucket::Processors::IgnoreBots.new,
         ::Bucket::Processors::SilenceDeactivate.new,
@@ -69,7 +69,7 @@ module Bucket
         ::Bucket::Processors::FactLookup.new,
         ::Bucket::Processors::InventoryAdd.new,
         ::Bucket::Processors::MoveAssHyphens.new,
-        ::Bucket::Processors::ReverseTheFucking.new
+        ::Bucket::Processors::ReverseTheFucking.new,
       ]
     end
 
@@ -80,7 +80,7 @@ module Bucket
         ::Bucket::Postprocessors::ReplaceNoun.new,
         ::Bucket::Postprocessors::ReplaceWho.new,
         ::Bucket::Postprocessors::PerformAction.new,
-        ::Bucket::Postprocessors::EncodeHtml.new
+        ::Bucket::Postprocessors::EncodeHtml.new,
       ]
     end
   end

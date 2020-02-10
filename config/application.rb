@@ -1,11 +1,11 @@
 require_relative 'boot'
 
-require "rails"
+require 'rails'
 # Pick the frameworks you want:
-require "action_controller/railtie"
-require "action_view/railtie"
-require "active_model/railtie"
-require "active_record/railtie"
+require 'action_controller/railtie'
+require 'action_view/railtie'
+require 'active_model/railtie'
+require 'active_record/railtie'
 # require "action_cable/engine"
 # require "action_mailer/railtie"
 # require "active_job/railtie"
@@ -18,7 +18,8 @@ Bundler.require(*Rails.groups)
 
 module BucketApi
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
+    # Settings in config/environments/* take precedence over
+    # those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
@@ -31,5 +32,3 @@ module BucketApi
     config.autoload_paths << Rails.root.join('bucket')
   end
 end
-
-

@@ -10,14 +10,24 @@ module Bucket
         when '<reply>'
           nil
         else
-          message_response.text = [
-            message_response.trigger,
-            message_response.verb,
-            message_response.text
-          ].join(' ')
+          build_response(message_response)
         end
 
         nil
+      end
+
+      private
+
+      def build_response(message_response)
+        message_response.text = [
+          message_response.trigger,
+          message_response.verb,
+          message_response.text,
+        ].join(' ')
+      end
+
+      def processable(message_response)
+        message_response.verb.present? && message_response.verb != '<reply>'
       end
     end
   end

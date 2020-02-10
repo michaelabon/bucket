@@ -13,7 +13,7 @@ module Bucket
 
       private
 
-      def triggers
+      def triggers # rubocop:disable Metrics/MethodLength
         /^(?:
           inv |
           inventory |
@@ -35,7 +35,7 @@ module Bucket
           { text: 'I am carrying $inventory', verb: '<reply>' },
           { text: 'I am holding $inventory', verb: '<reply>' },
           { text: 'I have $inventory', verb: '<reply>' },
-          { text: 'is carrying $inventory', verb: '<action>' }
+          { text: 'is carrying $inventory', verb: '<action>' },
         ].sample
       end
     end

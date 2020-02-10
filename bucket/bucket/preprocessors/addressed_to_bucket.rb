@@ -12,7 +12,7 @@ module Bucket
 
       private
 
-      def addressed_regex
+      def addressed_regex # rubocop:disable Metrics/MethodLength
         @addressed_regex ||= Regexp.new(/
           ^ Bucket    # If the line starts with the bots nickname
           [:,]\s*     # and is followed by a colon or comma,

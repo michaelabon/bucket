@@ -1,7 +1,7 @@
 module Bucket
   module Helpers
     module MakeList
-      def self.make_list(items)
+      def self.make_list(items) # rubocop:disable Metrics/MethodLength
         case items.count
         when 0
           'nothing'

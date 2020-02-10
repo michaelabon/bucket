@@ -13,7 +13,6 @@ ActiveSupport.to_time_preserves_timezone = false
 # Require `belongs_to` associations by default. Previous versions had false.
 Rails.application.config.active_record.belongs_to_required_by_default = false
 
-
-# Configure SSL options to enable HSTS with subdomains. Previous versions had false.
+# Configure SSL options to enable HSTS with subdomains.
+# Previous versions had false.
 Rails.application.config.ssl_options = { hsts: { subdomains: true } }
-

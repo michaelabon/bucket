@@ -9,8 +9,6 @@ class Message
   }
 
   def initialize(options = {})
-    options = options
-
     @token = options[:token]
     @team_id = options[:team_id]
     @channel_id = options[:channel_id]

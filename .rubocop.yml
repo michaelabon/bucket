@@ -1,120 +1,28 @@
-inherit_from: .rubocop_todo.yml
-
-require:
-  - rubocop-rails
-  - rubocop-rspec
-Rails:
-  Enabled: true
+---
 AllCops:
-  DisplayCopNames:
-    Enabled: true
-  Include:
-    - '**/Rakefile'
-    - '**/config.ru'
-    - 'bucket/**/*'
-    - 'lib/tasks/**/*.rake'
   Exclude:
-    - 'bin/**/*'
-    - 'db/**/*'
-    - 'config/**/*'
-    - 'script/**/*'
-    - 'vendor/**/*'
-  TargetRubyVersion: 2.6
-
-
-# Configuration parameters: AllowSafeAssignment.
-Lint/AssignmentInCondition:
-  Enabled: true
-
-# Configuration parameters: AlignWith, SupportedStyles.
-Layout/DefEndAlignment:
-  Enabled: true
-
-# Configuration parameters: AllowURI.
-Layout/LineLength:
-  Max: 80
-
-Lint/SuppressedException:
-  Enabled: true
-
-Lint/UselessAssignment:
-  Enabled: true
-
-Metrics/AbcSize:
-  Max: 20
+    - 'bin/*'         # Never correct these auto-generated files
+    - 'db/migrate/*.rb'  # Never correct these auto-generated files
+    - 'db/schema.rb'     # Never correct these auto-generated files
 
 Metrics/BlockLength:
   Exclude:
-    - 'spec/**/*'
+    - 'lib/tasks/**/*.rake'  # Rake tasks can have long blocks -> should be extracted to their own well-tested classes
+    - 'spec/**/*.rb'         # RSpec is very heavy on block usage.
 
-# Configuration parameters: CountComments.
-Metrics/ClassLength:
-  Max: 200
-
-Metrics/CyclomaticComplexity:
-  Max: 8
-
-# Configuration parameters: CountComments.
-Metrics/MethodLength:
-  Max: 44
-
-Metrics/PerceivedComplexity:
-  Max: 10
-
-Rails/Output:
-  Enabled: true
-
-Rails/Validation:
-  Enabled: true
-
-Naming/AccessorMethodName:
-  Enabled: true
-
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/AndOr:
-  Enabled: true
-
+# I'd like to have top-level class comments, but that's an eventual goal.
 Style/Documentation:
   Enabled: false
-
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Layout/DotPosition:
-  Enabled: true
 
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-# Configuration parameters: MinBodyLength.
-Style/GuardClause:
-  Enabled: true
-
-# Configuration parameters: MaxLineLength.
-Style/IfUnlessModifier:
-  Enabled: true
-
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Naming/MethodName:
-  Enabled: true
-
+# Given the Regexp-heavy nature of this project,
+# you need to know the condensed syntax.
 Style/PerlBackrefs:
   Enabled: false
 
-Layout/Tab:
-  Enabled: true
+# I prefer the better diffs
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
 
-RSpec/DescribeClass:
-  Exclude:
-    - 'spec/requests/**/*'
-
-RSpec/MultipleExpectations:
-  Enabled: false
-
-RSpec/ContextWording:
-  Prefixes:
-    - when
-    - with
-    - without
-    - if
-    - and
-    - but
