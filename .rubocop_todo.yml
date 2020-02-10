@@ -18,11 +18,6 @@ Naming/FileName:
   Exclude:
     - 'Gemfile'
 
-# Offense count: 1
-Naming/MemoizedInstanceVariableName:
-  Exclude:
-    - 'bucket/bucket/processors/ignore_bots.rb'
-
 # Offense count: 3
 RSpec/Be:
   Exclude:
