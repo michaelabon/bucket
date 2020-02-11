@@ -1,10 +1,11 @@
 ---
 AllCops:
   Exclude:
-    - 'bin/*'         # Never correct these auto-generated files
+    - 'bin/*'            # Never correct these auto-generated files
     - 'db/migrate/*.rb'  # Never correct these auto-generated files
     - 'db/schema.rb'     # Never correct these auto-generated files
-    - 'vendor/*'         # Never correct someone else's files
+    - 'vendor/**'        # Never correct someone else's files
+    - 'vendor/**/*'      # Never correct someone else's files
 
 Metrics/BlockLength:
   Exclude:
