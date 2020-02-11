@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Bucket::Postprocessors::ReplaceNoun do
   let(:postprocessor) { described_class.new }
@@ -58,6 +58,21 @@ describe Bucket::Postprocessors::ReplaceNoun do
       postprocessor.process(message_response)
       expect(message_response.text)
         .to match(/\AI love (?:potato|sword) and (?:potato|sword)\z/)
+    end
+  end
+
+  context 'when the message response contains an escaped "\$noun"' do
+    before do
+      create(:noun, what: 'mug')
+    end
+
+    it 'unescapes but does not replace the escaped version' do
+      message_response = MessageResponse.new(
+        text: 'When I say \$noun I get $noun'
+      )
+      postprocessor.process(message_response)
+      expect(message_response.text)
+        .to match('When I say $noun I get mug')
     end
   end
 end

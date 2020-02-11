@@ -63,6 +63,7 @@ module Bucket
         ::Bucket::Processors::SilenceDeactivate.new,
         ::Bucket::Processors::SilenceObey.new,
         ::Bucket::Processors::SilenceActivate.new,
+        ::Bucket::Processors::RandomNounLister.new,
         ::Bucket::Processors::FactDelete.new,
         ::Bucket::Processors::InventoryList.new,
         ::Bucket::Processors::FactAdd.new,
