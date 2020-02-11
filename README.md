@@ -17,7 +17,7 @@ it is licensed under the [GPLv3][].
 ## Installation
 
 1. Install ruby, using `.ruby-version`
-1. Install Postgres 9+ (I'm using 9.4.x right now)
+1. Install Postgres 12+ (I'm using 12.1 right now)
 1. Run `bundle install` to install the dependencies.
 1. Copy `config/database.example.yml` into `config/database.yml` and set it up to match your database.
 1. Run `rake db:setup` to create your database.
