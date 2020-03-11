@@ -28,3 +28,12 @@ Style/PerlBackrefs:
 Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: comma
 
+
+# Pending cops that need will be enabled by default soon:
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
+
