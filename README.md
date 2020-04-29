@@ -9,7 +9,7 @@ it is licensed under the [GPLv3][].
 [GPLv3]: http://www.gnu.org/copyleft/gpl.html
 
 
-[![Build Status](https://travis-ci.org/michaelabon/bucket.svg?branch=master)](https://travis-ci.org/michaelabon/bucket)
+[![Build Status](https://travis-ci.com/michaelabon/bucket.svg?branch=master)](https://travis-ci.com/michaelabon/bucket)
 
 
 # Using Bucket
