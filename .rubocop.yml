@@ -36,4 +36,12 @@ Style/HashTransformKeys:
   Enabled: true
 Style/HashTransformValues:
   Enabled: true
+Lint/RaiseException: # 0.81
+  Enabled: true
+Lint/StructNewOverride: # 0.81
+  Enabled: true
+Layout/SpaceAroundMethodCallOperator: # 0.82
+  Enabled: true
+Style/ExponentialNotation: # 0.82
+  Enabled: true
 
