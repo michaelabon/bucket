@@ -87,7 +87,6 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (1.8.3)
       concurrent-ruby (~> 1.0)
-    jaro_winkler (1.5.4)
     json (2.3.0)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -163,6 +162,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    regexp_parser (1.7.1)
     rexml (3.2.4)
     rspec-core (3.9.2)
       rspec-support (~> 3.9.3)
@@ -181,14 +181,17 @@ GEM
       rspec-mocks (~> 3.9)
       rspec-support (~> 3.9)
     rspec-support (3.9.3)
-    rubocop (0.82.0)
-      jaro_winkler (~> 1.5.1)
+    rubocop (0.85.1)
       parallel (~> 1.10)
       parser (>= 2.7.0.1)
       rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.7)
       rexml
+      rubocop-ast (>= 0.0.3)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
+    rubocop-ast (0.0.3)
+      parser (>= 2.7.0.1)
     rubocop-rails (2.6.0)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
@@ -253,7 +256,7 @@ DEPENDENCIES
   rake
   rspec-expectations
   rspec-rails
-  rubocop (~> 0.82.0)
+  rubocop (~> 0.85.1)
   rubocop-rails
   rubocop-rspec
   shoulda-matchers
