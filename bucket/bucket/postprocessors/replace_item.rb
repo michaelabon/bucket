@@ -4,9 +4,11 @@ module Bucket
       def process(message_response)
         return if message_response.try(:text).blank?
 
+        # rubocop:todo Style/WhileUntilModifier
         while message_response.text.match(matching_regex)
-          message_response.text.sub!(matching_regex, item)
+          message_response.text.gsub!(matching_regex, item)
         end
+        # rubocop:enable Style/WhileUntilModifier
       end
 
       private
