@@ -2,16 +2,18 @@ module Bucket
   module Processors
     class InventoryList
       def process(message)
-        trigger = Helpers::CleanPunctuation.clean_punctuation(message.text)
+        return unless triggered?(message)
 
-        if message.addressed? && triggers.match(trigger)
-          return MessageResponse.new(**response)
-        end
-
-        nil
+        MessageResponse.new(**response)
       end
 
       private
+
+      def triggered?(message)
+        cleaned_message = Helpers::CleanPunctuation.clean_punctuation(message.text)
+
+        message.addressed? && triggers.match(cleaned_message)
+      end
 
       def triggers # rubocop:disable Metrics/MethodLength
         /^(?:
