@@ -25,7 +25,7 @@ group :development, :test do
   gem 'colored', require: false
   gem 'pry-byebug', platform: :mri
   gem 'rake'
-  gem 'rubocop', '~> 0.85.1', require: false
+  gem 'rubocop', '~> 0.86.0', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
 end
