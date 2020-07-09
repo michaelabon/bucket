@@ -1,7 +1,7 @@
 module Bucket
   module Helpers
     module CleanPunctuation
-      def self.clean_punctuation(text)
+      def self.clean(text)
         return '' unless text
 
         text.gsub(/[.,!?'"()\[\]{}‘’“”]/, '')

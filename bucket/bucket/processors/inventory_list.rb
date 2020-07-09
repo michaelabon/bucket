@@ -10,7 +10,7 @@ module Bucket
       private
 
       def triggered?(message)
-        cleaned_message = Helpers::CleanPunctuation.clean_punctuation(message.text)
+        cleaned_message = Helpers::CleanPunctuation.clean(message.text)
 
         message.addressed? && triggers.match(cleaned_message)
       end

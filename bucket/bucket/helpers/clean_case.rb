@@ -1,7 +1,7 @@
 module Bucket
   module Helpers
     module CleanCase
-      def self.clean_case(text)
+      def self.clean(text)
         return '' unless text
 
         text.mb_chars.downcase.to_s
