@@ -2,11 +2,13 @@ module Bucket
   module Processors
     class InventoryAdd
       def process(message)
+        # rubocop:disable Lint/DuplicateBranch
         if (match = common_triggers.match(message.text))
           handle_match(match, message)
         elsif (match = addressed_triggers.match(message.text))
           handle_match(match, message)
         end
+        # rubocop:enable Lint/DuplicateBranch
       end
 
       private
