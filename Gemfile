@@ -6,6 +6,11 @@ gem 'puma', '~> 5.1'
 gem 'rails'
 gem 'tzinfo-data'
 
+
+# Protects against GHSA-vr8q-g5c7-m54m
+# https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-vr8q-g5c7-m54m
+gem "nokogiri", ">= 1.11.0.rc4"
+
 gem 'httparty'
 gem 'newrelic_rpm'
 
