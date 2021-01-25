@@ -66,7 +66,7 @@ GEM
     byebug (11.1.1)
     coderay (1.1.2)
     colored (1.2)
-    concurrent-ruby (1.1.7)
+    concurrent-ruby (1.1.8)
     coveralls (0.8.23)
       json (>= 1.8, < 3)
       simplecov (~> 0.16.1)
@@ -238,7 +238,7 @@ GEM
       sync
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2020.6)
+    tzinfo-data (1.2021.1)
       tzinfo (>= 1.0.0)
     unicode-display_width (2.0.0)
     websocket-driver (0.7.3)
