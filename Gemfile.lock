@@ -238,7 +238,7 @@ GEM
       sync
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2020.6)
+    tzinfo-data (1.2021.1)
       tzinfo (>= 1.0.0)
     unicode-display_width (2.0.0)
     websocket-driver (0.7.3)
