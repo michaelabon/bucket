@@ -176,7 +176,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.1.1)
-    rexml (3.2.4)
+    rexml (3.2.5)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -194,7 +194,7 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.2)
-    rubocop (1.12.0)
+    rubocop (1.12.1)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
@@ -271,7 +271,7 @@ DEPENDENCIES
   rake
   rspec-expectations
   rspec-rails
-  rubocop (~> 1.12.0)
+  rubocop (~> 1.12.1)
   rubocop-rails
   rubocop-rspec
   shoulda-matchers
