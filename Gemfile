@@ -32,6 +32,7 @@ group :development, :test do
   gem 'rake'
   gem 'rubocop', '~> 1.18.3', require: false
   gem 'rubocop-rails', require: false
+  gem 'rubocop-rake', require: false
   gem 'rubocop-rspec', require: false
 end
 
