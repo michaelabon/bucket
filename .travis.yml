@@ -1,8 +1,11 @@
 ---
 language: ruby
+dist: focal
 before_install:
   -
     gem install bundler
+  -
+    sudo /etc/init.d/postgresql start
 before_script:
   -
     psql -c 'create database travis_ci_test;' -U postgres
