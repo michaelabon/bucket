@@ -70,6 +70,7 @@ module Bucket
         ::Bucket::Processors::FactLookup.new,
         ::Bucket::Processors::InventoryAdd.new,
         ::Bucket::Processors::LearnNoun.new,
+        ::Bucket::Processors::ForgetNoun.new,
         ::Bucket::Processors::MoveAssHyphens.new,
         ::Bucket::Processors::ReverseTheFucking.new,
       ]
