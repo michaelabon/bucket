@@ -4,7 +4,7 @@ ruby '3.0.2'
 
 gem 'pg', '~> 1.2'
 gem 'puma', '~> 5.5'
-gem 'rails', '~> 6.1'
+gem 'rails', '~> 7.0'
 gem 'tzinfo-data'
 
 # Protects against GHSA-vr8q-g5c7-m54m
