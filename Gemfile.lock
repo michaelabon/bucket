@@ -98,7 +98,6 @@ GEM
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
     ffi (1.15.3)
-    ffi (1.15.3-x64-mingw32)
     globalid (1.0.0)
       activesupport (>= 5.0)
     httparty (0.20.0)
@@ -145,14 +144,12 @@ GEM
       timeout
     newrelic_rpm (8.2.0)
     nio4r (2.5.8)
-    nokogiri (1.13.3-x64-mingw32)
-      racc (~> 1.4)
     nokogiri (1.13.3-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.3-x86_64-linux)
       racc (~> 1.4)
-    parallel (1.21.0)
-    parser (3.0.3.2)
+    parallel (1.22.0)
+    parser (3.1.1.0)
       ast (~> 2.4.1)
     pg (1.2.3)
     pry (0.13.0)
@@ -198,12 +195,12 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0)
       zeitwerk (~> 2.5)
-    rainbow (3.0.0)
+    rainbow (3.1.1)
     rake (13.0.6)
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    regexp_parser (2.2.0)
+    regexp_parser (2.2.1)
     reverse_markdown (2.1.1)
       nokogiri
     rexml (3.2.5)
@@ -224,17 +221,17 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.2)
-    rubocop (1.24.0)
+    rubocop (1.26.1)
       parallel (~> 1.10)
-      parser (>= 3.0.0.0)
+      parser (>= 3.1.0.0)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml
-      rubocop-ast (>= 1.15.0, < 2.0)
+      rubocop-ast (>= 1.16.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.15.1)
-      parser (>= 3.0.1.1)
+    rubocop-ast (1.16.0)
+      parser (>= 3.1.1.0)
     rubocop-rails (2.13.0)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
@@ -317,7 +314,7 @@ DEPENDENCIES
   rake
   rspec-expectations
   rspec-rails
-  rubocop (~> 1.24.0)
+  rubocop (~> 1.26.1)
   rubocop-rails
   rubocop-rake
   rubocop-rspec
