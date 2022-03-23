@@ -128,3 +128,13 @@ Style/RedundantSelfAssignmentBranch:
   Enabled: true
 Style/SelectByRegexp:
   Enabled: true
+Naming/BlockForwarding: # new in 1.24
+  Enabled: true
+Style/FileRead: # new in 1.24
+  Enabled: true
+Style/FileWrite: # new in 1.24
+  Enabled: true
+Style/MapToHash: # new in 1.24
+  Enabled: true
+Style/NestedFileDirname: # new in 1.26
+  Enabled: true
