@@ -27,10 +27,9 @@ it is licensed under the [GPLv3][].
 
 ## Deploying Bucket
 
-Bucket works great with [Pivotal Web Services][pws] or with [Heroku][heroku].
+Bucket works great with with [Heroku][heroku].
 You will want a database service, such as ElephantSQL.
 
-[pws]: https://run.pivotal.io
 [heroku]: https://heroku.com
 
 
