@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '3.0.2'
+ruby '3.0.3'
 
 gem 'pg', '~> 1.3'
 gem 'puma', '~> 5.6'
