@@ -5,7 +5,7 @@ describe Bucket::Processors::SilenceActivate do
 
   describe '#process' do
     let(:message) do
-      Message.new(text: text, addressed: addressed, user_name: 'M2K')
+      Message.new(text:, addressed:, user_name: 'M2K')
     end
 
     context 'when addressed' do

@@ -6,9 +6,9 @@ describe Bucket::Processors::FactDelete do
   describe '#process' do
     let(:message) do
       Message.new(
-        text: text,
-        user_name: user_name,
-        addressed: addressed
+        text:,
+        user_name:,
+        addressed:
       )
     end
     let(:user_name) { 'M2K' }
@@ -20,19 +20,19 @@ describe Bucket::Processors::FactDelete do
 
       context 'and matching facts exist' do
         before do
-          create(:fact, trigger: trigger, result: 'a')
-          create(:fact, trigger: trigger, result: 'b')
+          create(:fact, trigger:, result: 'a')
+          create(:fact, trigger:, result: 'b')
           create(:fact, trigger: 'other trigger', result: 'is not deleted')
         end
 
         it 'deletes all facts that match that trigger' do
-          matching_facts = Fact.where(trigger: trigger)
+          matching_facts = Fact.where(trigger:)
           expect(matching_facts.count).to eq 2
           expect(Fact.count).to eq 3
 
           processor.process(message)
 
-          matching_facts = Fact.where(trigger: trigger)
+          matching_facts = Fact.where(trigger:)
           expect(matching_facts.count).to eq 0
           expect(Fact.count).to eq 1
         end

@@ -4,7 +4,7 @@ describe Bucket::Postprocessors::EncodeHtml do
   let(:processor) { described_class.new }
 
   describe '#process' do
-    let(:message_response) { MessageResponse.new(text: text) }
+    let(:message_response) { MessageResponse.new(text:) }
 
     context 'when the response contains &' do
       let(:text) { 'A & B' }

@@ -8,7 +8,7 @@ module Bucket
 
         trigger = Helpers::Clean.clean($1)
 
-        facts = Fact.where(trigger: trigger)
+        facts = Fact.where(trigger:)
         return failure(message) if facts.count <= 0
 
         facts.destroy_all

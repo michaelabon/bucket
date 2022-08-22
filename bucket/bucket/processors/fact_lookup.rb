@@ -3,7 +3,7 @@ module Bucket
     class FactLookup
       def process(message)
         trigger = Helpers::Clean.clean(message.text)
-        fact = Fact.where(trigger: trigger).order(Arel.sql('RANDOM()')).first
+        fact = Fact.where(trigger:).order(Arel.sql('RANDOM()')).first
         return nil unless fact.try(:result)
 
         MessageResponse.new(

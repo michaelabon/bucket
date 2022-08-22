@@ -4,8 +4,8 @@ describe 'Deleting a trigger' do
   let(:trigger) { 'alpha' }
 
   before do
-    create(:fact, trigger: trigger, result: 'bravo one')
-    create(:fact, trigger: trigger, result: 'bravo two')
+    create(:fact, trigger:, result: 'bravo one')
+    create(:fact, trigger:, result: 'bravo two')
   end
 
   context 'when Bucket is addressed' do

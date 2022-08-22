@@ -4,7 +4,7 @@ describe Bucket::Processors::InventoryList do
   let(:processor) { described_class.new }
 
   describe '#process' do
-    let(:message) { Message.new(text: text, addressed: addressed) }
+    let(:message) { Message.new(text:, addressed:) }
 
     context 'when Bucket was addressed' do
       let(:addressed) { true }

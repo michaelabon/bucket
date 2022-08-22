@@ -6,7 +6,7 @@ describe Bucket::Preprocessors::AddressedToBucket do
   # TODO: shared_examples_for or behaves_like
 
   describe '#process' do
-    let(:message) { Message.new(text: text) }
+    let(:message) { Message.new(text:) }
 
     context 'when Bucket was addressed' do
       shared_examples_for 'an addressed message' do

@@ -7,7 +7,7 @@ describe Bucket::Postprocessors::ReplaceInventory do
     let(:ordered_items) { double(:ordered_items) }
     let(:items) { double(:items) }
     let(:item_list) { 'a, b, and c' }
-    let(:message_response) { MessageResponse.new(text: text) }
+    let(:message_response) { MessageResponse.new(text:) }
 
     before do
       allow(Item).to receive(:order).with(:created_at) { ordered_items }

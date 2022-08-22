@@ -3,9 +3,9 @@ require 'rails_helper'
 describe Bucket::Bucket do
   let(:bucket) do
     described_class.new(
-      preprocessors: preprocessors,
-      processors: processors,
-      postprocessors: postprocessors
+      preprocessors:,
+      processors:,
+      postprocessors:
     )
   end
 
@@ -20,7 +20,7 @@ describe Bucket::Bucket do
       let(:processor1) { double(:processor1) }
       let(:processor2) { double(:processor2) }
       let(:message_response) do
-        double(:message_response, text: text, 'user_name=': nil)
+        double(:message_response, text:, 'user_name=': nil)
       end
 
       context 'when the first processor has a positive result' do
