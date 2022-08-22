@@ -15,8 +15,8 @@ module Bucket
 
       def save_noun(what, placed_by)
         Noun.create(
-          what: what,
-          placed_by: placed_by
+          what:,
+          placed_by:
         )
       end
 

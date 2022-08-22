@@ -4,7 +4,7 @@ describe Bucket::Postprocessors::ReplaceItem do
   let(:processor) { described_class.new }
 
   describe '#process' do
-    let(:message_response) { MessageResponse.new(text: text) }
+    let(:message_response) { MessageResponse.new(text:) }
 
     context "when message_response contains one or more instances of `$item'" do
       let(:text) { 'I have $item and $item' }

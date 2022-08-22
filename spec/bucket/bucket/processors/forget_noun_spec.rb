@@ -29,7 +29,7 @@ describe Bucket::Processors::ForgetNoun do
             it "works for the trigger '#{valid_trigger}'" do
               message = Message.new(
                 text: valid_trigger,
-                addressed: addressed
+                addressed:
               )
 
               message_response = processor.process(message)
@@ -47,7 +47,7 @@ describe Bucket::Processors::ForgetNoun do
           it 'returns nil' do
             message = Message.new(
               text: 'forget value $noun',
-              addressed: addressed
+              addressed:
             )
 
             expect(processor.process(message)).to be_nil
@@ -59,7 +59,7 @@ describe Bucket::Processors::ForgetNoun do
         it 'acknowledges the user’s mistake' do
           message = Message.new(
             text: 'forget value $noun banana',
-            addressed: addressed
+            addressed:
           )
 
           message_response = processor.process(message)
@@ -79,7 +79,7 @@ describe Bucket::Processors::ForgetNoun do
       it 'returns nil' do
         message = Message.new(
           text: 'forget value $noun banana',
-          addressed: addressed
+          addressed:
         )
 
         expect(processor.process(message)).to be_nil

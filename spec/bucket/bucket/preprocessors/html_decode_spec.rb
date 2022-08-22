@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Bucket::Preprocessors::HtmlDecode do
   let(:processor) { described_class.new }
-  let(:message) { Message.new(text: text) }
+  let(:message) { Message.new(text:) }
 
   context 'when the message is present' do
     let(:text) { 'A&amp;B&lt;C&gt;' }

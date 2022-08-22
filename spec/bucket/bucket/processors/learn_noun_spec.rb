@@ -16,7 +16,7 @@ describe Bucket::Processors::LearnNoun do
           it "works for the trigger '#{valid_trigger}'" do
             message = Message.new(
               text: valid_trigger,
-              addressed: addressed
+              addressed:
             )
 
             message_response = processor.process(message)
@@ -34,7 +34,7 @@ describe Bucket::Processors::LearnNoun do
         it 'returns nil' do
           message = Message.new(
             text: 'add value $noun',
-            addressed: addressed
+            addressed:
           )
 
           expect(processor.process(message)).to be_nil
@@ -48,7 +48,7 @@ describe Bucket::Processors::LearnNoun do
       it 'returns nil' do
         message = Message.new(
           text: 'add value $noun banana',
-          addressed: addressed
+          addressed:
         )
 
         expect(processor.process(message)).to be_nil

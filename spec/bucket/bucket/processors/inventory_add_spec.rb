@@ -21,7 +21,7 @@ describe Bucket::Processors::InventoryAdd do
           message = Message.new(
             text: trigger,
             user_name: 'M2K',
-            addressed: addressed
+            addressed:
           )
 
           message_response = processor.process(message)
@@ -46,7 +46,7 @@ describe Bucket::Processors::InventoryAdd do
           message = Message.new(
             text: trigger,
             user_name: 'M2K',
-            addressed: addressed
+            addressed:
           )
 
           message_response = processor.process(message)
@@ -78,7 +78,7 @@ describe Bucket::Processors::InventoryAdd do
               message = Message.new(
                 text: trigger,
                 user_name: 'M2K',
-                addressed: addressed
+                addressed:
               )
               message_response = processor.process(message)
 
@@ -101,7 +101,7 @@ describe Bucket::Processors::InventoryAdd do
             message = Message.new(
               text: trigger,
               user_name: 'M2K',
-              addressed: addressed
+              addressed:
             )
             expect(processor.process(message)).to eq nil
           end

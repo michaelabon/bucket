@@ -13,7 +13,7 @@ module Bucket
 
         verb.gsub!(/^<|>$/, '') unless ['<action>', '<reply>'].include? verb
 
-        Fact.find_or_create_by(trigger: trigger, verb: verb, result: result)
+        Fact.find_or_create_by(trigger:, verb:, result:)
 
         MessageResponse.new(text: "OK, #{message.user_name}")
       end

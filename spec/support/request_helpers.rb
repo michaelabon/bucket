@@ -16,7 +16,7 @@ module Requests
       token: slack_triggers_token,
       user_name: 'M2K'
     )
-      post path, params: { text: text, token: token, user_name: user_name }
+      post path, params: { text:, token:, user_name: }
     end
   end
 

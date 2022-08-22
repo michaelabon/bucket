@@ -5,7 +5,7 @@ describe Bucket::Processors::ReverseTheFucking do
 
   describe '#process' do
     let(:message) do
-      Message.new(text: text)
+      Message.new(text:)
     end
 
     context 'when message contains `the fucking`' do
