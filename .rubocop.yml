@@ -166,3 +166,9 @@ Style/StringChars:
   Enabled: true
 Style/SwapValues:
   Enabled: true
+Lint/DuplicateMagicComment: # new in 1.37
+  Enabled: true
+Style/OperatorMethodCall: # new in 1.37
+  Enabled: true
+Style/RedundantStringEscape: # new in 1.37
+  Enabled: true
