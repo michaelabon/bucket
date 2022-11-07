@@ -12,7 +12,6 @@ gem 'tzinfo-data'
 gem 'nokogiri', '>= 1.11.0.rc4'
 
 gem 'httparty'
-gem 'newrelic_rpm'
 
 group :production do
   gem 'rails_12factor'
@@ -32,15 +31,13 @@ group :development, :test do
   gem 'pry-byebug', platform: :mri
   gem 'rake'
   gem 'rubocop', '~> 1.37.1', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rake', require: false
-  gem 'rubocop-rspec', require: false
 end
 
 group :test do
   gem 'coveralls_reborn', require: false
   gem 'database_cleaner'
   gem 'factory_bot_rails'
+  gem 'rspec'
   gem 'rspec-expectations'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
