@@ -151,7 +151,7 @@ GEM
     pry-byebug (3.10.1)
       byebug (~> 11.0)
       pry (>= 0.13, < 0.15)
-    puma (6.0.0)
+    puma (6.2.2)
       nio4r (~> 2.0)
     racc (1.6.2)
     rack (2.2.6.4)
@@ -297,7 +297,7 @@ DEPENDENCIES
   nokogiri (>= 1.11.0.rc4)
   pg (~> 1.5)
   pry-byebug
-  puma (~> 6.0)
+  puma (~> 6.2)
   rails (>= 7.0.4.3, < 8)
   rails_12factor
   rake
