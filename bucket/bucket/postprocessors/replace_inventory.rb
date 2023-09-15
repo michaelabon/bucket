@@ -4,7 +4,7 @@ module Bucket
       def process(message_response)
         return unless message_response.try(:text)
 
-        message_response.text.sub!(/\$inventory/, inventory)
+        message_response.text.sub!('$inventory', inventory)
 
         nil
       end

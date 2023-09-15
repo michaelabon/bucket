@@ -13,7 +13,7 @@ module Bucket
       private
 
       def addressed_regex # rubocop:disable Metrics/MethodLength
-        @addressed_regex ||= Regexp.new(/
+        @addressed_regex ||= /
           ^ Bucket    # If the line starts with the bots nickname
           [:,]\s*     # and is followed by a colon or comma,
           |           # --or--
@@ -24,7 +24,7 @@ module Bucket
           ,\s+        # If the line ends with a comma, then whitespace
           Bucket      # then the bots nickname
           \W*$        # then the end of the line
-          /ix)
+          /ix
       end
     end
   end

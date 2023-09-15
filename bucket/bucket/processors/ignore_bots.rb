@@ -2,7 +2,7 @@ module Bucket
   module Processors
     class IgnoreBots
       def process(message)
-        return BlankMessageResponse.new if bot_speaker?(message)
+        BlankMessageResponse.new if bot_speaker?(message)
       end
 
       private
