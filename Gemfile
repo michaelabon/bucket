@@ -30,7 +30,7 @@ group :development, :test do
   gem 'colored', require: false
   gem 'pry-byebug', platform: :mri
   gem 'rake'
-  gem 'rubocop', '~> 1.57.1', require: false
+  gem 'rubocop', '~> 1.57.2', require: false
 end
 
 group :test do

@@ -255,8 +255,7 @@ GEM
       rspec-mocks (~> 3.12)
       rspec-support (~> 3.12)
     rspec-support (3.12.1)
-    rubocop (1.57.1)
-      base64 (~> 0.1.1)
+    rubocop (1.57.2)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
@@ -346,7 +345,7 @@ DEPENDENCIES
   rspec
   rspec-expectations
   rspec-rails
-  rubocop (~> 1.57.1)
+  rubocop (~> 1.57.2)
   shoulda-matchers
   solargraph
   spring
