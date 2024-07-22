@@ -1,11 +1,27 @@
+# Updating this? Here's the documentation:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+---
 version: 2
 updates:
-- package-ecosystem: bundler
-  directory: "/"
-  schedule:
-    interval: daily
-    time: '08:00'
-    timezone: America/Winnipeg
-  open-pull-requests-limit: 3
-  assignees:
-  - michaelabon
+  -
+    package-ecosystem: "bundler"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    allow:
+      -
+        "dependency-type": "all"
+    assignees:
+      - "michaelabon"
+    labels:
+      - "dependencies"
+    groups:
+      rubocop:
+        applies-to: "version-updates"
+        patterns:
+          - "rubocop*"
+  -
+    package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
