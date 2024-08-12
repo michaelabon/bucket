@@ -38,6 +38,7 @@ jobs:
       - name: all
         run: COVERAGE=true bundle exec rake
         env:
+          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
           RAILS_ENV: test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
