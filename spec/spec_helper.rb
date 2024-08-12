@@ -64,6 +64,9 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
+  # Let us find out that things are deprecated before they are removed
+  config.raise_errors_for_deprecations!
+
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
   end

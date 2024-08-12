@@ -22,7 +22,7 @@ module Requests
 
   module SlackToken
     def slack_triggers_token
-      Rails.application.secrets['slack_triggers_token']
+      Rails.application.credentials.slack_triggers_token!
     end
   end
 end
