@@ -13,7 +13,7 @@ module Requests
     def slack_post(
       path: '/messages',
       text: '',
-      token: slack_triggers_token,
+      token: SlackToken.slack_triggers_token,
       user_name: 'M2K'
     )
       post path, params: { text:, token:, user_name: }
@@ -21,8 +21,8 @@ module Requests
   end
 
   module SlackToken
-    def slack_triggers_token
-      Rails.application.credentials.slack_triggers_token!
+    def self.slack_triggers_token
+      Rails.configuration.x.slack.triggers_token
     end
   end
 end

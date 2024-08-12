@@ -5,7 +5,7 @@ class Message
                 :user_id, :user_name, :text, :trigger_word, :addressed
 
   validates :token, presence: true, inclusion: {
-    in: [Rails.application.credentials.slack_triggers_token!]
+    in: [Rails.configuration.x.slack.triggers_token]
   }
 
   def initialize(options = {})
