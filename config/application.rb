@@ -30,5 +30,17 @@ module BucketApi
 
     config.enable_dependency_loading = true
     config.autoload_paths << Rails.root.join('bucket')
+
+    if Rails.env.production?
+      config.ignored_user_names = ENV['IGNORED_USER_NAMES'] || 'slackbot' # comma separated
+      config.x.slack.subdomain = ENV.fetch('SLACK_SUBDOMAIN')
+      config.x.slack.triggers_token = ENV.fetch('SLACK_TRIGGERS_TOKEN')
+      config.x.slack.startup_token = ENV.fetch('SLACK_STARTUP_TOKEN')
+    else
+      config.ignored_user_names = ENV['IGNORED_USER_NAMES'] || 'slackbot,testbot'
+      config.x.slack.subdomain = ENV['SLACK_SUBDOMAIN'] || 'bucket'
+      config.x.slack.triggers_token = ENV['SLACK_TRIGGERS_TOKEN'] || 'SLACK_TRIGGERS_TOKEN_X'
+      config.x.slack.startup_token = ENV['SLACK_STARTUP_TOKEN'] || 'SLACK_STARTUP_TOKEN_X'
+    end
   end
 end
