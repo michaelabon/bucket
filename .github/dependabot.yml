@@ -34,3 +34,6 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "tuesday"
+      time: "15:10"
+      timezone: "America/Winnipeg"
