@@ -19,6 +19,12 @@ updates:
     labels:
       - "dependencies"
     groups:
+      rails:
+        applies-to: "version-updates"
+        patterns:
+          - "action*"
+          - "active*"
+          - "rails"
       rubocop:
         applies-to: "version-updates"
         patterns:
