@@ -6,7 +6,7 @@ describe Message do
     it do
       is_expected
         .to validate_inclusion_of(:token)
-        .in_array([Rails.application.secrets[:slack_triggers_token]])
+        .in_array([Rails.application.credentials.slack_triggers_token!])
     end
   end
 end

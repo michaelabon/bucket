@@ -12,7 +12,7 @@ module Bucket
       end
 
       def ignored_user_names
-        @ignored_user_names ||= Rails.application.secrets[:ignored_user_names]
+        @ignored_user_names ||= Rails.application.credentials.ignored_user_names!
       end
     end
   end
