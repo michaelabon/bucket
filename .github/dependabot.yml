@@ -25,6 +25,7 @@ updates:
           - "action*"
           - "active*"
           - "rails"
+          - "railties"
       rubocop:
         applies-to: "version-updates"
         patterns:
