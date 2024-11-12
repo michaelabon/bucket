@@ -4,7 +4,7 @@ ruby File.read('.ruby-version').strip
 
 gem 'pg', '~> 1.5'
 gem 'puma', '~> 6.4'
-gem 'rails', '>= 7.0.4.3', '< 8'
+gem 'rails', '>= 7.0.4.3', '< 9'
 gem 'tzinfo-data'
 
 # Protects against GHSA-vr8q-g5c7-m54m
