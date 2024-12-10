@@ -126,8 +126,8 @@ GEM
       reline (>= 0.4.2)
     jaro_winkler (1.6.0)
     json (2.9.0)
-    kramdown (2.4.0)
-      rexml
+    kramdown (2.5.1)
+      rexml (>= 3.3.9)
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
     language_server-protocol (3.17.0.3)
