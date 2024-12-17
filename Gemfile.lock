@@ -120,7 +120,7 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
-    io-console (0.7.2)
+    io-console (0.8.0)
     irb (1.14.1)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
@@ -232,7 +232,7 @@ GEM
     rdoc (6.8.1)
       psych (>= 4.0.0)
     regexp_parser (2.9.3)
-    reline (0.5.11)
+    reline (0.6.0)
       io-console (~> 0.5)
     reverse_markdown (2.1.1)
       nokogiri
