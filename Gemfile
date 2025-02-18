@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby File.read('.ruby-version').strip
+ruby file: '.ruby-version'
 
 gem 'pg', '~> 1.5'
 gem 'puma', '~> 6.4'
