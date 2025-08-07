@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby file: '.ruby-version'
 
-gem 'pg', '~> 1.5'
+gem 'pg', '~> 1.6'
 gem 'puma', '~> 6.6'
 gem 'rails', '>= 7.0.4.3', '< 9'
 gem 'tzinfo-data'
