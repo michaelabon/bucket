@@ -329,7 +329,7 @@ GEM
     thor (1.4.0)
     tilt (2.6.1)
     timeout (0.4.3)
-    tins (1.38.0)
+    tins (1.39.1)
       bigdecimal
       sync
     tsort (0.2.0)
