@@ -26,7 +26,7 @@ module Bucket
         ].join(' ')
       end
 
-      def processable(message_response)
+      def processable?(message_response)
         message_response.verb.present? && message_response.verb != '<reply>'
       end
     end

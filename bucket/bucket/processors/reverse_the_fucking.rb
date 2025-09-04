@@ -13,7 +13,7 @@ module Bucket
       private
 
       def triggered?(message)
-        message.text.scan(regexp).count == 1
+        message.text.scan(regexp).one?
       end
 
       def regexp
