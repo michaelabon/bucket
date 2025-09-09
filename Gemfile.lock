@@ -76,7 +76,7 @@ GEM
     backport (1.2.0)
     base64 (0.3.0)
     benchmark (0.4.1)
-    bigdecimal (3.2.2)
+    bigdecimal (3.2.3)
     brakeman (7.1.0)
       racc
     builder (3.3.0)
@@ -328,7 +328,7 @@ GEM
     thor (1.4.0)
     tilt (2.6.1)
     timeout (0.4.3)
-    tins (1.42.0)
+    tins (1.43.0)
       bigdecimal
       sync
     tzinfo (2.0.6)
