@@ -76,7 +76,7 @@ GEM
     backport (1.2.0)
     base64 (0.3.0)
     benchmark (0.4.1)
-    bigdecimal (3.2.2)
+    bigdecimal (3.2.3)
     brakeman (7.1.0)
       racc
     builder (3.3.0)
@@ -149,6 +149,7 @@ GEM
     method_source (1.1.0)
     mini_mime (1.1.5)
     minitest (5.25.5)
+    mize (0.6.1)
     multi_xml (0.7.2)
       bigdecimal (~> 3.1)
     net-imap (0.5.9)
@@ -328,8 +329,9 @@ GEM
     thor (1.4.0)
     tilt (2.6.1)
     timeout (0.4.3)
-    tins (1.42.0)
+    tins (1.44.1)
       bigdecimal
+      mize (~> 0.6)
       sync
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
