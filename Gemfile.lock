@@ -176,7 +176,7 @@ GEM
     observer (0.1.2)
     ostruct (0.6.3)
     parallel (1.27.0)
-    parser (3.3.10.0)
+    parser (3.3.10.1)
       ast (~> 2.4.1)
       racc
     pg (1.6.2-arm64-darwin)
@@ -279,7 +279,7 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.6)
-    rubocop (1.82.0)
+    rubocop (1.82.1)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -290,9 +290,9 @@ GEM
       rubocop-ast (>= 1.48.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
-    rubocop-ast (1.48.0)
+    rubocop-ast (1.49.0)
       parser (>= 3.3.7.2)
-      prism (~> 1.4)
+      prism (~> 1.7)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
     shoulda-matchers (7.0.1)
@@ -388,7 +388,7 @@ DEPENDENCIES
   rspec
   rspec-expectations
   rspec-rails
-  rubocop (~> 1.82.0)
+  rubocop (~> 1.82.1)
   shoulda-matchers
   solargraph
   spring
