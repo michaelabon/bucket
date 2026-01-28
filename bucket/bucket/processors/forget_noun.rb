@@ -11,7 +11,7 @@ module Bucket
         return unless (match = real_triggers.match(message.text))
 
         noun_to_forget = match.captures.detect { |x| x }
-        if Noun.where(what: noun_to_forget).exists?
+        if Noun.exists?(what: noun_to_forget)
           Noun.where(what: noun_to_forget).destroy_all
           reply_found(noun_to_forget)
         else

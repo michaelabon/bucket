@@ -49,7 +49,7 @@ describe MessagesController do
         it 'responds with Bucket’s response' do
           post :receive, params: { text: 'alpha' }
 
-          expect(JSON.parse(response.body)['text']).to eq 'bravo'
+          expect(response.parsed_body['text']).to eq 'bravo'
         end
       end
 

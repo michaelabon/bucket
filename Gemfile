@@ -30,6 +30,7 @@ group :development, :test do
   gem 'rake'
   gem 'rubocop', '~> 1.82.1', require: false
   gem 'rubocop-factory_bot', require: false
+  gem 'rubocop-rails', require: false
 end
 
 group :test do
