@@ -2,6 +2,7 @@
 plugins:
   - "rubocop-factory_bot"
   - "rubocop-rails"
+  - "rubocop-rake"
 
 AllCops:
   Exclude:
