@@ -11,11 +11,11 @@ module Bucket
       def process(message_response)
         message_response&.text&.gsub!(
           unescaped_noun_variable,
-          random_noun
+          random_noun,
         )
         message_response&.text&.gsub!(
           escaped_noun_variable,
-          '$noun'
+          '$noun',
         )
       end
 

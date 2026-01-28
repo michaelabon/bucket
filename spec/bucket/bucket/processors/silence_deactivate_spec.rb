@@ -35,7 +35,7 @@ describe Bucket::Processors::SilenceDeactivate do
         before do
           SilenceRequest.create!(
             requester: 'Some lame person',
-            silence_until: 3.days.from_now
+            silence_until: 3.days.from_now,
           )
         end
 

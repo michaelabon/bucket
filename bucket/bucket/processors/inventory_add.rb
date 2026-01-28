@@ -23,12 +23,12 @@ module Bucket
         cleaned = clean_item(match, message.user_name)
         Item.create!(
           what: cleaned,
-          placed_by: message.user_name
+          placed_by: message.user_name,
         )
 
         MessageResponse.new(
           text: "is now carrying #{cleaned}",
-          verb: '<action>'
+          verb: '<action>',
         )
       end
 

@@ -22,7 +22,7 @@ describe Bucket::Postprocessors::ReplaceWho do
   context 'when the message response does not contain `$who`' do
     it 'does not change the response text' do
       message_response = MessageResponse.new(
-        text: 'This only contains the word who'
+        text: 'This only contains the word who',
       )
       postprocessor.process(message_response)
       expect(message_response.text).to eq 'This only contains the word who'
@@ -33,7 +33,7 @@ describe Bucket::Postprocessors::ReplaceWho do
     it 'replaces the $who with the user name of the speaker' do
       message_response = MessageResponse.new(
         text: 'This contains one and only one $who',
-        user_name: 'Bob'
+        user_name: 'Bob',
       )
       postprocessor.process(message_response)
       expect(message_response.text).to eq 'This contains one and only one Bob'
@@ -44,11 +44,11 @@ describe Bucket::Postprocessors::ReplaceWho do
     it 'replaces all instances of $who with the user name of the speaker' do
       message_response = MessageResponse.new(
         text: 'Who are you? $who, $who, $who, $who.',
-        user_name: 'Ice Cube'
+        user_name: 'Ice Cube',
       )
       postprocessor.process(message_response)
       expect(message_response.text).to eq(
-        'Who are you? Ice Cube, Ice Cube, Ice Cube, Ice Cube.'
+        'Who are you? Ice Cube, Ice Cube, Ice Cube, Ice Cube.',
       )
     end
   end

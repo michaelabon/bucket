@@ -9,7 +9,7 @@ module Bucket
         return nil unless message.text.match?(regexp)
 
         MessageResponse.new(
-          text: message.text.sub(regexp, 'fucking the')
+          text: message.text.sub(regexp, 'fucking the'),
         )
       end
 

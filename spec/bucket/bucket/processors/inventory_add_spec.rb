@@ -21,7 +21,7 @@ describe Bucket::Processors::InventoryAdd do
           message = Message.new(
             text: trigger,
             user_name: 'M2K',
-            addressed:
+            addressed:,
           )
 
           message_response = processor.process(message)
@@ -46,7 +46,7 @@ describe Bucket::Processors::InventoryAdd do
           message = Message.new(
             text: trigger,
             user_name: 'M2K',
-            addressed:
+            addressed:,
           )
 
           message_response = processor.process(message)
@@ -70,7 +70,7 @@ describe Bucket::Processors::InventoryAdd do
             'take this fuzzy kitten' => 'this fuzzy kitten',
             'take these fuzzy kittens' => 'these fuzzy kittens',
             'have a fuzzy kitten' => 'a fuzzy kitten',
-            'have an exploding kitten' => 'an exploding kitten'
+            'have an exploding kitten' => 'an exploding kitten',
           }.each do |trigger, stored_item|
             let(:text) { k }
 
@@ -78,7 +78,7 @@ describe Bucket::Processors::InventoryAdd do
               message = Message.new(
                 text: trigger,
                 user_name: 'M2K',
-                addressed:
+                addressed:,
               )
               message_response = processor.process(message)
 
@@ -101,7 +101,7 @@ describe Bucket::Processors::InventoryAdd do
             message = Message.new(
               text: trigger,
               user_name: 'M2K',
-              addressed:
+              addressed:,
             )
             expect(processor.process(message)).to eq nil
           end

@@ -22,7 +22,7 @@ describe Bucket::Postprocessors::ReplaceNoun do
   context 'when the message response does not contain `$noun`' do
     it 'does not change the response text' do
       message_response = MessageResponse.new(
-        text: 'This only contains the word noun'
+        text: 'This only contains the word noun',
       )
       postprocessor.process(message_response)
       expect(message_response.text).to eq 'This only contains the word noun'
@@ -37,7 +37,7 @@ describe Bucket::Postprocessors::ReplaceNoun do
 
     it 'replaces the $noun with a random noun' do
       message_response = MessageResponse.new(
-        text: 'This contains one and only one $noun'
+        text: 'This contains one and only one $noun',
       )
       postprocessor.process(message_response)
       expect(message_response.text)
@@ -53,7 +53,7 @@ describe Bucket::Postprocessors::ReplaceNoun do
 
     it 'replaces all instances of $noun with random nouns' do
       message_response = MessageResponse.new(
-        text: 'I love $noun and $noun'
+        text: 'I love $noun and $noun',
       )
       postprocessor.process(message_response)
       expect(message_response.text)
@@ -68,7 +68,7 @@ describe Bucket::Postprocessors::ReplaceNoun do
 
     it 'unescapes but does not replace the escaped version' do
       message_response = MessageResponse.new(
-        text: 'When I say \$noun I get $noun'
+        text: 'When I say \$noun I get $noun',
       )
       postprocessor.process(message_response)
       expect(message_response.text)
