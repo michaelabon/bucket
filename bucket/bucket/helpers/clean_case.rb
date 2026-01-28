@@ -4,7 +4,7 @@ module Bucket
       def self.clean(text)
         return '' unless text
 
-        text.mb_chars.downcase.to_s
+        text.downcase
       end
     end
   end
