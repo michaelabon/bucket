@@ -39,7 +39,7 @@ module Bucket
       end
 
       def random_noun
-        Noun.all.pluck(:what).sample || 'box'
+        Noun.pluck(:what).sample || 'box'
       end
     end
   end

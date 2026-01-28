@@ -11,6 +11,6 @@ class SilenceRequest < ApplicationRecord
   validates :silence_until, presence: true
 
   def self.request_active?
-    where('silence_until > ?', Time.zone.now).exists?
+    exists?(['silence_until > ?', Time.zone.now])
   end
 end
