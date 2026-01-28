@@ -42,8 +42,5 @@ module BucketApi
       config.x.slack.triggers_token = ENV['SLACK_TRIGGERS_TOKEN'] || 'SLACK_TRIGGERS_TOKEN_X'
       config.x.slack.startup_token = ENV['SLACK_STARTUP_TOKEN'] || 'SLACK_STARTUP_TOKEN_X'
     end
-
-    # opt in to Rails 8.1 handling
-    config.active_support.to_time_preserves_timezone = :zone
   end
 end
