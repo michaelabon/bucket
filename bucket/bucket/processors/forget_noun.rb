@@ -24,14 +24,14 @@ module Bucket
       def reply_found(noun_to_forget)
         MessageResponse.new(
           text: "Okay, $who, '#{noun_to_forget}' is no longer a noun.",
-          verb: '<reply>'
+          verb: '<reply>',
         )
       end
 
       def reply_not_found(noun_to_forget)
         MessageResponse.new(
           text: "I'm sorry, $who, but '#{noun_to_forget}' is not a noun that I know of.",
-          verb: '<reply>'
+          verb: '<reply>',
         )
       end
 

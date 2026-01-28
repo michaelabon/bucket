@@ -11,7 +11,7 @@ describe Bucket::Processors::ForgetNoun do
         before do
           Noun.create!(
             what: 'banana',
-            placed_by: 'M2K'
+            placed_by: 'M2K',
           )
         end
 
@@ -29,14 +29,14 @@ describe Bucket::Processors::ForgetNoun do
             it "works for the trigger '#{valid_trigger}'" do
               message = Message.new(
                 text: valid_trigger,
-                addressed:
+                addressed:,
               )
 
               message_response = processor.process(message)
 
               expect(message_response).to_not be_nil
               expect(message_response.text).to eql(
-                "Okay, $who, 'banana' is no longer a noun."
+                "Okay, $who, 'banana' is no longer a noun.",
               )
               expect(message_response.verb).to eql '<reply>'
             end
@@ -47,7 +47,7 @@ describe Bucket::Processors::ForgetNoun do
           it 'returns nil' do
             message = Message.new(
               text: 'forget value $noun',
-              addressed:
+              addressed:,
             )
 
             expect(processor.process(message)).to be_nil
@@ -59,14 +59,14 @@ describe Bucket::Processors::ForgetNoun do
         it 'acknowledges the user’s mistake' do
           message = Message.new(
             text: 'forget value $noun banana',
-            addressed:
+            addressed:,
           )
 
           message_response = processor.process(message)
 
           expect(message_response).to_not be_nil
           expect(message_response.text).to eql(
-            "I'm sorry, $who, but 'banana' is not a noun that I know of."
+            "I'm sorry, $who, but 'banana' is not a noun that I know of.",
           )
           expect(message_response.verb).to eql '<reply>'
         end
@@ -79,7 +79,7 @@ describe Bucket::Processors::ForgetNoun do
       it 'returns nil' do
         message = Message.new(
           text: 'forget value $noun banana',
-          addressed:
+          addressed:,
         )
 
         expect(processor.process(message)).to be_nil

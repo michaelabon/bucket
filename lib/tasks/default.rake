@@ -11,5 +11,5 @@ task(:default).clear.enhance(
     brakeman:run
     spec
     rubocop
-  ]
+  ],
 )

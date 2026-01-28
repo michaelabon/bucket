@@ -18,7 +18,7 @@ namespace :bucket do
 
       message = Message.new(
         user_name: 'CLI',
-        text: input
+        text: input,
       )
 
       bucket.process(message)

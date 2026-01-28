@@ -8,7 +8,7 @@ describe Bucket::Processors::FactDelete do
       Message.new(
         text:,
         user_name:,
-        addressed:
+        addressed:,
       )
     end
     let(:user_name) { 'M2K' }
@@ -41,7 +41,7 @@ describe Bucket::Processors::FactDelete do
           result = processor.process(message)
 
           expect(result.text).to eq(
-            "OK, #{user_name}. I have deleted #{trigger}."
+            "OK, #{user_name}. I have deleted #{trigger}.",
           )
         end
       end
@@ -59,7 +59,7 @@ describe Bucket::Processors::FactDelete do
           result = processor.process(message)
 
           expect(result.text).to eq(
-            "I don't know what you're talking about, #{user_name}."
+            "I don't know what you're talking about, #{user_name}.",
           )
         end
       end

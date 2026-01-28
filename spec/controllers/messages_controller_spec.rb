@@ -15,15 +15,15 @@ describe MessagesController do
         token: '123',
         text: 'alpha',
         user_name: 'M2K',
-        extra: 'param'
+        extra: 'param',
       }
 
       expect(Message).to have_received(:new).with(
         ActionController::Parameters.new(
           token: '123',
           text: 'alpha',
-          user_name: 'M2K'
-        ).permit!
+          user_name: 'M2K',
+        ).permit!,
       )
     end
 

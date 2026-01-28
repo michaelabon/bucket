@@ -20,14 +20,14 @@ module Bucket
       def save_noun(what, placed_by)
         Noun.create(
           what:,
-          placed_by:
+          placed_by:,
         )
       end
 
       def reply(new_noun)
         MessageResponse.new(
           text: "Okay, $who, '#{new_noun}' is now a noun.",
-          verb: '<reply>'
+          verb: '<reply>',
         )
       end
 

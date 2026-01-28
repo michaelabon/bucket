@@ -9,7 +9,7 @@ module Bucket
         return nil unless message.text.match(regexp)
 
         MessageResponse.new(
-          text: message.text.gsub(regexp, '\k<adj> ass-\k<noun>')
+          text: message.text.gsub(regexp, '\k<adj> ass-\k<noun>'),
         )
       end
 

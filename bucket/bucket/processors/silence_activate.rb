@@ -13,7 +13,7 @@ module Bucket
 
         SilenceRequest.create!(
           requester: message.user_name,
-          silence_until: Time.zone.now + DEFAULT_SILENCE
+          silence_until: Time.zone.now + DEFAULT_SILENCE,
         )
 
         response_text = "Okay, #{message.user_name}. Be back in a bit."

@@ -6,7 +6,7 @@ describe 'Forgetting a $noun' do
       before do
         Noun.create!(
           what: 'book',
-          placed_by: 'M2K'
+          placed_by: 'M2K',
         )
       end
 
