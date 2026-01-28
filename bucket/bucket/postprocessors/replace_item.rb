@@ -1,5 +1,10 @@
 module Bucket
   module Postprocessors
+    # Substitutes `$item` and `$giveitem` with inventory items.
+    #
+    # `$item` inserts a random item name,
+    # while `$giveitem` also removes that item from inventory.
+    # This enables responses where Bucket "gives away" items it's holding.
     class ReplaceItem
       def process(message_response)
         return if message_response.try(:text).blank?

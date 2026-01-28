@@ -1,5 +1,9 @@
 module Bucket
   module Processors
+    # Removes facts when users ask Bucket to forget something.
+    #
+    # Sometimes facts become outdated or users teach Bucket something they regret.
+    # This lets them clean up by saying "delete X".
     class FactDelete
       def process(message)
         return nil unless message.addressed? && (

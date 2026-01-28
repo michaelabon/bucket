@@ -1,5 +1,11 @@
 module Bucket
   module Processors
+    # Accepts items that users give to Bucket.
+    #
+    # Part of Bucket's playful personality is that it "holds" things
+    # users give it.
+    # This recognizes phrases like "gives X to Bucket" or "puts X in Bucket"
+    # and adds the item to inventory.
     class InventoryAdd
       def process(message)
         # rubocop:disable Lint/DuplicateBranch

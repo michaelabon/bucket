@@ -12,10 +12,6 @@ Metrics/BlockLength:
     - 'lib/tasks/**/*.rake'  # Rake tasks can have long blocks -> should be extracted to their own well-tested classes
     - 'spec/**/*.rb'         # RSpec is very heavy on block usage.
 
-# I'd like to have top-level class comments, but that's an eventual goal.
-Style/Documentation:
-  Enabled: false
-
 Style/FrozenStringLiteralComment:
   Enabled: false
 

@@ -1,3 +1,9 @@
+# Slack webhook endpoint for incoming messages.
+#
+# This is the entry point for all Slack interactions.
+# Slack's outgoing webhooks POST here
+# whenever a message matches configured trigger words,
+# and we return a JSON response that Slack displays in the channel.
 class MessagesController < ApplicationController
   def receive
     message = Message.new(receive_params(params))

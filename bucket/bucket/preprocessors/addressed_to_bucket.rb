@@ -1,5 +1,11 @@
 module Bucket
   module Preprocessors
+    # Detects when users are speaking directly to Bucket.
+    #
+    # Some commands only work when addressing Bucket ("Bucket, shut up").
+    # This preprocessor detects addressing patterns,
+    # sets the `addressed` flag,
+    # and strips the addressing text so processors see just the command.
     class AddressedToBucket
       def process(message)
         return unless addressed_regex.match(message.text)

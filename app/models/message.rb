@@ -1,3 +1,8 @@
+# An incoming message from Slack to be processed.
+#
+# This is a non-persisted model that wraps the webhook payload from Slack,
+# providing validation (especially token verification)
+# and a clean interface for the processing pipeline to work with.
 class Message
   include ActiveModel::Validations
 
