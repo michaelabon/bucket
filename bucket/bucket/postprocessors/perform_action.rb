@@ -1,5 +1,13 @@
 module Bucket
   module Postprocessors
+    # Formats responses based on their verb type.
+    #
+    # Facts can have different verbs:
+    # `<action>` for emotes,
+    # `<reply>` for direct responses,
+    # or custom verbs like "is" or "are".
+    # This postprocessor transforms the raw response into the appropriate format
+    # (e.g., wrapping actions in underscores for Slack's italic formatting).
     class PerformAction
       def process(message_response)
         return if message_response.verb.blank?

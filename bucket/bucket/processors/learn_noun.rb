@@ -1,5 +1,9 @@
 module Bucket
   module Processors
+    # Teaches Bucket a new noun for `$noun` substitution.
+    #
+    # Users can expand the pool of random nouns that get substituted
+    # into `$noun` placeholders in responses.
     class LearnNoun
       # @param [Message] message
       def process(message)

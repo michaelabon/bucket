@@ -1,5 +1,9 @@
 module Bucket
   module Postprocessors
+    # Substitutes `$noun` with a random noun from the user-taught pool.
+    #
+    # This adds variety to responses. Users can escape as `\$noun` when
+    # they want the literal string in a response.
     class ReplaceNoun
       # Only replace instances of $noun with a random noun.
       # If it contains \$noun, then Bucket or whoever created the response

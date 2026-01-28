@@ -1,5 +1,9 @@
 module Bucket
   module Processors
+    # Handles requests to bring Bucket back early from silence.
+    #
+    # If someone silenced Bucket but wants it back before the timeout expires,
+    # they can say "come back" to cancel the silence.
     class SilenceDeactivate
       def process(message)
         return unless triggered(message)

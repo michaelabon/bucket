@@ -1,5 +1,9 @@
 module Bucket
   module Processors
+    # Removes a noun from the `$noun` substitution pool.
+    #
+    # If someone added an inappropriate or unwanted noun,
+    # this lets them remove it from future random substitutions.
     class ForgetNoun
       # @param [Message] message
       def process(message)

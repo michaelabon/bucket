@@ -1,5 +1,9 @@
 module Bucket
   module Processors
+    # Lists all known nouns in the `$noun` pool.
+    #
+    # Lets users see what nouns have been taught so they know what
+    # might appear in `$noun` substitutions.
     class RandomNounLister
       def process(message)
         return unless message.addressed? && valid_trigger?(message.text)

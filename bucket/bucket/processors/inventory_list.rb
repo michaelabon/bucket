@@ -1,5 +1,9 @@
 module Bucket
   module Processors
+    # Lists what Bucket is currently carrying.
+    #
+    # Users can ask Bucket "what are you holding?" or similar phrases
+    # to see its current inventory.
     class InventoryList
       def process(message)
         return unless triggered?(message)

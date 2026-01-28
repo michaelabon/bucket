@@ -1,5 +1,10 @@
 module Bucket
   module Processors
+    # Learns new facts when users teach Bucket.
+    #
+    # Users teach Bucket by addressing it with statements like "X is Y"
+    # or "X <verb> Y".
+    # This processor parses those patterns and stores them for later retrieval.
     class FactAdd
       def process(message)
         return nil unless message.addressed? && (

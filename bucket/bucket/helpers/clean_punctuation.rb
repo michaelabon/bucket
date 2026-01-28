@@ -1,5 +1,6 @@
 module Bucket
   module Helpers
+    # Strips punctuation for trigger matching.
     module CleanPunctuation
       def self.clean(text)
         return '' unless text

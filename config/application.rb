@@ -16,7 +16,9 @@ require 'active_record/railtie'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# Top-level namespace for the Rails application.
 module BucketApi
+  # Rails application configuration and initialization.
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over
     # those specified here.
