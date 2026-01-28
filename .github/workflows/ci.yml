@@ -1,44 +1,71 @@
-name: CI
-'on':
-  - pull_request
+name: "CI"
+
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+
+env:
+  COVERAGE_MINIMUM: "98.5"
+
 jobs:
-  rspec:
-    runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: 'postgres:17'
-        ports:
-          - '5432:5432'
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-        options: >-
-          --health-cmd pg_isready --health-interval 10s --health-timeout 5s
-          --health-retries 5
+  rubocop:
+    name: "Rubocop"
+    runs-on: "ubuntu-latest"
     steps:
-      - uses: actions/checkout@v6
-      - uses: ruby/setup-ruby@v1
+      - uses: "actions/checkout@v6"
+      - uses: "ruby/setup-ruby@v1"
         with:
           bundler-cache: true
-      - name: Install dependent libraries
-        run: sudo apt-get install libpq-dev
-      - name: Bundle install
-        run: |
-          gem install bundler
-          bundle install --jobs 4 --retry 3
-      - name: Setup Database
+      - name: "Run Rubocop"
+        run: "bundle exec rubocop"
+
+  brakeman:
+    name: "Brakeman"
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v6"
+      - uses: "ruby/setup-ruby@v1"
+        with:
+          bundler-cache: true
+      - name: "Run Brakeman"
+        run: "bundle exec brakeman --no-pager"
+
+  rspec:
+    name: "RSpec"
+    runs-on: "ubuntu-latest"
+    services:
+      postgres:
+        image: "postgres:17"
+        ports:
+          - "5432:5432"
+        env:
+          POSTGRES_USER: "postgres"
+          POSTGRES_PASSWORD: "postgres"
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      RAILS_ENV: "test"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    steps:
+      - uses: "actions/checkout@v6"
+      - uses: "ruby/setup-ruby@v1"
+        with:
+          bundler-cache: true
+      - name: "Install libpq-dev"
+        run: "sudo apt-get install libpq-dev"
+      - name: "Setup database"
         run: |
           cp config/database.github-actions.yml config/database.yml
-          bundle exec rake db:create
-          bundle exec rake db:schema:load
+          bundle exec rake db:create db:schema:load
+      - name: "Run RSpec"
+        run: "bundle exec rspec"
         env:
-          RAILS_ENV: test
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-      - name: all
-        run: COVERAGE=true bundle exec rake
-        env:
-          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
-          RAILS_ENV: test
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          RAILS_MASTER_KEY: "${{ secrets.RAILS_MASTER_KEY }}"
+          COVERAGE: "true"
+          COVERAGE_MINIMUM: "${{ env.COVERAGE_MINIMUM }}"

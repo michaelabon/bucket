@@ -1,12 +1,20 @@
 ENV['RAILS_ENV'] ||= 'test'
+
+if ENV['COVERAGE']
+  require 'simplecov'
+  SimpleCov.start 'rails' do
+    enable_coverage :branch
+    primary_coverage :branch
+    minimum_coverage line: ENV.fetch('COVERAGE_MINIMUM', 98.5).to_f,
+                     branch: ENV.fetch('COVERAGE_MINIMUM', 98.5).to_f
+    add_filter '/spec/'
+  end
+end
+
 require 'spec_helper'
 require File.expand_path('../config/environment', __dir__)
 require 'rspec/rails'
 require 'shoulda/matchers'
-if ENV['TRAVIS']
-  require 'coveralls'
-  Coveralls.wear!
-end
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
