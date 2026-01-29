@@ -31,13 +31,13 @@ describe Bucket::Processors::SilenceObey do
       end
 
       it 'returns nil to allow further processing' do
-        expect(processor.process(message)).to eq nil
+        expect(processor.process(message)).to be_nil
       end
     end
 
     context 'when there are no SilenceRequests' do
       it 'returns nil to allow further processing' do
-        expect(processor.process(message)).to eq nil
+        expect(processor.process(message)).to be_nil
       end
     end
   end

@@ -15,7 +15,7 @@ describe Bucket::Processors::RandomNounLister do
         message = Message.new(addressed: true, text: message_text)
 
         message_response = processor.process(message)
-        expect(message_response).to_not be_nil
+        expect(message_response).not_to be_nil
         expect(message_response.text).to eql '\$noun: apple, banana, and cherry'
       end
     end
@@ -31,7 +31,7 @@ describe Bucket::Processors::RandomNounLister do
           'what are the values of $noun',
           'what are the values for $noun',
         ].each do |valid_trigger|
-          include_examples 'list nouns', valid_trigger
+          it_behaves_like 'list nouns', valid_trigger
         end
       end
 

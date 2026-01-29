@@ -26,8 +26,8 @@ describe Bucket::Helpers::CleanPunctuation do
       expect(described_class.clean('“ab')).to eq 'ab'
     end
 
-    it 'removes RIGHT SINGLE QUOTATION MARKS' do
-      expect(described_class.clean('ab”')).to eq 'ab'
+    it 'removes RIGHT DOUBLE QUOTATION MARKS' do
+      expect(described_class.clean('ab"')).to eq 'ab'
     end
 
     it 'removes parentheses' do

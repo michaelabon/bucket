@@ -34,7 +34,7 @@ describe Bucket::Processors::FactLookup do
       specify do
         message_response = processor.process(message)
 
-        expect(message_response).to eq nil
+        expect(message_response).to be_nil
       end
     end
 
@@ -46,7 +46,7 @@ describe Bucket::Processors::FactLookup do
       specify do
         message_response = processor.process(message)
 
-        expect(message_response).to eq nil
+        expect(message_response).to be_nil
       end
     end
   end

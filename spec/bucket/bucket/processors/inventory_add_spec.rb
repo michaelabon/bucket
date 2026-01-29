@@ -63,7 +63,7 @@ describe Bucket::Processors::InventoryAdd do
       let(:addressed) { true }
 
       context 'when the trigger matches' do
-        include_examples 'common triggers'
+        it_behaves_like 'common triggers'
 
         describe 'addressed-only triggers' do
           {
@@ -103,7 +103,7 @@ describe Bucket::Processors::InventoryAdd do
               user_name: 'M2K',
               addressed:,
             )
-            expect(processor.process(message)).to eq nil
+            expect(processor.process(message)).to be_nil
           end
         end
       end
@@ -112,7 +112,7 @@ describe Bucket::Processors::InventoryAdd do
     context 'when Bucket was not addressed by the speaker' do
       let(:addressed) { false }
 
-      include_examples 'common triggers'
+      it_behaves_like 'common triggers'
     end
   end
 end

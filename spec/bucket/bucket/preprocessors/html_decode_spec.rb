@@ -20,7 +20,7 @@ describe Bucket::Preprocessors::HtmlDecode do
     specify do
       processor.process(message)
 
-      expect(message.text).to eq nil
+      expect(message.text).to be_nil
     end
   end
 end

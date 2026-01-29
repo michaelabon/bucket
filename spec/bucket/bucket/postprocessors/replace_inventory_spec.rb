@@ -4,8 +4,8 @@ describe Bucket::Postprocessors::ReplaceInventory do
   let(:processor) { described_class.new }
 
   describe '#process' do
-    let(:ordered_items) { double(:ordered_items) }
-    let(:items) { double(:items) }
+    let(:ordered_items) { instance_double(ActiveRecord::Relation) }
+    let(:items) { instance_double(Array) }
     let(:item_list) { 'a, b, and c' }
     let(:message_response) { MessageResponse.new(text:) }
 
@@ -42,7 +42,7 @@ describe Bucket::Postprocessors::ReplaceInventory do
       it 'still works' do
         processor.process(message_response)
 
-        expect(message_response).to eq nil
+        expect(message_response).to be_nil
       end
     end
   end

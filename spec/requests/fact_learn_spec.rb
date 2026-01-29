@@ -25,7 +25,7 @@ describe 'Learning factoids' do
         expect(text).to eq 'OK, M2K'
 
         # QUESTION: How to test random responses?
-        expect(Fact.find_by(trigger: 'x', result: 'Z')).to be
+        expect(Fact.find_by(trigger: 'x', result: 'Z')).not_to be_nil
       end
     end
 

@@ -42,7 +42,7 @@ describe Bucket::Postprocessors::EncodeHtml do
       specify do
         processor.process(message_response)
 
-        expect(message_response).to eq nil
+        expect(message_response).to be_nil
       end
     end
 
@@ -52,7 +52,7 @@ describe Bucket::Postprocessors::EncodeHtml do
       specify do
         processor.process(message_response)
 
-        expect(message_response.text).to eq nil
+        expect(message_response.text).to be_nil
       end
     end
   end

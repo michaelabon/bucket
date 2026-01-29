@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe MessagesController do
   describe '#receive' do
-    let(:message) { double(:message, valid?: valid) }
-    let(:bucket) { double(:bucket) }
+    let(:message) { instance_double(Message, valid?: valid) }
+    let(:bucket) { instance_double(Bucket::Bucket) }
     let(:valid) { false }
 
     before do
@@ -76,7 +76,7 @@ describe MessagesController do
       it 'responds with 400' do
         post :receive, params: { text: 'alpha' }
 
-        expect(response.status).to eq 400
+        expect(response).to have_http_status :bad_request
       end
     end
   end

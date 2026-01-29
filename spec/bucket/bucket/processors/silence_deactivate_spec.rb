@@ -51,7 +51,7 @@ describe Bucket::Processors::SilenceDeactivate do
           let(:text) { 'unshut up please' }
 
           it 'does nothing' do
-            expect(processor.process(message)).to eq nil
+            expect(processor.process(message)).to be_nil
           end
         end
       end
@@ -71,7 +71,7 @@ describe Bucket::Processors::SilenceDeactivate do
           let(:text) { 'unshut up please' }
 
           it 'does nothing' do
-            expect(processor.process(message)).to eq nil
+            expect(processor.process(message)).to be_nil
           end
         end
       end
@@ -82,7 +82,7 @@ describe Bucket::Processors::SilenceDeactivate do
       let(:text) { 'unshut up' }
 
       it 'returns nil' do
-        expect(processor.process(message)).to eq nil
+        expect(processor.process(message)).to be_nil
       end
     end
   end

@@ -44,7 +44,7 @@ describe Bucket::Processors::SilenceActivate do
         let(:text) { 'shut up please' }
 
         it 'does nothing' do
-          expect(processor.process(message)).to eq nil
+          expect(processor.process(message)).to be_nil
         end
       end
     end
@@ -59,7 +59,7 @@ describe Bucket::Processors::SilenceActivate do
       end
 
       it 'returns nil' do
-        expect(processor.process(message)).to eq nil
+        expect(processor.process(message)).to be_nil
       end
     end
   end

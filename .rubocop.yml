@@ -3,6 +3,8 @@ plugins:
   - "rubocop-factory_bot"
   - "rubocop-rails"
   - "rubocop-rake"
+  - "rubocop-rspec"
+  - "rubocop-rspec_rails"
 
 AllCops:
   Exclude:
@@ -33,6 +35,32 @@ Style/TrailingCommaInArrayLiteral:
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: consistent_comma
 
+# People took the advice to test one expectation per example
+# to mean one `expect` call, as opposed to
+# one property about the system
+RSpec/ExampleLength:
+  Max: 15
+RSpec/MultipleExpectations:
+  Max: 5
+
+# Tests with many let blocks are often well-structured
+RSpec/MultipleMemoizedHelpers:
+  Max: 10
+
+# I am nesting through modules and through different branches
+# as I was taught to do in BDD
+# That means this needs to be bigger than 3
+RSpec/NestedGroups:
+  Max: 5
+
+
+
+RSpec/ContextWording:
+  Prefixes:
+    - when
+    - with
+    - without
+    - and
 
 
 # Newly added cops
@@ -466,4 +494,20 @@ Rails/WhereNot: # new in 2.8
 Rails/WhereNotWithMultipleConditions: # new in 2.17
   Enabled: true
 Rails/WhereRange: # new in 2.25
+  Enabled: true
+RSpec/IncludeExamples: # new in 3.6
+  Enabled: true
+RSpec/LeakyLocalVariable: # new in 3.8
+  Enabled: true
+RSpecRails/AvoidSetupHook: # new in 2.4
+  Enabled: true
+RSpecRails/HaveHttpStatus: # new in 2.12
+  Enabled: true
+RSpecRails/InferredSpecType: # new in 2.14
+  Enabled: true
+RSpecRails/MinitestAssertions: # new in 2.17
+  Enabled: true
+RSpecRails/NegationBeValid: # new in 2.23
+  Enabled: true
+RSpecRails/TravelAround: # new in 2.19
   Enabled: true

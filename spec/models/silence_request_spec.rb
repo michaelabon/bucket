@@ -2,13 +2,9 @@ require 'rails_helper'
 
 describe SilenceRequest do
   describe 'validations' do
-    it do
-      is_expected.to validate_presence_of(:requester)
-    end
+    it { is_expected.to validate_presence_of(:requester) }
 
-    it do
-      is_expected.to validate_presence_of(:silence_until)
-    end
+    it { is_expected.to validate_presence_of(:silence_until) }
   end
 
   describe '.request_active?' do
@@ -16,7 +12,7 @@ describe SilenceRequest do
       it 'returns true' do
         create(:silence_request)
 
-        expect(described_class.request_active?).to eq true
+        expect(described_class.request_active?).to be true
       end
     end
 
@@ -24,7 +20,7 @@ describe SilenceRequest do
       it 'returns false' do
         create(:silence_request, :expired)
 
-        expect(described_class.request_active?).to eq false
+        expect(described_class.request_active?).to be false
       end
     end
 
@@ -33,13 +29,13 @@ describe SilenceRequest do
         create(:silence_request)
         create(:silence_request, :expired)
 
-        expect(described_class.request_active?).to eq true
+        expect(described_class.request_active?).to be true
       end
     end
 
     context 'when there are no SilenceRequests' do
       it 'returns false' do
-        expect(described_class.request_active?).to eq false
+        expect(described_class.request_active?).to be false
       end
     end
   end
