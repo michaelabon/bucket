@@ -46,7 +46,7 @@ describe Bucket::Processors::FactDelete do
         end
       end
 
-      context 'but no matching facts exist' do
+      context 'when no matching facts exist' do
         before do
           create(:fact, trigger: 'other trigger', result: 'is not deleted')
         end
@@ -75,7 +75,7 @@ describe Bucket::Processors::FactDelete do
       it 'does not respond' do
         result = processor.process(message)
 
-        expect(result).to eq nil
+        expect(result).to be_nil
       end
     end
   end

@@ -127,7 +127,7 @@ describe Bucket::Processors::FactAdd do
       it 'does nothing' do
         result = processor.process(message)
 
-        expect(result).to eq nil
+        expect(result).to be_nil
       end
     end
   end

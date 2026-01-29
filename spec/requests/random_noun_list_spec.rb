@@ -16,7 +16,7 @@ describe 'listing the values for $noun' do
       end
     end
 
-    include_examples 'list the values for $noun', 'Bucket: list values $noun'
+    it_behaves_like 'list the values for $noun', 'Bucket: list values $noun'
   end
 
   context 'when Bucket is not addressed' do

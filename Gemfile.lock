@@ -307,6 +307,13 @@ GEM
     rubocop-rake (0.7.1)
       lint_roller (~> 1.1)
       rubocop (>= 1.72.1)
+    rubocop-rspec (3.9.0)
+      lint_roller (~> 1.1)
+      rubocop (~> 1.81)
+    rubocop-rspec_rails (2.32.0)
+      lint_roller (~> 1.1)
+      rubocop (~> 1.72, >= 1.72.1)
+      rubocop-rspec (~> 3.5)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
     shoulda-matchers (7.0.1)
@@ -407,6 +414,8 @@ DEPENDENCIES
   rubocop-factory_bot
   rubocop-rails
   rubocop-rake
+  rubocop-rspec
+  rubocop-rspec_rails
   shoulda-matchers
   solargraph
   spring

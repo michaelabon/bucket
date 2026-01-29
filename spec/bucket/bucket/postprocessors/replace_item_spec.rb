@@ -117,7 +117,7 @@ describe Bucket::Postprocessors::ReplaceItem do
 
         processor.process(message_response)
 
-        expect(message_response).to eq nil
+        expect(message_response).to be_nil
       end
     end
   end

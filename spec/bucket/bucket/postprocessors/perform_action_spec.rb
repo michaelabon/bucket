@@ -18,7 +18,7 @@ describe Bucket::Postprocessors::PerformAction do
       end
 
       it 'returns nil' do
-        expect(processor.process(message_response)).to eq nil
+        expect(processor.process(message_response)).to be_nil
       end
     end
 
@@ -32,7 +32,7 @@ describe Bucket::Postprocessors::PerformAction do
       end
 
       it 'returns nil' do
-        expect(processor.process(message_response)).to eq nil
+        expect(processor.process(message_response)).to be_nil
       end
     end
 

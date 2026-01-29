@@ -21,7 +21,7 @@ describe Bucket::Processors::LearnNoun do
 
             message_response = processor.process(message)
 
-            expect(message_response).to_not be_nil
+            expect(message_response).not_to be_nil
             expect(message_response.text).to eql(
               "Okay, $who, 'banana' is now a noun.",
             )

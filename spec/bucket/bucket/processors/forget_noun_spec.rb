@@ -34,7 +34,7 @@ describe Bucket::Processors::ForgetNoun do
 
               message_response = processor.process(message)
 
-              expect(message_response).to_not be_nil
+              expect(message_response).not_to be_nil
               expect(message_response.text).to eql(
                 "Okay, $who, 'banana' is no longer a noun.",
               )
@@ -64,7 +64,7 @@ describe Bucket::Processors::ForgetNoun do
 
           message_response = processor.process(message)
 
-          expect(message_response).to_not be_nil
+          expect(message_response).not_to be_nil
           expect(message_response.text).to eql(
             "I'm sorry, $who, but 'banana' is not a noun that I know of.",
           )

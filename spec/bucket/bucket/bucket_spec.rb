@@ -12,35 +12,36 @@ describe Bucket::Bucket do
   let(:preprocessors) { [] }
   let(:processors) { [] }
   let(:postprocessors) { [] }
-  let(:message) { double(:message, user_name: 'Doctor Who') }
+  let(:message) { instance_double(Message, user_name: 'Doctor Who') }
 
   describe '#process' do
     describe 'processor order matters' do
-      let(:processors) { [processor1, processor2] }
-      let(:processor1) { double(:processor1) }
-      let(:processor2) { double(:processor2) }
+      let(:processors) { [successful_processor, skipped_processor] }
+      let(:successful_processor) { instance_double(Bucket::Processors::FactLookup) }
+      let(:skipped_processor) { instance_double(Bucket::Processors::FactLookup) }
       let(:message_response) do
-        double(:message_response, text:, 'user_name=': nil)
+        instance_double(MessageResponse, text:, 'user_name=': nil)
       end
 
       context 'when the first processor has a positive result' do
         let(:text) { 'alpha' }
 
         before do
-          allow(processor1).to receive(:process).with(message)
-                                                .and_return(message_response)
+          allow(successful_processor).to receive(:process).with(message)
+                                                          .and_return(message_response)
+          allow(skipped_processor).to receive(:process)
         end
 
-        it 'returns the first processor’s result' do
+        it "returns the first processor's result" do
           result = bucket.process(message)
 
           expect(result).to eq 'alpha'
         end
 
         it 'does not call the second processor' do
-          expect(processor2).not_to receive(:process)
-
           bucket.process(message)
+
+          expect(skipped_processor).not_to have_received(:process)
         end
       end
 
@@ -48,13 +49,13 @@ describe Bucket::Bucket do
         let(:text) { 'bravo' }
 
         before do
-          allow(processor1).to receive(:process).with(message)
-                                                .and_return(nil)
-          allow(processor2).to receive(:process).with(message)
-                                                .and_return(message_response)
+          allow(successful_processor).to receive(:process).with(message)
+                                                          .and_return(nil)
+          allow(skipped_processor).to receive(:process).with(message)
+                                                       .and_return(message_response)
         end
 
-        it 'returns the second processor’s result' do
+        it "returns the second processor's result" do
           result = bucket.process(message)
 
           expect(result).to eq 'bravo'
@@ -63,25 +64,25 @@ describe Bucket::Bucket do
     end
 
     describe 'preprocessor order matters' do
-      let(:preprocessors) { [preprocessor1, preprocessor2] }
-      let(:preprocessor1) { double(:preprocessor1, process: true) }
-      let(:preprocessor2) { double(:preprocessor2, process: true) }
+      let(:preprocessors) { [first_preprocessor, second_preprocessor] }
+      let(:first_preprocessor) { instance_double(Bucket::Preprocessors::HtmlDecode, process: true) }
+      let(:second_preprocessor) { instance_double(Bucket::Preprocessors::HtmlDecode, process: true) }
 
       it 'calls the preprocessors' do
         bucket.process(message)
 
-        expect(preprocessor1).to have_received(:process).with(message)
-        expect(preprocessor2).to have_received(:process).with(message)
+        expect(first_preprocessor).to have_received(:process).with(message)
+        expect(second_preprocessor).to have_received(:process).with(message)
       end
     end
 
     # describe 'postprocessor order matters' do
-    # let(:message_response) { double(:message_response, text: 'result') }
-    # let(:processors) { [double(:processor, process: message_response)] }
+    # let(:message_response) { instance_double(MessageResponse, text: 'result') }
+    # let(:processors) { [instance_double(Bucket::Processors::FactLookup, process: message_response)] }
 
     # let(:postprocessors) { [postprocessor1, postprocessor2] }
-    # let(:postprocessor1) { double(:postprocessor1, process: 'result post-1') }
-    # let(:postprocessor2) { double(:postprocessor2, process: 'result post-2') }
+    # let(:postprocessor1) { instance_double(Bucket::Postprocessors::EncodeHtml, process: 'result post-1') }
+    # let(:postprocessor2) { instance_double(Bucket::Postprocessors::EncodeHtml, process: 'result post-2') }
 
     # it 'calls the postprocessors' do
     # expect(bucket.process(message)).to eq 'result post-2'

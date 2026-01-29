@@ -77,7 +77,7 @@ describe Bucket::Processors::InventoryList do
         it 'does not respond' do
           message_response = processor.process(message)
 
-          expect(message_response).not_to be
+          expect(message_response).to be_nil
         end
       end
     end
@@ -89,7 +89,7 @@ describe Bucket::Processors::InventoryList do
       it 'does not respond' do
         message_response = processor.process(message)
 
-        expect(message_response).not_to be
+        expect(message_response).to be_nil
       end
     end
   end
