@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Bucket::Preprocessors::AddressedToBucket do
+RSpec.describe Bucket::Preprocessors::AddressedToBucket do
   let(:processor) { described_class.new }
 
   # TODO: shared_examples_for or behaves_like

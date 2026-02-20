@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Reverse `the fucking` into `fucking the`' do
+RSpec.describe 'Reverse `the fucking` into `fucking the`' do
   it 'reverses the order of `the fucking`' do
     slack_post(text: 'the fucking bus')
 

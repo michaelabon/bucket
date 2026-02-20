@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Bucket::Processors::FactDelete do
+RSpec.describe Bucket::Processors::FactDelete do
   let(:processor) { described_class.new }
 
   describe '#process' do

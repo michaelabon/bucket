@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Shutting up on command' do
+RSpec.describe 'Shutting up on command' do
   before do
     create(:fact, trigger: 'alpha', result: 'bravo', verb: '<reply>')
   end

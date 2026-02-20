@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Ignoring case' do
+RSpec.describe 'Ignoring case' do
   it 'ignores case in fact triggers' do
     trigger = 'alpha Bravo'
     reply = 'You cannot fool me.'

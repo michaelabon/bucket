@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Deleting a trigger' do
+RSpec.describe 'Deleting a trigger' do
   let(:trigger) { 'alpha' }
 
   before do

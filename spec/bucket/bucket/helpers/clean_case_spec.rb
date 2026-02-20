@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Bucket::Helpers::CleanCase do
+RSpec.describe Bucket::Helpers::CleanCase do
   describe 'cleaning character cases' do
     it 'lower cases the text' do
       input = 'AmZ'

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Bucket::Processors::ReverseTheFucking do
+RSpec.describe Bucket::Processors::ReverseTheFucking do
   let(:processor) { described_class.new }
 
   describe '#process' do

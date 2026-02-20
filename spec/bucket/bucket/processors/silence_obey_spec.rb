@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Bucket::Processors::SilenceObey do
+RSpec.describe Bucket::Processors::SilenceObey do
   let(:processor) { described_class.new }
 
   describe '#process' do

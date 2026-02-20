@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Bucket::Preprocessors::CleanWhitespace do
+RSpec.describe Bucket::Preprocessors::CleanWhitespace do
   let(:processor) { described_class.new }
 
   describe '#process' do

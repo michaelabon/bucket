@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Adding a $noun' do
+RSpec.describe 'Adding a $noun' do
   context 'when Bucket is addressed' do
     describe 'learning the noun' do
       it 'understands `add value $noun book`' do

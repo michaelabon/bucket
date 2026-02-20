@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Bucket::Postprocessors::ReplaceItem do
+RSpec.describe Bucket::Postprocessors::ReplaceItem do
   let(:processor) { described_class.new }
 
   describe '#process' do

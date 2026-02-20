@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Listing inventory' do
+RSpec.describe 'Listing inventory' do
   before do
     create(:item, what: 'an apple')
     create(:item, what: 'true love')

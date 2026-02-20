@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Bucket::Processors::FactAdd do
+RSpec.describe Bucket::Processors::FactAdd do
   let(:processor) { described_class.new }
 
   describe '#process' do

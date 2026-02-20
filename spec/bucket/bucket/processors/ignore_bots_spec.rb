@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Bucket::Processors::IgnoreBots do
+RSpec.describe Bucket::Processors::IgnoreBots do
   let(:processor) { described_class.new }
 
   # Ignored user names are in config/secrets.yml

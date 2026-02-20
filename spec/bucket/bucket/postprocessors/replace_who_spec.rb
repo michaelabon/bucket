@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Bucket::Postprocessors::ReplaceWho do
+RSpec.describe Bucket::Postprocessors::ReplaceWho do
   let(:postprocessor) { described_class.new }
 
   context 'when the message response is blank' do

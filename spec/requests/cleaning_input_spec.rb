@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Cleaning input' do
+RSpec.describe 'Cleaning input' do
   context 'when there are extra spaces' do
     before do
       create(:fact, trigger: 'hello world', result: 'goodbye moon')

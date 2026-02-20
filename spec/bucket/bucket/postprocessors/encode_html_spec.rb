@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Bucket::Postprocessors::EncodeHtml do
+RSpec.describe Bucket::Postprocessors::EncodeHtml do
   let(:processor) { described_class.new }
 
   describe '#process' do

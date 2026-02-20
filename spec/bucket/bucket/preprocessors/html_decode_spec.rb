@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Bucket::Preprocessors::HtmlDecode do
+RSpec.describe Bucket::Preprocessors::HtmlDecode do
   let(:processor) { described_class.new }
   let(:message) { Message.new(text:) }
 

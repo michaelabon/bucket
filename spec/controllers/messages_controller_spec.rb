@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe MessagesController do
+RSpec.describe MessagesController do
   describe '#receive' do
     let(:message) { instance_double(Message, valid?: valid) }
     let(:bucket) { instance_double(Bucket::Bucket) }
