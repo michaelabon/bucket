@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Bucket::Postprocessors::ReplaceNoun do
+RSpec.describe Bucket::Postprocessors::ReplaceNoun do
   let(:postprocessor) { described_class.new }
 
   context 'when the message response is blank' do

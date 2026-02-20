@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Using different verbs' do
+RSpec.describe 'Using different verbs' do
   context 'when `<reply>`' do
     before do
       create(:fact, trigger: 'alpha', result: 'bravo', verb: '<reply>')

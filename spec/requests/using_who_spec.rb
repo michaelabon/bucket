@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'replacing $who in a message response' do
+RSpec.describe 'replacing $who in a message response' do
   context 'when the message response contains `$who` in it' do
     before do
       create(:fact, trigger: 'who am i', result: 'you are $who, $who')

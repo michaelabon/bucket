@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Forgetting a $noun' do
+RSpec.describe 'Forgetting a $noun' do
   context 'when Bucket is addressed' do
     context 'when the noun is known' do
       before do

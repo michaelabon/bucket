@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Bucket::Processors::RandomNounLister do
+RSpec.describe Bucket::Processors::RandomNounLister do
   let(:processor) { described_class.new }
 
   describe '#process' do

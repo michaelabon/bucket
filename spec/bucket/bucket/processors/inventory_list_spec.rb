@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Bucket::Processors::InventoryList do
+RSpec.describe Bucket::Processors::InventoryList do
   let(:processor) { described_class.new }
 
   describe '#process' do

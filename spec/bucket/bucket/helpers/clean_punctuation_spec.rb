@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Bucket::Helpers::CleanPunctuation do
+RSpec.describe Bucket::Helpers::CleanPunctuation do
   describe 'removals' do
     it 'removes exclamation marks' do
       expect(described_class.clean('!a!b!')).to eq 'ab'

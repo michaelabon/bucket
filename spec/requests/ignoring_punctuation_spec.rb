@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Ignoring punctuation' do
+RSpec.describe 'Ignoring punctuation' do
   it 'ignores certain punctuation in triggers' do
     trigger = %q(ig'no"re t!his? p{unc.tua,tion)
     reply = 'Understood! -- Ignoring.'

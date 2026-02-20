@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Bucket::Processors::FactLookup do
+RSpec.describe Bucket::Processors::FactLookup do
   let(:processor) { described_class.new }
 
   describe '#process' do

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Adding items to the inventory' do
+RSpec.describe 'Adding items to the inventory' do
   context 'when addressed' do
     context 'when the trigger matches' do
       it 'adds the item to the inventory' do

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Using $noun in a fact' do
+RSpec.describe 'Using $noun in a fact' do
   context 'when triggering a fact with $noun in its reply' do
     before do
       create(:fact, trigger: 'im hungry', result: 'Have a $noun')

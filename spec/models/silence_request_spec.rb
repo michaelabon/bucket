@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe SilenceRequest do
+RSpec.describe SilenceRequest do
   describe 'validations' do
     it { is_expected.to validate_presence_of(:requester) }
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Bucket::Helpers::MakeList do
+RSpec.describe Bucket::Helpers::MakeList do
   describe '#make_list' do
     context 'when there are 0 items' do
       let(:items) { [] }

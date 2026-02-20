@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Bucket::Postprocessors::ReplaceInventory do
+RSpec.describe Bucket::Postprocessors::ReplaceInventory do
   let(:processor) { described_class.new }
 
   describe '#process' do

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Bucket::Processors::ForgetNoun do
+RSpec.describe Bucket::Processors::ForgetNoun do
   let(:processor) { described_class.new }
 
   describe '#process' do

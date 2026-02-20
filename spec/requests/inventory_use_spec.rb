@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Using an item from Bucket's inventory" do
+RSpec.describe "Using an item from Bucket's inventory" do
   before do
     create(:fact, trigger: 'be helpful', result: 'I have $item and $item')
   end

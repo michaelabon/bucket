@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Bucket::Bucket do
+RSpec.describe Bucket::Bucket do
   let(:bucket) do
     described_class.new(
       preprocessors:,

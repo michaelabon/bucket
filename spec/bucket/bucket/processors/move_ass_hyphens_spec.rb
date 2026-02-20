@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Bucket::Processors::MoveAssHyphens do
+RSpec.describe Bucket::Processors::MoveAssHyphens do
   let(:processor) { described_class.new }
 
   describe '#process' do

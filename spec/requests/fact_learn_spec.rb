@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Learning factoids' do
+RSpec.describe 'Learning factoids' do
   context 'when Bucket is addressed' do
     context 'when the factoid is new' do
       it 'learns the factoid' do

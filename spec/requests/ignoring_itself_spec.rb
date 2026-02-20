@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Ignoring itself' do
+RSpec.describe 'Ignoring itself' do
   before do
     create(:fact, trigger: 'alpha', result: 'bravo', verb: '<reply>')
   end

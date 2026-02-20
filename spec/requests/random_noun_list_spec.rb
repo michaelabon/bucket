@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'listing the values for $noun' do
+RSpec.describe 'listing the values for $noun' do
   context 'when Bucket is addressed' do
     before do
       create(:noun, what: 'coffee')
