@@ -206,7 +206,7 @@ GEM
       date
       stringio
     public_suffix (7.0.5)
-    puma (7.1.0)
+    puma (7.2.0)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.5)
@@ -414,7 +414,7 @@ DEPENDENCIES
   nokogiri (~> 1.19)
   pg (~> 1.6)
   pry-byebug
-  puma (~> 7.1)
+  puma (~> 7.2)
   rails (>= 7.0.4.3, < 9)
   rails_12factor
   rake
